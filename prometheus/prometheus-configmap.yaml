@@ -46,40 +46,40 @@ data:
         module: [http_2xx]
       static_configs:
         - targets:
-          - https://digitalid-api-c2mvws-dev.pathfinder.gov.bc.ca/health
-          - http://grafana-c2mvws-dev.pathfinder.gov.bc.ca
-          - https://pen-demographics-api-c2mvws-dev.pathfinder.gov.bc.ca/health
-          - https://pen-request-api-c2mvws-dev.pathfinder.gov.bc.ca/health
-          - https://pen-request-email-api-c2mvws-dev.pathfinder.gov.bc.ca/health
-          - https://pen-request-c2mvws-dev.pathfinder.gov.bc.ca/api
-          - https://pen-request-c2mvws-dev.pathfinder.gov.bc.ca
-          - https://services-card-api-c2mvws-dev.pathfinder.gov.bc.ca/health
-          - https://soam-api-c2mvws-dev.pathfinder.gov.bc.ca/health
-          - https://c2mvws-dev.pathfinder.gov.bc.ca
-          - https://student-admin-c2mvws-dev.pathfinder.gov.bc.ca/api/health
-          - https://student-admin-c2mvws-dev.pathfinder.gov.bc.ca
-          - https://student-api-c2mvws-dev.pathfinder.gov.bc.ca/health
-          - https://digitalid-api-c2mvws-test.pathfinder.gov.bc.ca/health
-          - https://pen-demographics-api-c2mvws-test.pathfinder.gov.bc.ca/health
-          - https://pen-request-api-c2mvws-test.pathfinder.gov.bc.ca/health
-          - https://pen-request-email-api-c2mvws-test.pathfinder.gov.bc.ca/health
-          - https://pen-request-c2mvws-test.pathfinder.gov.bc.ca/api
-          - https://pen-request-c2mvws-test.pathfinder.gov.bc.ca
-          - https://services-card-api-c2mvws-test.pathfinder.gov.bc.ca/health
-          - https://soam-api-c2mvws-test.pathfinder.gov.bc.ca/health
-          - https://c2mvws-test.pathfinder.gov.bc.ca
-          - https://student-admin-c2mvws-test.pathfinder.gov.bc.ca/api/health
-          - https://student-admin-c2mvws-test.pathfinder.gov.bc.ca
-          - https://student-api-c2mvws-test.pathfinder.gov.bc.ca/health
-          - https://sonarqube-c2mvws-tools.pathfinder.gov.bc.ca
-          - https://jenkins-c2mvws-tools.pathfinder.gov.bc.ca/login
+          - https://digitalid-api-<namespace>-dev.pathfinder.gov.bc.ca/health
+          - http://grafana-<namespace>-dev.pathfinder.gov.bc.ca
+          - https://pen-demographics-api-<namespace>-dev.pathfinder.gov.bc.ca/health
+          - https://pen-request-api-<namespace>-dev.pathfinder.gov.bc.ca/health
+          - https://pen-request-email-api-<namespace>-dev.pathfinder.gov.bc.ca/health
+          - https://pen-request-<namespace>-dev.pathfinder.gov.bc.ca/api
+          - https://pen-request-<namespace>-dev.pathfinder.gov.bc.ca
+          - https://services-card-api-<namespace>-dev.pathfinder.gov.bc.ca/health
+          - https://soam-api-<namespace>-dev.pathfinder.gov.bc.ca/health
+          - https://<namespace>-dev.pathfinder.gov.bc.ca
+          - https://student-admin-<namespace>-dev.pathfinder.gov.bc.ca/api/health
+          - https://student-admin-<namespace>-dev.pathfinder.gov.bc.ca
+          - https://student-api-<namespace>-dev.pathfinder.gov.bc.ca/health
+          - https://digitalid-api-<namespace>-test.pathfinder.gov.bc.ca/health
+          - https://pen-demographics-api-<namespace>-test.pathfinder.gov.bc.ca/health
+          - https://pen-request-api-<namespace>-test.pathfinder.gov.bc.ca/health
+          - https://pen-request-email-api-<namespace>-test.pathfinder.gov.bc.ca/health
+          - https://pen-request-<namespace>-test.pathfinder.gov.bc.ca/api
+          - https://pen-request-<namespace>-test.pathfinder.gov.bc.ca
+          - https://services-card-api-<namespace>-test.pathfinder.gov.bc.ca/health
+          - https://soam-api-<namespace>-test.pathfinder.gov.bc.ca/health
+          - https://<namespace>-test.pathfinder.gov.bc.ca
+          - https://student-admin-<namespace>-test.pathfinder.gov.bc.ca/api/health
+          - https://student-admin-<namespace>-test.pathfinder.gov.bc.ca
+          - https://student-api-<namespace>-test.pathfinder.gov.bc.ca/health
+          - https://sonarqube-<namespace>-tools.pathfinder.gov.bc.ca
+          - https://jenkins-<namespace>-tools.pathfinder.gov.bc.ca/login
       relabel_configs:
         - source_labels: [__address__]
           target_label: __param_target
         - source_labels: [__param_target]
           target_label: instance
         - target_label: __address__
-          replacement: test-blackbox-exporter-c2mvws-dev.pathfinder.gov.bc.ca # Blackbox exporter.
+          replacement: test-blackbox-exporter-<namespace>-dev.pathfinder.gov.bc.ca # Blackbox exporter.
     - job_name: prometheus
       static_configs:
       - targets:
@@ -90,7 +90,7 @@ data:
       - role: pod
         namespaces:
           names:
-            - c2mvws-dev
+            - <namespace>-dev
       relabel_configs:
       - action: keep
         regex: true
@@ -131,7 +131,7 @@ metadata:
     release: prometheus-service
     template: prometheus-template
   name: prometheus-service
-  namespace: c2mvws-dev
+  namespace: <namespace>-dev
   resourceVersion: '1640255314'
-  selfLink: /api/v1/namespaces/c2mvws-dev/configmaps/prometheus-service
+  selfLink: /api/v1/namespaces/<namespace>-dev/configmaps/prometheus-service
   uid: b6926f71-43ce-11ea-8a92-0050568379a2

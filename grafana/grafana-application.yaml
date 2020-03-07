@@ -1,0 +1,106 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  creationTimestamp: '2020-02-18T15:59:13Z'
+  generation: 30
+  labels:
+    app: grafana
+  name: grafana
+  namespace: <namespace>
+  resourceVersion: '1641059069'
+  selfLink: /apis/apps.openshift.io/v1/namespaces/<namespace>-dev/deploymentconfigs/grafana
+  uid: 9b7d3125-5267-11ea-a967-0050568348cc
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    app: grafana
+    deploymentconfig: grafana
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources: {}
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 600
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      annotations:
+        openshift.io/generated-by: OpenShiftNewApp
+      creationTimestamp: null
+      labels:
+        app: grafana
+        deploymentconfig: grafana
+    spec:
+      containers:
+        - env:
+            - name: TZ
+              value: America/Vancouver
+          image: >-
+            grafana/grafana@sha256:f7680bed10c8acd5383f69570eec84863502b3688b1c1aa46d9d12507904eefb
+          imagePullPolicy: IfNotPresent
+          name: grafana
+          ports:
+            - containerPort: 3000
+              protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+            - mountPath: /etc/grafana
+              name: grafana-config
+            - mountPath: /var/lib/grafana
+              name: grafana-data
+            - mountPath: /var/log/grafana
+              name: grafana-log
+            - mountPath: /etc/grafana/provisioning/datasources
+              name: openshift-monitoring-grafana-datasource-volume
+            - mountPath: /etc/grafana/provisioning/dashboards
+              name: grafana-dashboards-config
+            - mountPath: /dashboards
+              name: grafana-predefined-dashboards-config
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+        - configMap:
+            defaultMode: 420
+            name: grafana-config
+          name: grafana-config
+        - emptyDir: {}
+          name: grafana-data
+        - emptyDir: {}
+          name: grafana-log
+        - name: openshift-monitoring-grafana-datasource-volume
+          secret:
+            defaultMode: 420
+            secretName: openshift-monitoring-grafana-datasource
+        - configMap:
+            defaultMode: 420
+            name: grafana-dashboards-config
+          name: grafana-dashboards-config
+        - configMap:
+            defaultMode: 420
+            name: grafana-predefined-dashboards-config
+          name: grafana-predefined-dashboards-config
+  test: false
+  triggers:
+    - type: ConfigChange
+    - imageChangeParams:
+        automatic: true
+        containerNames:
+          - grafana
+        from:
+          kind: ImageStreamTag
+          name: 'grafana:6.6.1'
+          namespace: <namespace>
+        lastTriggeredImage: >-
+          grafana/grafana@sha256:f7680bed10c8acd5383f69570eec84863502b3688b1c1aa46d9d12507904eefb
+      type: ImageChange

@@ -10,12 +10,12 @@ mode = console
 
 [security]
 # default admin user, created on startup
-admin_user = root
-admin_password = secret
+admin_user = admin
+admin_password = admin
 
 [smtp]
 enabled = true
-from_address = PENEduc@gov.bc.ca
+from_address = <FROM ADDRESS>
 from_name = PEN Grafana
-host = apps.smtp.gov.bc.ca:25
+host = <SMTP HOST>
 skip_verify = true
