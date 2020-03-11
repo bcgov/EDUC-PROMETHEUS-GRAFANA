@@ -2,6 +2,21 @@
 
 Steps for installing Prometheus and Grafana. This installation includes the use of blackbox exporter to allow probes against our containers.  
 
+## What this repository contains
+This repository contains the deployment templates for BlackBox, Prometheus and Grafana. Running the instructions below should stand up an instance of Education monitoring stack. This includes two dashboards which are monitoring Education services (in your namespace). 
+* In order to modify targets, modify the `prometheus-application.yaml` file. Specifically, the `prometheus.yml` section
+```
+static_configs:
+ - targets:
+   - https://digitalid-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health
+   - http://grafana-${NAMESPACE}-tools.pathfinder.gov.bc.ca
+   - https://pen-demographics-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health
+   - https://pen-request-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health
+   - https://pen-request-email-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health
+...
+```
+* You will need to create your own dashboards to probe any endpoints your team needs
+
 ## BlackBox Exporter Deployment
 Black box is used to allow probes between Prometheus and Grafana
 * Blackbox can be deployed by cloning this repository locally from Git
