@@ -1,0 +1,90 @@
+---
+kind: Template
+apiVersion: v1
+metadata:
+  name: blackbox
+  annotations:
+    "openshift.io/display-name": Blackbox
+    description: |
+      Blackbox server.
+    iconClass: fa fa-cogs
+    tags: "metrics,monitoring,blackbox"
+parameters:
+- description: The location of the grafana image
+  name: IMAGE_BLACKBOX
+  value: docker.io/bitnami/blackbox-exporter:latest
+- description: External URL for the blackbox route
+  name: ROUTE_URL
+  value: ""
+- description: The namespace to instantiate heapster under. Defaults to 'namespace'.
+  name: NAMESPACE
+  value: namespace
+- description: The environment to instantiate heapster under. Defaults to 'environment'.
+  name: ENVIRONMENT
+  value: environment
+objects:
+- apiVersion: v1
+  kind: ServiceAccount
+  metadata:
+    name: blackbox
+    namespace: "${NAMESPACE}-${ENVIRONMENT}"
+    
+- apiVersion: route.openshift.io/v1
+  kind: Route
+  metadata:
+    name: blackbox
+    namespace: "${NAMESPACE}-${ENVIRONMENT}"
+  spec:
+    host: "${ROUTE_URL}"
+    to:
+      name: blackbox
+      kind: Service
+      weight: 100
+
+- apiVersion: v1
+  kind: Service
+  metadata:
+    name: blackbox
+    annotations:
+      prometheus.io/scrape: "true"
+      prometheus.io/scheme: http
+    namespace: "${NAMESPACE}-${ENVIRONMENT}"
+    labels:
+      metrics-infra: blackbox
+      name: blackbox
+  spec:
+    ports:
+    - name: blackbox
+      port: 9115
+      protocol: TCP
+      targetPort: 9115
+    selector:
+      app: blackbox
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    labels:
+      app: blackbox
+    name: blackbox
+    namespace: "${NAMESPACE}-${ENVIRONMENT}"
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: blackbox
+    template:
+      metadata:
+        labels:
+          app: blackbox
+        name: blackbox
+      spec:
+        serviceAccountName: blackbox
+        containers:
+        - name: blackbox
+          image: ${IMAGE_BLACKBOX}
+          ports:
+          - name: blackbox-http
+            containerPort: 80
+
+
+      
