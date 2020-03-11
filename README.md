@@ -3,7 +3,7 @@
 Steps for installing Prometheus and Grafana. This installation includes the use of blackbox exporter to allow probes against our containers.  
 
 ## What this repository contains
-This repository contains the deployment templates for BlackBox, Prometheus and Grafana. Running the instructions below should stand up an instance of Education monitoring stack. This includes two dashboards which are monitoring Education services (in your namespace). 
+This repository contains OpenShift deployment templates for BlackBox, Prometheus and Grafana. Running the instructions below should stand up an instance of Education monitoring stack. This includes two dashboards which are monitoring Education services (in your namespace). 
 * In order to modify targets, modify the `prometheus-application.yaml` file. Specifically, the `prometheus.yml` section
 ```
 static_configs:
