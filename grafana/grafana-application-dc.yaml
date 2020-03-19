@@ -22,18 +22,28 @@ parameters:
 - description: The environment to instantiate heapster under. Defaults to 'environment'.
   name: ENVIRONMENT
   value: environment
+- name: APP_USERNAME
+  generate: expression
+  from: '[a-zA-Z0-9]{10}'
+- name: APP_PASSWORD
+  generate: expression
+  from: '[a-zA-Z0-9]{32}'
+  
 objects:
 - apiVersion: v1
   kind: ServiceAccount
   metadata:
     name: grafana
     namespace: "${NAMESPACE}-${ENVIRONMENT}"
-    
+    labels:
+      name: grafana
 - apiVersion: route.openshift.io/v1
   kind: Route
   metadata:
     name: grafana
     namespace: "${NAMESPACE}-${ENVIRONMENT}"
+    labels:
+      name: grafana
   spec:
     host: "${ROUTE_URL}"
     port:
@@ -55,7 +65,6 @@ objects:
       service.alpha.openshift.io/serving-cert-secret-name: grafana-tls
     namespace: "${NAMESPACE}-${ENVIRONMENT}"
     labels:
-      metrics-infra: grafana
       name: grafana
   spec:
     ports:
@@ -64,23 +73,23 @@ objects:
       protocol: TCP
       targetPort: 3000
     selector:
-      app: grafana
+      name: grafana
 - apiVersion: apps/v1
   kind: Deployment
   metadata:
     labels:
-      app: grafana
+      name: grafana
     name: grafana
     namespace: "${NAMESPACE}-${ENVIRONMENT}"
   spec:
     replicas: 1
     selector:
       matchLabels:
-        app: grafana
+        name: grafana
     template:
       metadata:
         labels:
-          app: grafana
+          name: grafana
         name: grafana
       spec:
         serviceAccountName: grafana
@@ -130,6 +139,8 @@ objects:
   metadata:
     name: openshift-monitoring-grafana-datasource
     namespace: "${NAMESPACE}-${ENVIRONMENT}"
+    labels:
+      name: grafana
   stringData:
     datasources.yaml: |-
       apiVersion: 1
@@ -143,6 +154,8 @@ objects:
   metadata:
     name: grafana-config
     namespace: "${NAMESPACE}-${ENVIRONMENT}"
+    labels:
+      name: grafana
   data:
     grafana.ini: |-
       [paths]
@@ -155,22 +168,39 @@ objects:
       # Use space to separate multiple modes, e.g. "console file"
       mode = console
       
+      [auth]
+      # Set to true to disable (hide) the login form, useful if you use OAuth
+      #disable_login_form = false 
+      disable_login_form = false
+
       [security]
       # default admin user, created on startup
-      admin_user = admin
-      admin_password = admin
+      admin_user = ${APP_USERNAME}
+      admin_password = ${APP_PASSWORD}
+            
+      [auth.anonymous]
+      # enable anonymous access 
+      enabled = true
+      
+      # specify organization name that should be used for unauthenticated users
+      org_id = 1
+      
+      # specify role for unauthenticated users
+      org_role = Viewer
       
       [smtp]
       enabled = true
       from_address = penadmin@gov.bc.ca
       from_name = PEN Grafana
       host = apps.smtp.gov.bc.ca
-      skip_verify = true
+      skip_verify = true
 - apiVersion: v1
   kind: ConfigMap
   metadata:
     name: grafana-dashboards-config
     namespace: "${NAMESPACE}-${ENVIRONMENT}"
+    labels:
+      name: grafana
   data:
     dashboards-provider.yaml: |-
       apiVersion: 1
@@ -203,6 +233,8 @@ objects:
   metadata:
     name: grafana-predefined-dashboards-config
     namespace: "${NAMESPACE}-${ENVIRONMENT}"
+    labels:
+      name: grafana
   data:
     dashboard-education-alerts.json: |-
        {
