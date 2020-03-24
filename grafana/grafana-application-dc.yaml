@@ -192,7 +192,7 @@ objects:
       enabled = true
       from_address = penadmin@gov.bc.ca
       from_name = PEN Grafana
-      host = apps.smtp.gov.bc.ca
+      host = apps.smtp.gov.bc.ca:25
       skip_verify = true
 - apiVersion: v1
   kind: ConfigMap
