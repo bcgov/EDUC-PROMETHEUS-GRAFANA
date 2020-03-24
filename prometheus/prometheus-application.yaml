@@ -232,6 +232,18 @@ objects:
              - https://student-admin-${NAMESPACE}-test.pathfinder.gov.bc.ca/api/health
              - https://student-admin-${NAMESPACE}-test.pathfinder.gov.bc.ca
              - https://student-api-${NAMESPACE}-test.pathfinder.gov.bc.ca/health
+             - https://digitalid-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health
+             - https://pen-demographics-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health
+             - https://pen-request-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health
+             - https://pen-request-email-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health
+             - https://getmypen.gov.bc.ca/api
+             - https://getmypen.gov.bc.ca
+             - https://services-card-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health
+             - https://soam-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health
+             - https://${NAMESPACE}-prod.pathfinder.gov.bc.ca
+             - https://student-admin-${NAMESPACE}-prod.pathfinder.gov.bc.ca/api/health
+             - https://student-admin-${NAMESPACE}-prod.pathfinder.gov.bc.ca
+             - https://student-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health
              - https://sonarqube-${NAMESPACE}-tools.pathfinder.gov.bc.ca
              - https://jenkins-${NAMESPACE}-tools.pathfinder.gov.bc.ca/login
          relabel_configs:
