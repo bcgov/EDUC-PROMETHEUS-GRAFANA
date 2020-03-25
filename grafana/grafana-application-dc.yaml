@@ -256,7 +256,7 @@ objects:
         "editable": true,
         "gnetId": null,
         "graphTooltip": 0,
-        "id": 2,
+        "id": 1,
         "links": [],
         "panels": [
           {
@@ -270,7 +270,7 @@ objects:
             },
             "id": 15,
             "panels": [],
-            "title": "DEV Environment",
+            "title": "PROD Environment",
             "type": "row"
           },
           {
@@ -305,8 +305,8 @@ objects:
               "for": "0m",
               "frequency": "1m",
               "handler": 1,
-              "message": "Services Card API Monitor (DEV). If this message shows \"Alerting\", the service is down.",
-              "name": "Services Card API Monitor (DEV)",
+              "message": "Services Card API Monitor (PROD). If this message shows \"Alerting\", the service is down.",
+              "name": "Services Card API Monitor (PROD)",
               "noDataState": "alerting",
               "notifications": []
             },
@@ -351,7 +351,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://services-card-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://services-card-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -367,7 +367,7 @@ objects:
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "Services Card API Monitor (DEV)",
+            "title": "Services Card API Monitor (PROD)",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -436,8 +436,8 @@ objects:
               "for": "0m",
               "frequency": "1m",
               "handler": 1,
-              "message": "Digital ID API Monitor (DEV). If this message shows \"Alerting\", the service is down.",
-              "name": "Digital ID API Monitor (DEV)",
+              "message": "Digital ID API Monitor (PROD). If this message shows \"Alerting\", the service is down.",
+              "name": "Digital ID API Monitor (PROD)",
               "noDataState": "alerting",
               "notifications": []
             },
@@ -481,7 +481,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://digitalid-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://digitalid-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -497,7 +497,7 @@ objects:
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "Digital ID API Monitor (DEV)",
+            "title": "Digital ID API Monitor (PROD)",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -566,8 +566,8 @@ objects:
               "for": "0m",
               "frequency": "1m",
               "handler": 1,
-              "message": "PEN Request API Monitor (DEV). If this message shows \"Alerting\", the service is down.",
-              "name": "PEN Request API Monitor (DEV)",
+              "message": "PEN Request API Monitor (PROD). If this message shows \"Alerting\", the service is down.",
+              "name": "PEN Request API Monitor (PROD)",
               "noDataState": "alerting",
               "notifications": []
             },
@@ -611,7 +611,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://pen-request-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -627,7 +627,7 @@ objects:
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "PEN Request API Monitor (DEV)",
+            "title": "PEN Request API Monitor (PROD)",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -696,8 +696,8 @@ objects:
               "for": "0m",
               "frequency": "1m",
               "handler": 1,
-              "message": "PEN Demographics API Monitor (DEV). If this message shows \"Alerting\", the service is down.",
-              "name": "PEN Demographics API Monitor (DEV)",
+              "message": "PEN Demographics API Monitor (PROD). If this message shows \"Alerting\", the service is down.",
+              "name": "PEN Demographics API Monitor (PROD)",
               "noDataState": "alerting",
               "notifications": []
             },
@@ -741,7 +741,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-demographics-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://pen-demographics-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -757,7 +757,7 @@ objects:
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "PEN Demographics API Monitor (DEV)",
+            "title": "PEN Demographics API Monitor (PROD)",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -826,8 +826,8 @@ objects:
               "for": "0m",
               "frequency": "1m",
               "handler": 1,
-              "message": "PEN Request Email API Monitor (DEV). If this message shows \"Alerting\", the service is down.",
-              "name": "PEN Request Email API Monitor (DEV)",
+              "message": "PEN Request Email API Monitor (PROD). If this message shows \"Alerting\", the service is down.",
+              "name": "PEN Request Email API Monitor (PROD)",
               "noDataState": "alerting",
               "notifications": []
             },
@@ -871,7 +871,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-email-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://pen-request-email-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -887,7 +887,7 @@ objects:
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "PEN Request Email API Monitor (DEV)",
+            "title": "PEN Request Email API Monitor (PROD)",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -956,8 +956,8 @@ objects:
               "for": "0m",
               "frequency": "1m",
               "handler": 1,
-              "message": "PEN Request Backend Monitor (DEV). If this message shows \"Alerting\", the service is down.",
-              "name": "PEN Request Backend Monitor (DEV)",
+              "message": "PEN Request Backend Monitor (PROD). If this message shows \"Alerting\", the service is down.",
+              "name": "PEN Request Backend Monitor (PROD)",
               "noDataState": "alerting",
               "notifications": []
             },
@@ -1001,7 +1001,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-${NAMESPACE}-dev.pathfinder.gov.bc.ca/api\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://pen-request-${NAMESPACE}-prod.pathfinder.gov.bc.ca/api\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1017,7 +1017,7 @@ objects:
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "PEN Request Backend Monitor (DEV)",
+            "title": "PEN Request Backend Monitor (PROD)",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -1086,8 +1086,8 @@ objects:
               "for": "0m",
               "frequency": "1m",
               "handler": 1,
-              "message": "PEN Request Frontend Monitor (DEV). If this message shows \"Alerting\", the service is down.",
-              "name": "PEN Request Frontend Monitor (DEV)",
+              "message": "PEN Request Frontend Monitor (PROD). If this message shows \"Alerting\", the service is down.",
+              "name": "PEN Request Frontend Monitor (PROD)",
               "noDataState": "alerting",
               "notifications": []
             },
@@ -1131,7 +1131,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-${NAMESPACE}-dev.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://getmypen.gov.bc.ca\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1147,7 +1147,7 @@ objects:
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "PEN Request Frontend Monitor (DEV)",
+            "title": "PEN Request Frontend Monitor (PROD)",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -1216,8 +1216,8 @@ objects:
               "for": "0m",
               "frequency": "1m",
               "handler": 1,
-              "message": "SOAM API Monitor (DEV). If this message shows \"Alerting\", the service is down.",
-              "name": "SOAM API Monitor (DEV)",
+              "message": "SOAM API Monitor (PROD). If this message shows \"Alerting\", the service is down.",
+              "name": "SOAM API Monitor (PROD)",
               "noDataState": "alerting",
               "notifications": []
             },
@@ -1261,7 +1261,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://soam-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://soam-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1277,7 +1277,7 @@ objects:
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "SOAM API Monitor (DEV)",
+            "title": "SOAM API Monitor (PROD)",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -1346,8 +1346,8 @@ objects:
               "for": "5m",
               "frequency": "1m",
               "handler": 1,
-              "message": "SOAM Keycloak Monitor (DEV). If this message shows \"Alerting\", the service is down.",
-              "name": "SOAM Keycloak Monitor (DEV)",
+              "message": "SOAM Keycloak Monitor (PROD). If this message shows \"Alerting\", the service is down.",
+              "name": "SOAM Keycloak Monitor (PROD)",
               "noDataState": "alerting",
               "notifications": []
             },
@@ -1391,7 +1391,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://${NAMESPACE}-dev.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://${NAMESPACE}-prod.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1407,7 +1407,7 @@ objects:
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "SOAM Keycloak Monitor (DEV)",
+            "title": "SOAM Keycloak Monitor (PROD)",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -1476,8 +1476,8 @@ objects:
               "for": "0m",
               "frequency": "1m",
               "handler": 1,
-              "message": "Student Admin Frontend Monitor (DEV). If this message shows \"Alerting\", the service is down.",
-              "name": "Student Admin Frontend Monitor (DEV)",
+              "message": "Student Admin Frontend Monitor (PROD). If this message shows \"Alerting\", the service is down.",
+              "name": "Student Admin Frontend Monitor (PROD)",
               "noDataState": "alerting",
               "notifications": []
             },
@@ -1521,7 +1521,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-dev.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-prod.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1537,7 +1537,7 @@ objects:
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "Student Admin Frontend Monitor (DEV)",
+            "title": "Student Admin Frontend Monitor (PROD)",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -1606,8 +1606,8 @@ objects:
               "for": "0m",
               "frequency": "1m",
               "handler": 1,
-              "message": "Student Admin Backend Monitor (DEV). If this message shows \"Alerting\", the service is down.",
-              "name": "Student Admin Backend Monitor (DEV)",
+              "message": "Student Admin Backend Monitor (PROD). If this message shows \"Alerting\", the service is down.",
+              "name": "Student Admin Backend Monitor (PROD)",
               "noDataState": "alerting",
               "notifications": []
             },
@@ -1651,7 +1651,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-dev.pathfinder.gov.bc.ca/api/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-prod.pathfinder.gov.bc.ca/api/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1667,7 +1667,7 @@ objects:
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "Student Admin Backend Monitor (DEV)",
+            "title": "Student Admin Backend Monitor (PROD)",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -1736,8 +1736,8 @@ objects:
               "for": "0m",
               "frequency": "1m",
               "handler": 1,
-              "message": "Student API Monitor (DEV). If this message shows \"Alerting\", the service is down.",
-              "name": "Student API Monitor (DEV)",
+              "message": "Student API Monitor (PROD). If this message shows \"Alerting\", the service is down.",
+              "name": "Student API Monitor (PROD)",
               "noDataState": "alerting",
               "notifications": []
             },
@@ -1781,7 +1781,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1797,7 +1797,7 @@ objects:
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "Student API Monitor (DEV)",
+            "title": "Student API Monitor (PROD)",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -3419,11 +3419,11 @@ objects:
               "h": 1,
               "w": 24,
               "x": 0,
-              "y": 19
+              "y": 38
             },
-            "id": 17,
+            "id": 70,
             "panels": [],
-            "title": "PROD Environment",
+            "title": "DEV Environment",
             "type": "row"
           },
           {
@@ -3458,8 +3458,8 @@ objects:
               "for": "",
               "frequency": "1m",
               "handler": 1,
-              "message": "Services Card API Monitor (PROD). If this message shows \"Alerting\", the service is down.",
-              "name": "Services Card API Monitor (PROD)",
+              "message": "Services Card API Monitor (DEV). If this message shows \"Alerting\", the service is down.",
+              "name": "Services Card API Monitor (DEV)",
               "noDataState": "alerting",
               "notifications": []
             },
@@ -3475,7 +3475,7 @@ objects:
               "h": 9,
               "w": 3,
               "x": 0,
-              "y": 20
+              "y": 39
             },
             "hiddenSeries": false,
             "id": 30,
@@ -3504,7 +3504,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://services-card-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://services-card-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -3520,7 +3520,7 @@ objects:
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "Services Card API Monitor (PROD)",
+            "title": "Services Card API Monitor (DEV)",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -3589,8 +3589,8 @@ objects:
               "for": "",
               "frequency": "1m",
               "handler": 1,
-              "message": "Digital ID API Monitor (PROD). If this message shows \"Alerting\", the service is down.",
-              "name": "Digital ID API Monitor (PROD)",
+              "message": "Digital ID API Monitor (DEV). If this message shows \"Alerting\", the service is down.",
+              "name": "Digital ID API Monitor (DEV)",
               "noDataState": "no_data",
               "notifications": []
             },
@@ -3605,7 +3605,7 @@ objects:
               "h": 9,
               "w": 3,
               "x": 3,
-              "y": 20
+              "y": 39
             },
             "hiddenSeries": false,
             "id": 31,
@@ -3634,7 +3634,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://digitalid-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://digitalid-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -3651,7 +3651,7 @@ objects:
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "Digital ID API Monitor (PROD)",
+            "title": "Digital ID API Monitor (DEV)",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -3720,8 +3720,8 @@ objects:
               "for": "",
               "frequency": "1m",
               "handler": 1,
-              "message": "PEN Request API Monitor (PROD). If this message shows \"Alerting\", the service is down.",
-              "name": "PEN Request API Monitor (PROD)",
+              "message": "PEN Request API Monitor (DEV). If this message shows \"Alerting\", the service is down.",
+              "name": "PEN Request API Monitor (DEV)",
               "noDataState": "alerting",
               "notifications": []
             },
@@ -3736,7 +3736,7 @@ objects:
               "h": 9,
               "w": 3,
               "x": 6,
-              "y": 20
+              "y": 39
             },
             "hiddenSeries": false,
             "id": 32,
@@ -3765,7 +3765,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://pen-request-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -3782,7 +3782,7 @@ objects:
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "PEN Request API Monitor (PROD)",
+            "title": "PEN Request API Monitor (DEV)",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -3851,8 +3851,8 @@ objects:
               "for": "0m",
               "frequency": "1m",
               "handler": 1,
-              "message": "PEN Demographics API Monitor (PROD). If this message shows \"Alerting\", the service is down.",
-              "name": "PEN Demographics API Monitor (PROD)",
+              "message": "PEN Demographics API Monitor (DEV). If this message shows \"Alerting\", the service is down.",
+              "name": "PEN Demographics API Monitor (DEV)",
               "noDataState": "alerting",
               "notifications": []
             },
@@ -3867,7 +3867,7 @@ objects:
               "h": 9,
               "w": 3,
               "x": 9,
-              "y": 20
+              "y": 39
             },
             "hiddenSeries": false,
             "id": 33,
@@ -3896,7 +3896,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-demographics-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://pen-demographics-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -3912,7 +3912,7 @@ objects:
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "PEN Demographics API Monitor (PROD)",
+            "title": "PEN Demographics API Monitor (DEV)",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -3981,8 +3981,8 @@ objects:
               "for": "",
               "frequency": "1m",
               "handler": 1,
-              "message": "PEN Request Email API Monitor (PROD). If this message shows \"Alerting\", the service is down.",
-              "name": "PEN Request Email API Monitor (PROD)",
+              "message": "PEN Request Email API Monitor (DEV). If this message shows \"Alerting\", the service is down.",
+              "name": "PEN Request Email API Monitor (DEV)",
               "noDataState": "alerting",
               "notifications": []
             },
@@ -3997,7 +3997,7 @@ objects:
               "h": 9,
               "w": 3,
               "x": 12,
-              "y": 20
+              "y": 39
             },
             "hiddenSeries": false,
             "id": 34,
@@ -4026,7 +4026,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-email-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://pen-request-email-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -4042,7 +4042,7 @@ objects:
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "PEN Request Email API Monitor (PROD)",
+            "title": "PEN Request Email API Monitor (DEV)",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -4111,8 +4111,8 @@ objects:
               "for": "",
               "frequency": "1m",
               "handler": 1,
-              "message": "PEN Request Backend Monitor (PROD). If this message shows \"Alerting\", the service is down.",
-              "name": "PEN Request Backend Monitor (PROD)",
+              "message": "PEN Request Backend Monitor (DEV). If this message shows \"Alerting\", the service is down.",
+              "name": "PEN Request Backend Monitor (DEV)",
               "noDataState": "alerting",
               "notifications": []
             },
@@ -4127,7 +4127,7 @@ objects:
               "h": 9,
               "w": 3,
               "x": 15,
-              "y": 20
+              "y": 39
             },
             "hiddenSeries": false,
             "id": 35,
@@ -4156,7 +4156,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://getmypen.gov.bc.ca/api\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://pen-request-${NAMESPACE}-dev.pathfinder.gov.bc.ca/api\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -4172,7 +4172,7 @@ objects:
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "PEN Request Backend Monitor (PROD)",
+            "title": "PEN Request Backend Monitor (DEV)",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -4241,8 +4241,8 @@ objects:
               "for": "",
               "frequency": "1m",
               "handler": 1,
-              "message": "PEN Request Frontend Monitor (PROD). If this message shows \"Alerting\", the service is down.",
-              "name": "PEN Request Frontend Monitor (PROD)",
+              "message": "PEN Request Frontend Monitor (DEV). If this message shows \"Alerting\", the service is down.",
+              "name": "PEN Request Frontend Monitor (DEV)",
               "noDataState": "alerting",
               "notifications": []
             },
@@ -4257,7 +4257,7 @@ objects:
               "h": 9,
               "w": 3,
               "x": 18,
-              "y": 20
+              "y": 39
             },
             "hiddenSeries": false,
             "id": 36,
@@ -4286,7 +4286,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://getmypen.gov.bc.ca\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://pen-request-${NAMESPACE}-dev.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -4303,7 +4303,7 @@ objects:
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "PEN Request Frontend Monitor (PROD)",
+            "title": "PEN Request Frontend Monitor (DEV)",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -4372,8 +4372,8 @@ objects:
               "for": "",
               "frequency": "1m",
               "handler": 1,
-              "message": "SOAM API Monitor (PROD). If this message shows \"Alerting\", the service is down.",
-              "name": "SOAM API Monitor (PROD)",
+              "message": "SOAM API Monitor (DEV). If this message shows \"Alerting\", the service is down.",
+              "name": "SOAM API Monitor (DEV)",
               "noDataState": "alerting",
               "notifications": []
             },
@@ -4388,7 +4388,7 @@ objects:
               "h": 9,
               "w": 3,
               "x": 21,
-              "y": 20
+              "y": 39
             },
             "hiddenSeries": false,
             "id": 37,
@@ -4417,7 +4417,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://soam-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://soam-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -4433,7 +4433,7 @@ objects:
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "SOAM API Monitor (PROD)",
+            "title": "SOAM API Monitor (DEV)",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -4502,8 +4502,8 @@ objects:
               "for": "",
               "frequency": "1m",
               "handler": 1,
-              "message": "SOAM Keycloak Monitor (PROD). If this message shows \"Alerting\", the service is down.",
-              "name": "SOAM Keycloak Monitor (PROD)",
+              "message": "SOAM Keycloak Monitor (DEV). If this message shows \"Alerting\", the service is down.",
+              "name": "SOAM Keycloak Monitor (DEV)",
               "noDataState": "alerting",
               "notifications": []
             },
@@ -4518,7 +4518,7 @@ objects:
               "h": 9,
               "w": 3,
               "x": 0,
-              "y": 29
+              "y": 48
             },
             "hiddenSeries": false,
             "id": 38,
@@ -4547,7 +4547,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://${NAMESPACE}-prod.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://${NAMESPACE}-dev.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -4563,7 +4563,7 @@ objects:
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "SOAM Keycloak Monitor (PROD)",
+            "title": "SOAM Keycloak Monitor (DEV)",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -4632,8 +4632,8 @@ objects:
               "for": "",
               "frequency": "1m",
               "handler": 1,
-              "message": "Student Admin Frontend Monitor (PROD). If this message shows \"Alerting\", the service is down.",
-              "name": "Student Admin Frontend Monitor (PROD)",
+              "message": "Student Admin Frontend Monitor (DEV). If this message shows \"Alerting\", the service is down.",
+              "name": "Student Admin Frontend Monitor (DEV)",
               "noDataState": "alerting",
               "notifications": []
             },
@@ -4648,7 +4648,7 @@ objects:
               "h": 9,
               "w": 3,
               "x": 3,
-              "y": 29
+              "y": 48
             },
             "hiddenSeries": false,
             "id": 39,
@@ -4677,7 +4677,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-prod.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-dev.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -4693,7 +4693,7 @@ objects:
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "Student Admin Frontend Monitor (PROD)",
+            "title": "Student Admin Frontend Monitor (DEV)",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -4762,8 +4762,8 @@ objects:
               "for": "",
               "frequency": "1m",
               "handler": 1,
-              "message": "Student Admin Backend Monitor (PROD). If this message shows \"Alerting\", the service is down.",
-              "name": "Student Admin Backend Monitor (PROD)",
+              "message": "Student Admin Backend Monitor (DEV). If this message shows \"Alerting\", the service is down.",
+              "name": "Student Admin Backend Monitor (DEV)",
               "noDataState": "alerting",
               "notifications": []
             },
@@ -4778,10 +4778,10 @@ objects:
               "h": 9,
               "w": 3,
               "x": 6,
-              "y": 29
+              "y": 48
             },
             "hiddenSeries": false,
-            "id": 30,
+            "id": 40,
             "legend": {
               "avg": false,
               "current": false,
@@ -4807,7 +4807,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-prod.pathfinder.gov.bc.ca/api/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-dev.pathfinder.gov.bc.ca/api/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -4823,7 +4823,7 @@ objects:
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "Student Admin Backend Monitor (PROD)",
+            "title": "Student Admin Backend Monitor (DEV)",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -4892,8 +4892,8 @@ objects:
               "for": "",
               "frequency": "1m",
               "handler": 1,
-              "message": "Student API Monitor (PROD). If this message shows \"Alerting\", the service is down.",
-              "name": "Student API Monitor (PROD)",
+              "message": "Student API Monitor (DEV). If this message shows \"Alerting\", the service is down.",
+              "name": "Student API Monitor (DEV)",
               "noDataState": "alerting",
               "notifications": []
             },
@@ -4908,10 +4908,10 @@ objects:
               "h": 9,
               "w": 3,
               "x": 9,
-              "y": 29
+              "y": 48
             },
             "hiddenSeries": false,
-            "id": 31,
+            "id": 41,
             "legend": {
               "avg": false,
               "current": false,
@@ -4937,7 +4937,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -4953,7 +4953,7 @@ objects:
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "Student API Monitor (PROD)",
+            "title": "Student API Monitor (DEV)",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -5082,7 +5082,7 @@ objects:
                "x": 0,
                "y": 1
              },
-             "id": 55,
+             "id": 90,
              "interval": null,
              "links": [],
              "mappingType": 1,
@@ -5168,7 +5168,7 @@ objects:
                "x": 2,
                "y": 1
              },
-             "id": 56,
+             "id": 91,
              "interval": null,
              "links": [],
              "mappingType": 1,
@@ -5254,7 +5254,7 @@ objects:
                "x": 4,
                "y": 1
              },
-             "id": 57,
+             "id": 93,
              "interval": null,
              "links": [],
              "mappingType": 1,
@@ -5325,7 +5325,7 @@ objects:
              },
              "id": 15,
              "panels": [],
-             "title": "DEV Environment",
+             "title": "PROD Environment",
              "type": "row"
            },
            {
@@ -5393,7 +5393,7 @@ objects:
              "tableColumn": "",
              "targets": [
                {
-                 "expr": "probe_success{instance=\"https://pen-request-${NAMESPACE}-dev.pathfinder.gov.bc.ca/api\",job=\"blackbox\"}*-1",
+                 "expr": "probe_success{instance=\"https://pen-request-${NAMESPACE}-prod.pathfinder.gov.bc.ca/api\",job=\"blackbox\"}*-1",
                  "refId": "A"
                }
              ],
@@ -5482,7 +5482,7 @@ objects:
              "tableColumn": "",
              "targets": [
                {
-                 "expr": "probe_success{instance=\"https://pen-request-${NAMESPACE}-dev.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
+                 "expr": "probe_success{instance=\"https://getmypen.gov.bc.ca\",job=\"blackbox\"}*-1",
                  "refId": "A"
                }
              ],
@@ -5568,7 +5568,7 @@ objects:
              "tableColumn": "",
              "targets": [
                {
-                 "expr": "probe_success{instance=\"https://digitalid-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                 "expr": "probe_success{instance=\"https://digitalid-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                  "refId": "A"
                }
              ],
@@ -5655,7 +5655,7 @@ objects:
              "tableColumn": "",
              "targets": [
                {
-                 "expr": "probe_success{instance=\"https://pen-request-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                 "expr": "probe_success{instance=\"https://pen-request-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                  "refId": "A"
                }
              ],
@@ -5741,7 +5741,7 @@ objects:
              "tableColumn": "",
              "targets": [
                {
-                 "expr": "probe_success{instance=\"https://student-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                 "expr": "probe_success{instance=\"https://student-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                  "refId": "A"
                }
              ],
@@ -5828,7 +5828,7 @@ objects:
              "tableColumn": "",
              "targets": [
                {
-                 "expr": "probe_success{instance=\"https://pen-request-email-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                 "expr": "probe_success{instance=\"https://pen-request-email-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                  "refId": "A"
                }
              ],
@@ -5914,7 +5914,7 @@ objects:
              "tableColumn": "",
              "targets": [
                {
-                 "expr": "probe_success{instance=\"https://pen-demographics-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                 "expr": "probe_success{instance=\"https://pen-demographics-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                  "refId": "A"
                }
              ],
@@ -6000,7 +6000,7 @@ objects:
              "tableColumn": "",
              "targets": [
                {
-                 "expr": "probe_success{instance=\"https://services-card-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                 "expr": "probe_success{instance=\"https://services-card-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                  "refId": "A"
                }
              ],
@@ -6086,7 +6086,7 @@ objects:
              "tableColumn": "",
              "targets": [
                {
-                 "expr": "probe_success{instance=\"https://soam-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                 "expr": "probe_success{instance=\"https://soam-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                  "refId": "A"
                }
              ],
@@ -6172,7 +6172,7 @@ objects:
              "tableColumn": "",
              "targets": [
                {
-                 "expr": "probe_success{instance=\"https://${NAMESPACE}-dev.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
+                 "expr": "probe_success{instance=\"https://${NAMESPACE}-prod.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
                  "refId": "A"
                }
              ],
@@ -6259,7 +6259,7 @@ objects:
              "tableColumn": "",
              "targets": [
                {
-                 "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-dev.pathfinder.gov.bc.ca/api/health\",job=\"blackbox\"}*-1",
+                 "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-prod.pathfinder.gov.bc.ca/api/health\",job=\"blackbox\"}*-1",
                  "refId": "A"
                }
              ],
@@ -6346,7 +6346,7 @@ objects:
              "tableColumn": "",
              "targets": [
                {
-                 "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-dev.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
+                 "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-prod.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
                  "refId": "A"
                }
              ],
@@ -7429,11 +7429,11 @@ objects:
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 14
+                "y": 21
               },
-              "id": 39,
+              "id": 80,
               "panels": [],
-              "title": "PROD Environment",
+              "title": "DEV Environment",
               "type": "row"
             },
             {
@@ -7459,9 +7459,9 @@ objects:
                 "h": 6,
                 "w": 2,
                 "x": 0,
-                "y": 15
+                "y": 22
               },
-              "id": 65,
+              "id": 54,
               "interval": null,
               "links": [],
               "mappingType": 1,
@@ -7501,7 +7501,7 @@ objects:
               "tableColumn": "",
               "targets": [
                 {
-                  "expr": "probe_success{instance=\"https://getmypen.gov.bc.ca/api\",job=\"blackbox\"}*-1",
+                  "expr": "probe_success{instance=\"https://pen-request-${NAMESPACE}-dev.pathfinder.gov.bc.ca/api\",job=\"blackbox\"}*-1",
                   "refId": "A"
                 }
               ],
@@ -7550,9 +7550,9 @@ objects:
                 "h": 6,
                 "w": 2,
                 "x": 2,
-                "y": 15
+                "y": 22
               },
-              "id": 54,
+              "id": 55,
               "interval": null,
               "links": [],
               "mappingType": 1,
@@ -7590,7 +7590,7 @@ objects:
               "tableColumn": "",
               "targets": [
                 {
-                  "expr": "probe_success{instance=\"https://getmypen.gov.bc.ca\",job=\"blackbox\"}*-1",
+                  "expr": "probe_success{instance=\"https://pen-request-${NAMESPACE}-dev.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
                   "refId": "A"
                 }
               ],
@@ -7636,9 +7636,9 @@ objects:
                 "h": 6,
                 "w": 2,
                 "x": 4,
-                "y": 15
+                "y": 22
               },
-              "id": 55,
+              "id": 56,
               "interval": null,
               "links": [],
               "mappingType": 1,
@@ -7676,7 +7676,7 @@ objects:
               "tableColumn": "",
               "targets": [
                 {
-                  "expr": "probe_success{instance=\"https://digitalid-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                  "expr": "probe_success{instance=\"https://digitalid-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                   "refId": "A"
                 }
               ],
@@ -7723,9 +7723,9 @@ objects:
                 "h": 6,
                 "w": 2,
                 "x": 6,
-                "y": 15
+                "y": 22
               },
-              "id": 56,
+              "id": 57,
               "interval": null,
               "links": [],
               "mappingType": 1,
@@ -7763,7 +7763,7 @@ objects:
               "tableColumn": "",
               "targets": [
                 {
-                  "expr": "probe_success{instance=\"https://pen-request-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                  "expr": "probe_success{instance=\"https://pen-request-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                   "refId": "A"
                 }
               ],
@@ -7809,9 +7809,9 @@ objects:
                 "h": 6,
                 "w": 2,
                 "x": 8,
-                "y": 15
+                "y": 22
               },
-              "id": 57,
+              "id": 58,
               "interval": null,
               "links": [],
               "mappingType": 1,
@@ -7849,7 +7849,7 @@ objects:
               "tableColumn": "",
               "targets": [
                 {
-                  "expr": "probe_success{instance=\"https://student-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                  "expr": "probe_success{instance=\"https://student-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                   "refId": "A"
                 }
               ],
@@ -7896,9 +7896,9 @@ objects:
                 "h": 6,
                 "w": 2,
                 "x": 10,
-                "y": 15
+                "y": 22
               },
-              "id": 58,
+              "id": 59,
               "interval": null,
               "links": [],
               "mappingType": 1,
@@ -7936,7 +7936,7 @@ objects:
               "tableColumn": "",
               "targets": [
                 {
-                  "expr": "probe_success{instance=\"https://pen-request-email-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                  "expr": "probe_success{instance=\"https://pen-request-email-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                   "refId": "A"
                 }
               ],
@@ -7982,9 +7982,9 @@ objects:
                 "h": 6,
                 "w": 2,
                 "x": 12,
-                "y": 15
+                "y": 22
               },
-              "id": 59,
+              "id": 60,
               "interval": null,
               "links": [],
               "mappingType": 1,
@@ -8022,7 +8022,7 @@ objects:
               "tableColumn": "",
               "targets": [
                 {
-                  "expr": "probe_success{instance=\"https://pen-demographics-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                  "expr": "probe_success{instance=\"https://pen-demographics-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                   "refId": "A"
                 }
               ],
@@ -8068,9 +8068,9 @@ objects:
                 "h": 6,
                 "w": 2,
                 "x": 14,
-                "y": 15
+                "y": 22
               },
-              "id": 60,
+              "id": 61,
               "interval": null,
               "links": [],
               "mappingType": 1,
@@ -8108,7 +8108,7 @@ objects:
               "tableColumn": "",
               "targets": [
                 {
-                  "expr": "probe_success{instance=\"https://services-card-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                  "expr": "probe_success{instance=\"https://services-card-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                   "refId": "A"
                 }
               ],
@@ -8154,9 +8154,9 @@ objects:
                 "h": 6,
                 "w": 2,
                 "x": 16,
-                "y": 15
+                "y": 22
               },
-              "id": 61,
+              "id": 62,
               "interval": null,
               "links": [],
               "mappingType": 1,
@@ -8194,7 +8194,7 @@ objects:
               "tableColumn": "",
               "targets": [
                 {
-                  "expr": "probe_success{instance=\"https://soam-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                  "expr": "probe_success{instance=\"https://soam-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                   "refId": "A"
                 }
               ],
@@ -8240,9 +8240,9 @@ objects:
                 "h": 6,
                 "w": 2,
                 "x": 18,
-                "y": 15
+                "y": 22
               },
-              "id": 62,
+              "id": 63,
               "interval": null,
               "links": [],
               "mappingType": 1,
@@ -8280,7 +8280,7 @@ objects:
               "tableColumn": "",
               "targets": [
                 {
-                  "expr": "probe_success{instance=\"https://${NAMESPACE}-prod.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
+                  "expr": "probe_success{instance=\"https://${NAMESPACE}-dev.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
                   "refId": "A"
                 }
               ],
@@ -8327,9 +8327,9 @@ objects:
                 "h": 6,
                 "w": 2,
                 "x": 20,
-                "y": 15
+                "y": 22
               },
-              "id": 63,
+              "id": 64,
               "interval": null,
               "links": [],
               "mappingType": 1,
@@ -8367,7 +8367,7 @@ objects:
               "tableColumn": "",
               "targets": [
                 {
-                  "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-prod.pathfinder.gov.bc.ca/api/health\",job=\"blackbox\"}*-1",
+                  "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-dev.pathfinder.gov.bc.ca/api/health\",job=\"blackbox\"}*-1",
                   "refId": "A"
                 }
               ],
@@ -8414,9 +8414,9 @@ objects:
                 "h": 6,
                 "w": 2,
                 "x": 22,
-                "y": 15
+                "y": 22
               },
-              "id": 64,
+              "id": 65,
               "interval": null,
               "links": [],
               "mappingType": 1,
@@ -8454,7 +8454,7 @@ objects:
               "tableColumn": "",
               "targets": [
                 {
-                  "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-prod.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
+                  "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-dev.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
                   "refId": "A"
                 }
               ],
