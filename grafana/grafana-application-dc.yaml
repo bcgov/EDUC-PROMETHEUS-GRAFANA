@@ -168,14 +168,14 @@ objects:
       apiVersion: 1
     
       notifiers:
-        - name: PEN Team
+        - name: Support Team
           type: email
           uid: notifier1
           org_id: 1
           is_default: true
           send_reminder: false
           settings:
-            addresses: "someone@somewhere.com"
+            addresses: ""
 - apiVersion: v1
   kind: ConfigMap
   metadata:
