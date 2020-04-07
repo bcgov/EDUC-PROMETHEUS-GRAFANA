@@ -113,7 +113,8 @@ objects:
               name: grafana-dashboards-config
             - mountPath: /dashboards
               name: grafana-predefined-dashboards-config
-
+            - mountPath: /etc/grafana/provisioning/notifiers
+              name: grafana-notification-channel-config
         volumes:
         - configMap:
             defaultMode: 420
@@ -135,6 +136,10 @@ objects:
             defaultMode: 420
             name: grafana-predefined-dashboards-config
           name: grafana-predefined-dashboards-config
+        - configMap:
+            defaultMode: 420
+            name: grafana-notification-channel-config
+          name: grafana-notification-channel-config
 - apiVersion: v1
   kind: Secret
   metadata:
@@ -150,6 +155,27 @@ objects:
         type: prometheus
         access: proxy
         url: https://prometheus-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/
+
+- apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: grafana-notification-channel-config
+    namespace: "${NAMESPACE}-${ENVIRONMENT}"
+    labels:
+      name: grafana
+  data:
+    notification-channel-provider.yaml: |-
+      apiVersion: 1
+    
+      notifiers:
+        - name: PEN Team
+          type: email
+          uid: notifier1
+          org_id: 1
+          is_default: true
+          send_reminder: false
+          settings:
+            addresses: "someone@somewhere.com"
 - apiVersion: v1
   kind: ConfigMap
   metadata:
