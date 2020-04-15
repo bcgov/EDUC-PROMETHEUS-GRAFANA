@@ -22,6 +22,9 @@ parameters:
 - description: The environment to instantiate heapster under. Defaults to 'environment'.
   name: ENVIRONMENT
   value: environment
+- description: The list of comma separated email addresses. This mailing list will receive support updates. 
+  name: EMAIL_SUPPORT_LIST
+  value: none
 - name: APP_USERNAME
   generate: expression
   from: '[a-zA-Z0-9]{10}'
@@ -175,7 +178,7 @@ objects:
           is_default: true
           send_reminder: false
           settings:
-            addresses: ""
+            addresses: "${EMAIL_SUPPORT_LIST}"
 - apiVersion: v1
   kind: ConfigMap
   metadata:

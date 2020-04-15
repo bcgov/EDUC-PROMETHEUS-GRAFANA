@@ -240,7 +240,7 @@ objects:
              - https://getmypen.gov.bc.ca
              - https://services-card-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health
              - https://soam-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health
-             - https://${NAMESPACE}-prod.pathfinder.gov.bc.ca
+             - https://${NAMESPACE}.pathfinder.gov.bc.ca
              - https://student-admin-${NAMESPACE}-prod.pathfinder.gov.bc.ca/api/health
              - https://student-admin-${NAMESPACE}-prod.pathfinder.gov.bc.ca
              - https://student-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health
