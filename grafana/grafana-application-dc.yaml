@@ -1878,42 +1878,6 @@ objects:
             "type": "row"
           },
           {
-            "alert": {
-              "alertRuleTags": {},
-              "conditions": [
-                {
-                  "evaluator": {
-                    "params": [
-                      1
-                    ],
-                    "type": "lt"
-                  },
-                  "operator": {
-                    "type": "and"
-                  },
-                  "query": {
-                    "params": [
-                      "A",
-                      "5m",
-                      "now"
-                    ]
-                  },
-                  "reducer": {
-                    "params": [],
-                    "type": "min"
-                  },
-                  "type": "query"
-                }
-              ],
-              "executionErrorState": "alerting",
-              "for": "",
-              "frequency": "1m",
-              "handler": 1,
-              "message": "Services Card API Monitor (TEST). If this message shows \"Alerting\", the service is down.",
-              "name": "Services Card API Monitor (TEST)",
-              "noDataState": "alerting",
-              "notifications": []
-            },
             "aliasColors": {},
             "bars": true,
             "dashLength": 10,
@@ -2009,42 +1973,6 @@ objects:
             }
           },
           {
-            "alert": {
-              "alertRuleTags": {},
-              "conditions": [
-                {
-                  "evaluator": {
-                    "params": [
-                      1
-                    ],
-                    "type": "lt"
-                  },
-                  "operator": {
-                    "type": "and"
-                  },
-                  "query": {
-                    "params": [
-                      "A",
-                      "5m",
-                      "now"
-                    ]
-                  },
-                  "reducer": {
-                    "params": [],
-                    "type": "min"
-                  },
-                  "type": "query"
-                }
-              ],
-              "executionErrorState": "alerting",
-              "for": "",
-              "frequency": "1m",
-              "handler": 1,
-              "message": "Digital ID API Monitor (TEST). If this message shows \"Alerting\", the service is down.",
-              "name": "Digital ID API Monitor (TEST)",
-              "noDataState": "no_data",
-              "notifications": []
-            },
             "aliasColors": {},
             "bars": true,
             "dashLength": 10,
@@ -2140,42 +2068,6 @@ objects:
             }
           },
           {
-            "alert": {
-              "alertRuleTags": {},
-              "conditions": [
-                {
-                  "evaluator": {
-                    "params": [
-                      1
-                    ],
-                    "type": "lt"
-                  },
-                  "operator": {
-                    "type": "and"
-                  },
-                  "query": {
-                    "params": [
-                      "A",
-                      "5m",
-                      "now"
-                    ]
-                  },
-                  "reducer": {
-                    "params": [],
-                    "type": "min"
-                  },
-                  "type": "query"
-                }
-              ],
-              "executionErrorState": "alerting",
-              "for": "",
-              "frequency": "1m",
-              "handler": 1,
-              "message": "PEN Request API Monitor (TEST). If this message shows \"Alerting\", the service is down.",
-              "name": "PEN Request API Monitor (TEST)",
-              "noDataState": "alerting",
-              "notifications": []
-            },
             "aliasColors": {},
             "bars": true,
             "dashLength": 10,
@@ -2271,42 +2163,6 @@ objects:
             }
           },
           {
-            "alert": {
-              "alertRuleTags": {},
-              "conditions": [
-                {
-                  "evaluator": {
-                    "params": [
-                      1
-                    ],
-                    "type": "lt"
-                  },
-                  "operator": {
-                    "type": "and"
-                  },
-                  "query": {
-                    "params": [
-                      "A",
-                      "5m",
-                      "now"
-                    ]
-                  },
-                  "reducer": {
-                    "params": [],
-                    "type": "min"
-                  },
-                  "type": "query"
-                }
-              ],
-              "executionErrorState": "alerting",
-              "for": "0m",
-              "frequency": "1m",
-              "handler": 1,
-              "message": "PEN Demographics API Monitor (TEST). If this message shows \"Alerting\", the service is down.",
-              "name": "PEN Demographics API Monitor (TEST)",
-              "noDataState": "alerting",
-              "notifications": []
-            },
             "aliasColors": {},
             "bars": true,
             "dashLength": 10,
@@ -2401,42 +2257,6 @@ objects:
             }
           },
           {
-            "alert": {
-              "alertRuleTags": {},
-              "conditions": [
-                {
-                  "evaluator": {
-                    "params": [
-                      1
-                    ],
-                    "type": "lt"
-                  },
-                  "operator": {
-                    "type": "and"
-                  },
-                  "query": {
-                    "params": [
-                      "A",
-                      "5m",
-                      "now"
-                    ]
-                  },
-                  "reducer": {
-                    "params": [],
-                    "type": "min"
-                  },
-                  "type": "query"
-                }
-              ],
-              "executionErrorState": "alerting",
-              "for": "",
-              "frequency": "1m",
-              "handler": 1,
-              "message": "PEN Request Email API Monitor (TEST). If this message shows \"Alerting\", the service is down.",
-              "name": "PEN Request Email API Monitor (TEST)",
-              "noDataState": "alerting",
-              "notifications": []
-            },
             "aliasColors": {},
             "bars": true,
             "dashLength": 10,
@@ -2531,42 +2351,6 @@ objects:
             }
           },
           {
-            "alert": {
-              "alertRuleTags": {},
-              "conditions": [
-                {
-                  "evaluator": {
-                    "params": [
-                      1
-                    ],
-                    "type": "lt"
-                  },
-                  "operator": {
-                    "type": "and"
-                  },
-                  "query": {
-                    "params": [
-                      "A",
-                      "5m",
-                      "now"
-                    ]
-                  },
-                  "reducer": {
-                    "params": [],
-                    "type": "min"
-                  },
-                  "type": "query"
-                }
-              ],
-              "executionErrorState": "alerting",
-              "for": "",
-              "frequency": "1m",
-              "handler": 1,
-              "message": "PEN Request Backend Monitor (TEST). If this message shows \"Alerting\", the service is down.",
-              "name": "PEN Request Backend Monitor (TEST)",
-              "noDataState": "alerting",
-              "notifications": []
-            },
             "aliasColors": {},
             "bars": true,
             "dashLength": 10,
@@ -2661,42 +2445,6 @@ objects:
             }
           },
           {
-            "alert": {
-              "alertRuleTags": {},
-              "conditions": [
-                {
-                  "evaluator": {
-                    "params": [
-                      1
-                    ],
-                    "type": "lt"
-                  },
-                  "operator": {
-                    "type": "and"
-                  },
-                  "query": {
-                    "params": [
-                      "A",
-                      "5m",
-                      "now"
-                    ]
-                  },
-                  "reducer": {
-                    "params": [],
-                    "type": "min"
-                  },
-                  "type": "query"
-                }
-              ],
-              "executionErrorState": "alerting",
-              "for": "",
-              "frequency": "1m",
-              "handler": 1,
-              "message": "PEN Request Frontend Monitor (TEST). If this message shows \"Alerting\", the service is down.",
-              "name": "PEN Request Frontend Monitor (TEST)",
-              "noDataState": "alerting",
-              "notifications": []
-            },
             "aliasColors": {},
             "bars": true,
             "dashLength": 10,
@@ -2792,42 +2540,6 @@ objects:
             }
           },
           {
-            "alert": {
-              "alertRuleTags": {},
-              "conditions": [
-                {
-                  "evaluator": {
-                    "params": [
-                      1
-                    ],
-                    "type": "lt"
-                  },
-                  "operator": {
-                    "type": "and"
-                  },
-                  "query": {
-                    "params": [
-                      "A",
-                      "5m",
-                      "now"
-                    ]
-                  },
-                  "reducer": {
-                    "params": [],
-                    "type": "min"
-                  },
-                  "type": "query"
-                }
-              ],
-              "executionErrorState": "alerting",
-              "for": "",
-              "frequency": "1m",
-              "handler": 1,
-              "message": "SOAM API Monitor (TEST). If this message shows \"Alerting\", the service is down.",
-              "name": "SOAM API Monitor (TEST)",
-              "noDataState": "alerting",
-              "notifications": []
-            },
             "aliasColors": {},
             "bars": true,
             "dashLength": 10,
@@ -2922,42 +2634,6 @@ objects:
             }
           },
           {
-            "alert": {
-              "alertRuleTags": {},
-              "conditions": [
-                {
-                  "evaluator": {
-                    "params": [
-                      1
-                    ],
-                    "type": "lt"
-                  },
-                  "operator": {
-                    "type": "and"
-                  },
-                  "query": {
-                    "params": [
-                      "A",
-                      "5m",
-                      "now"
-                    ]
-                  },
-                  "reducer": {
-                    "params": [],
-                    "type": "min"
-                  },
-                  "type": "query"
-                }
-              ],
-              "executionErrorState": "alerting",
-              "for": "",
-              "frequency": "1m",
-              "handler": 1,
-              "message": "SOAM Keycloak Monitor (TEST). If this message shows \"Alerting\", the service is down.",
-              "name": "SOAM Keycloak Monitor (TEST)",
-              "noDataState": "alerting",
-              "notifications": []
-            },
             "aliasColors": {},
             "bars": true,
             "dashLength": 10,
@@ -3052,42 +2728,6 @@ objects:
             }
           },
           {
-            "alert": {
-              "alertRuleTags": {},
-              "conditions": [
-                {
-                  "evaluator": {
-                    "params": [
-                      1
-                    ],
-                    "type": "lt"
-                  },
-                  "operator": {
-                    "type": "and"
-                  },
-                  "query": {
-                    "params": [
-                      "A",
-                      "5m",
-                      "now"
-                    ]
-                  },
-                  "reducer": {
-                    "params": [],
-                    "type": "min"
-                  },
-                  "type": "query"
-                }
-              ],
-              "executionErrorState": "alerting",
-              "for": "",
-              "frequency": "1m",
-              "handler": 1,
-              "message": "Student Admin Frontend Monitor (TEST). If this message shows \"Alerting\", the service is down.",
-              "name": "Student Admin Frontend Monitor (TEST)",
-              "noDataState": "alerting",
-              "notifications": []
-            },
             "aliasColors": {},
             "bars": true,
             "dashLength": 10,
@@ -3182,42 +2822,6 @@ objects:
             }
           },
           {
-            "alert": {
-              "alertRuleTags": {},
-              "conditions": [
-                {
-                  "evaluator": {
-                    "params": [
-                      1
-                    ],
-                    "type": "lt"
-                  },
-                  "operator": {
-                    "type": "and"
-                  },
-                  "query": {
-                    "params": [
-                      "A",
-                      "5m",
-                      "now"
-                    ]
-                  },
-                  "reducer": {
-                    "params": [],
-                    "type": "min"
-                  },
-                  "type": "query"
-                }
-              ],
-              "executionErrorState": "alerting",
-              "for": "",
-              "frequency": "1m",
-              "handler": 1,
-              "message": "Student Admin Backend Monitor (TEST). If this message shows \"Alerting\", the service is down.",
-              "name": "Student Admin Backend Monitor (TEST)",
-              "noDataState": "alerting",
-              "notifications": []
-            },
             "aliasColors": {},
             "bars": true,
             "dashLength": 10,
@@ -3312,42 +2916,6 @@ objects:
             }
           },
           {
-            "alert": {
-              "alertRuleTags": {},
-              "conditions": [
-                {
-                  "evaluator": {
-                    "params": [
-                      1
-                    ],
-                    "type": "lt"
-                  },
-                  "operator": {
-                    "type": "and"
-                  },
-                  "query": {
-                    "params": [
-                      "A",
-                      "5m",
-                      "now"
-                    ]
-                  },
-                  "reducer": {
-                    "params": [],
-                    "type": "min"
-                  },
-                  "type": "query"
-                }
-              ],
-              "executionErrorState": "alerting",
-              "for": "",
-              "frequency": "1m",
-              "handler": 1,
-              "message": "Student API Monitor (TEST). If this message shows \"Alerting\", the service is down.",
-              "name": "Student API Monitor (TEST)",
-              "noDataState": "alerting",
-              "notifications": []
-            },
             "aliasColors": {},
             "bars": true,
             "dashLength": 10,
@@ -3456,42 +3024,6 @@ objects:
             "type": "row"
           },
           {
-            "alert": {
-              "alertRuleTags": {},
-              "conditions": [
-                {
-                  "evaluator": {
-                    "params": [
-                      1
-                    ],
-                    "type": "lt"
-                  },
-                  "operator": {
-                    "type": "and"
-                  },
-                  "query": {
-                    "params": [
-                      "A",
-                      "5m",
-                      "now"
-                    ]
-                  },
-                  "reducer": {
-                    "params": [],
-                    "type": "min"
-                  },
-                  "type": "query"
-                }
-              ],
-              "executionErrorState": "alerting",
-              "for": "",
-              "frequency": "1m",
-              "handler": 1,
-              "message": "Services Card API Monitor (DEV). If this message shows \"Alerting\", the service is down.",
-              "name": "Services Card API Monitor (DEV)",
-              "noDataState": "alerting",
-              "notifications": []
-            },
             "aliasColors": {},
             "bars": true,
             "dashLength": 10,
@@ -3587,42 +3119,6 @@ objects:
             }
           },
           {
-            "alert": {
-              "alertRuleTags": {},
-              "conditions": [
-                {
-                  "evaluator": {
-                    "params": [
-                      1
-                    ],
-                    "type": "lt"
-                  },
-                  "operator": {
-                    "type": "and"
-                  },
-                  "query": {
-                    "params": [
-                      "A",
-                      "5m",
-                      "now"
-                    ]
-                  },
-                  "reducer": {
-                    "params": [],
-                    "type": "min"
-                  },
-                  "type": "query"
-                }
-              ],
-              "executionErrorState": "alerting",
-              "for": "",
-              "frequency": "1m",
-              "handler": 1,
-              "message": "Digital ID API Monitor (DEV). If this message shows \"Alerting\", the service is down.",
-              "name": "Digital ID API Monitor (DEV)",
-              "noDataState": "no_data",
-              "notifications": []
-            },
             "aliasColors": {},
             "bars": true,
             "dashLength": 10,
@@ -3718,42 +3214,6 @@ objects:
             }
           },
           {
-            "alert": {
-              "alertRuleTags": {},
-              "conditions": [
-                {
-                  "evaluator": {
-                    "params": [
-                      1
-                    ],
-                    "type": "lt"
-                  },
-                  "operator": {
-                    "type": "and"
-                  },
-                  "query": {
-                    "params": [
-                      "A",
-                      "5m",
-                      "now"
-                    ]
-                  },
-                  "reducer": {
-                    "params": [],
-                    "type": "min"
-                  },
-                  "type": "query"
-                }
-              ],
-              "executionErrorState": "alerting",
-              "for": "",
-              "frequency": "1m",
-              "handler": 1,
-              "message": "PEN Request API Monitor (DEV). If this message shows \"Alerting\", the service is down.",
-              "name": "PEN Request API Monitor (DEV)",
-              "noDataState": "alerting",
-              "notifications": []
-            },
             "aliasColors": {},
             "bars": true,
             "dashLength": 10,
@@ -3849,42 +3309,6 @@ objects:
             }
           },
           {
-            "alert": {
-              "alertRuleTags": {},
-              "conditions": [
-                {
-                  "evaluator": {
-                    "params": [
-                      1
-                    ],
-                    "type": "lt"
-                  },
-                  "operator": {
-                    "type": "and"
-                  },
-                  "query": {
-                    "params": [
-                      "A",
-                      "5m",
-                      "now"
-                    ]
-                  },
-                  "reducer": {
-                    "params": [],
-                    "type": "min"
-                  },
-                  "type": "query"
-                }
-              ],
-              "executionErrorState": "alerting",
-              "for": "0m",
-              "frequency": "1m",
-              "handler": 1,
-              "message": "PEN Demographics API Monitor (DEV). If this message shows \"Alerting\", the service is down.",
-              "name": "PEN Demographics API Monitor (DEV)",
-              "noDataState": "alerting",
-              "notifications": []
-            },
             "aliasColors": {},
             "bars": true,
             "dashLength": 10,
@@ -3979,42 +3403,6 @@ objects:
             }
           },
           {
-            "alert": {
-              "alertRuleTags": {},
-              "conditions": [
-                {
-                  "evaluator": {
-                    "params": [
-                      1
-                    ],
-                    "type": "lt"
-                  },
-                  "operator": {
-                    "type": "and"
-                  },
-                  "query": {
-                    "params": [
-                      "A",
-                      "5m",
-                      "now"
-                    ]
-                  },
-                  "reducer": {
-                    "params": [],
-                    "type": "min"
-                  },
-                  "type": "query"
-                }
-              ],
-              "executionErrorState": "alerting",
-              "for": "",
-              "frequency": "1m",
-              "handler": 1,
-              "message": "PEN Request Email API Monitor (DEV). If this message shows \"Alerting\", the service is down.",
-              "name": "PEN Request Email API Monitor (DEV)",
-              "noDataState": "alerting",
-              "notifications": []
-            },
             "aliasColors": {},
             "bars": true,
             "dashLength": 10,
@@ -4109,42 +3497,6 @@ objects:
             }
           },
           {
-            "alert": {
-              "alertRuleTags": {},
-              "conditions": [
-                {
-                  "evaluator": {
-                    "params": [
-                      1
-                    ],
-                    "type": "lt"
-                  },
-                  "operator": {
-                    "type": "and"
-                  },
-                  "query": {
-                    "params": [
-                      "A",
-                      "5m",
-                      "now"
-                    ]
-                  },
-                  "reducer": {
-                    "params": [],
-                    "type": "min"
-                  },
-                  "type": "query"
-                }
-              ],
-              "executionErrorState": "alerting",
-              "for": "",
-              "frequency": "1m",
-              "handler": 1,
-              "message": "PEN Request Backend Monitor (DEV). If this message shows \"Alerting\", the service is down.",
-              "name": "PEN Request Backend Monitor (DEV)",
-              "noDataState": "alerting",
-              "notifications": []
-            },
             "aliasColors": {},
             "bars": true,
             "dashLength": 10,
@@ -4239,42 +3591,6 @@ objects:
             }
           },
           {
-            "alert": {
-              "alertRuleTags": {},
-              "conditions": [
-                {
-                  "evaluator": {
-                    "params": [
-                      1
-                    ],
-                    "type": "lt"
-                  },
-                  "operator": {
-                    "type": "and"
-                  },
-                  "query": {
-                    "params": [
-                      "A",
-                      "5m",
-                      "now"
-                    ]
-                  },
-                  "reducer": {
-                    "params": [],
-                    "type": "min"
-                  },
-                  "type": "query"
-                }
-              ],
-              "executionErrorState": "alerting",
-              "for": "",
-              "frequency": "1m",
-              "handler": 1,
-              "message": "PEN Request Frontend Monitor (DEV). If this message shows \"Alerting\", the service is down.",
-              "name": "PEN Request Frontend Monitor (DEV)",
-              "noDataState": "alerting",
-              "notifications": []
-            },
             "aliasColors": {},
             "bars": true,
             "dashLength": 10,
@@ -4370,42 +3686,6 @@ objects:
             }
           },
           {
-            "alert": {
-              "alertRuleTags": {},
-              "conditions": [
-                {
-                  "evaluator": {
-                    "params": [
-                      1
-                    ],
-                    "type": "lt"
-                  },
-                  "operator": {
-                    "type": "and"
-                  },
-                  "query": {
-                    "params": [
-                      "A",
-                      "5m",
-                      "now"
-                    ]
-                  },
-                  "reducer": {
-                    "params": [],
-                    "type": "min"
-                  },
-                  "type": "query"
-                }
-              ],
-              "executionErrorState": "alerting",
-              "for": "",
-              "frequency": "1m",
-              "handler": 1,
-              "message": "SOAM API Monitor (DEV). If this message shows \"Alerting\", the service is down.",
-              "name": "SOAM API Monitor (DEV)",
-              "noDataState": "alerting",
-              "notifications": []
-            },
             "aliasColors": {},
             "bars": true,
             "dashLength": 10,
@@ -4500,42 +3780,6 @@ objects:
             }
           },
           {
-            "alert": {
-              "alertRuleTags": {},
-              "conditions": [
-                {
-                  "evaluator": {
-                    "params": [
-                      1
-                    ],
-                    "type": "lt"
-                  },
-                  "operator": {
-                    "type": "and"
-                  },
-                  "query": {
-                    "params": [
-                      "A",
-                      "5m",
-                      "now"
-                    ]
-                  },
-                  "reducer": {
-                    "params": [],
-                    "type": "min"
-                  },
-                  "type": "query"
-                }
-              ],
-              "executionErrorState": "alerting",
-              "for": "",
-              "frequency": "1m",
-              "handler": 1,
-              "message": "SOAM Keycloak Monitor (DEV). If this message shows \"Alerting\", the service is down.",
-              "name": "SOAM Keycloak Monitor (DEV)",
-              "noDataState": "alerting",
-              "notifications": []
-            },
             "aliasColors": {},
             "bars": true,
             "dashLength": 10,
@@ -4630,42 +3874,6 @@ objects:
             }
           },
           {
-            "alert": {
-              "alertRuleTags": {},
-              "conditions": [
-                {
-                  "evaluator": {
-                    "params": [
-                      1
-                    ],
-                    "type": "lt"
-                  },
-                  "operator": {
-                    "type": "and"
-                  },
-                  "query": {
-                    "params": [
-                      "A",
-                      "5m",
-                      "now"
-                    ]
-                  },
-                  "reducer": {
-                    "params": [],
-                    "type": "min"
-                  },
-                  "type": "query"
-                }
-              ],
-              "executionErrorState": "alerting",
-              "for": "",
-              "frequency": "1m",
-              "handler": 1,
-              "message": "Student Admin Frontend Monitor (DEV). If this message shows \"Alerting\", the service is down.",
-              "name": "Student Admin Frontend Monitor (DEV)",
-              "noDataState": "alerting",
-              "notifications": []
-            },
             "aliasColors": {},
             "bars": true,
             "dashLength": 10,
@@ -4760,42 +3968,6 @@ objects:
             }
           },
           {
-            "alert": {
-              "alertRuleTags": {},
-              "conditions": [
-                {
-                  "evaluator": {
-                    "params": [
-                      1
-                    ],
-                    "type": "lt"
-                  },
-                  "operator": {
-                    "type": "and"
-                  },
-                  "query": {
-                    "params": [
-                      "A",
-                      "5m",
-                      "now"
-                    ]
-                  },
-                  "reducer": {
-                    "params": [],
-                    "type": "min"
-                  },
-                  "type": "query"
-                }
-              ],
-              "executionErrorState": "alerting",
-              "for": "",
-              "frequency": "1m",
-              "handler": 1,
-              "message": "Student Admin Backend Monitor (DEV). If this message shows \"Alerting\", the service is down.",
-              "name": "Student Admin Backend Monitor (DEV)",
-              "noDataState": "alerting",
-              "notifications": []
-            },
             "aliasColors": {},
             "bars": true,
             "dashLength": 10,
@@ -4890,42 +4062,6 @@ objects:
             }
           },
           {
-            "alert": {
-              "alertRuleTags": {},
-              "conditions": [
-                {
-                  "evaluator": {
-                    "params": [
-                      1
-                    ],
-                    "type": "lt"
-                  },
-                  "operator": {
-                    "type": "and"
-                  },
-                  "query": {
-                    "params": [
-                      "A",
-                      "5m",
-                      "now"
-                    ]
-                  },
-                  "reducer": {
-                    "params": [],
-                    "type": "min"
-                  },
-                  "type": "query"
-                }
-              ],
-              "executionErrorState": "alerting",
-              "for": "",
-              "frequency": "1m",
-              "handler": 1,
-              "message": "Student API Monitor (DEV). If this message shows \"Alerting\", the service is down.",
-              "name": "Student API Monitor (DEV)",
-              "noDataState": "alerting",
-              "notifications": []
-            },
             "aliasColors": {},
             "bars": true,
             "dashLength": 10,
