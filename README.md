@@ -48,9 +48,3 @@ oc new-app -f prometheus-application.yaml -p NAMESPACE=<your namespace i.e. v3s4
 ```
 oc new-app -f grafana-application-dc.yaml -p NAMESPACE=<your namespace i.e. v3s4sw> -p ENVIRONMENT=<your env i.e. tools> -p EMAIL_SUPPORT_LIST="abc@sda.com,akdl@sadf.com"
 ```
-### Note on Grafana Notification Channels
-* The `./grafana` folder contains the file `grafana-notification-channel-config (not working).yaml`
-* This file *should* be used for setting up notification channels on startup
-* It does not work however. The application seems to load the file correctly (changing values in the config map does cause an error). 
-* Suspect this is a bug with Grafana
-* This being said, your team will need to setup the notification channels manually. 
