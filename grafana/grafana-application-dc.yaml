@@ -193,6 +193,9 @@ objects:
       logs = /var/log/grafana
       plugins = /var/lib/grafana/plugins
       
+      [server]
+      root_url = https://grafana-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/
+      
       [log]
       # Either "console", "file", "syslog". Default is console and  file
       # Use space to separate multiple modes, e.g. "console file"
