@@ -4567,7 +4567,7 @@ objects:
              "timeShift": null,
              "title": "PEN Request Backend",
              "type": "singlestat",
-             "valueFontSize": "80%",
+             "valueFontSize": "100%",
              "valueMaps": [
                {
                  "op": "=",
@@ -5616,12 +5616,12 @@ objects:
                  "refId": "A"
                }
              ],
-             "thresholds": "",
+             "thresholds": "-0.5,0",
              "timeFrom": null,
              "timeShift": null,
              "title": "PEN Request Backend",
              "type": "singlestat",
-             "valueFontSize": "80%",
+             "valueFontSize": "100%",
              "valueMaps": [
                {
                  "op": "=",
@@ -6670,12 +6670,12 @@ objects:
                   "refId": "A"
                 }
               ],
-              "thresholds": "",
+              "thresholds": "-0.5,0",
               "timeFrom": null,
               "timeShift": null,
               "title": "PEN Request Backend",
               "type": "singlestat",
-              "valueFontSize": "80%",
+              "valueFontSize": "100%",
               "valueMaps": [
                 {
                   "op": "=",
