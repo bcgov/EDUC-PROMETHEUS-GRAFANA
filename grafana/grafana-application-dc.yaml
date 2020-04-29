@@ -392,7 +392,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://services-card-api-c2mvws-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://services-card-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -528,7 +528,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://digitalid-api-c2mvws-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://digitalid-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -664,7 +664,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-api-c2mvws-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://pen-request-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -800,7 +800,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-demographics-api-c2mvws-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://pen-demographics-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -936,7 +936,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-email-api-c2mvws-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://pen-request-email-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1344,7 +1344,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://soam-api-c2mvws-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://soam-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1480,7 +1480,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://c2mvws.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://${NAMESPACE}.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1616,7 +1616,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-admin-c2mvws-prod.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-prod.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1752,7 +1752,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-admin-c2mvws-prod.pathfinder.gov.bc.ca/api/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-prod.pathfinder.gov.bc.ca/api/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1888,7 +1888,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-api-c2mvws-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1988,7 +1988,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "redis_up{instance=\"redis-exporter-c2mvws-prod.pathfinder.gov.bc.ca:80\",job=\"redis_exporter\"}",
+                "expr": "redis_up{instance=\"redis-exporter-${NAMESPACE}-prod.pathfinder.gov.bc.ca:80\",job=\"redis_exporter\"}",
                 "interval": "",
                 "legendFormat": "",
                 "refId": "A"
@@ -2097,7 +2097,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://services-card-api-c2mvws-test.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://services-card-api-${NAMESPACE}-test.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -2197,7 +2197,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://digitalid-api-c2mvws-test.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://digitalid-api-${NAMESPACE}-test.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -2298,7 +2298,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-api-c2mvws-test.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://pen-request-api-${NAMESPACE}-test.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -2399,7 +2399,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-demographics-api-c2mvws-test.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://pen-demographics-api-${NAMESPACE}-test.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -2499,7 +2499,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-email-api-c2mvws-test.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://pen-request-email-api-${NAMESPACE}-test.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -2599,7 +2599,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-c2mvws-test.pathfinder.gov.bc.ca/api\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://pen-request-${NAMESPACE}-test.pathfinder.gov.bc.ca/api\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -2699,7 +2699,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-c2mvws-test.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://pen-request-${NAMESPACE}-test.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -2800,7 +2800,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://soam-api-c2mvws-test.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://soam-api-${NAMESPACE}-test.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -2900,7 +2900,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://c2mvws-test.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://${NAMESPACE}-test.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -3000,7 +3000,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-admin-c2mvws-test.pathfinder.gov.bc.ca/api/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-test.pathfinder.gov.bc.ca/api/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -3100,7 +3100,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-admin-c2mvws-test.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-test.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -3200,7 +3200,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-api-c2mvws-test.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-api-${NAMESPACE}-test.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -3300,7 +3300,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "redis_up{instance=\"redis-exporter-c2mvws-test.pathfinder.gov.bc.ca:80\",job=\"redis_exporter\"}",
+                "expr": "redis_up{instance=\"redis-exporter-${NAMESPACE}-test.pathfinder.gov.bc.ca:80\",job=\"redis_exporter\"}",
                 "interval": "",
                 "legendFormat": "",
                 "refId": "A"
@@ -3409,7 +3409,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://services-card-api-c2mvws-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://services-card-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -3509,7 +3509,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://digitalid-api-c2mvws-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://digitalid-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -3610,7 +3610,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-api-c2mvws-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://pen-request-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -3711,7 +3711,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-demographics-api-c2mvws-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://pen-demographics-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -3811,7 +3811,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-email-api-c2mvws-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://pen-request-email-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -3911,7 +3911,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-c2mvws-dev.pathfinder.gov.bc.ca/api\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://pen-request-${NAMESPACE}-dev.pathfinder.gov.bc.ca/api\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -4011,7 +4011,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-c2mvws-dev.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://pen-request-${NAMESPACE}-dev.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -4112,7 +4112,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://soam-api-c2mvws-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://soam-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -4212,7 +4212,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://c2mvws-dev.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://${NAMESPACE}-dev.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -4312,7 +4312,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-admin-c2mvws-dev.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-dev.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -4412,7 +4412,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-admin-c2mvws-dev.pathfinder.gov.bc.ca/api/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-dev.pathfinder.gov.bc.ca/api/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -4512,7 +4512,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-api-c2mvws-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -4612,7 +4612,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "redis_up{instance=\"redis-exporter-c2mvws-dev.pathfinder.gov.bc.ca:80\",job=\"redis_exporter\"}",
+                "expr": "redis_up{instance=\"redis-exporter-${NAMESPACE}-dev.pathfinder.gov.bc.ca:80\",job=\"redis_exporter\"}",
                 "interval": "",
                 "legendFormat": "",
                 "refId": "A"
@@ -4793,7 +4793,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"http://grafana-c2mvws-tools.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"http://grafana-${NAMESPACE}-tools.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -4884,7 +4884,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://sonarqube-c2mvws-tools.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://sonarqube-${NAMESPACE}-tools.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -4975,7 +4975,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://jenkins-c2mvws-tools.pathfinder.gov.bc.ca/login\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://jenkins-${NAMESPACE}-tools.pathfinder.gov.bc.ca/login\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -5266,7 +5266,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://digitalid-api-c2mvws-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://digitalid-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -5358,7 +5358,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-api-c2mvws-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://pen-request-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -5449,7 +5449,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-api-c2mvws-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://student-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -5541,7 +5541,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-email-api-c2mvws-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://pen-request-email-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -5632,7 +5632,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-demographics-api-c2mvws-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://pen-demographics-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -5723,7 +5723,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://services-card-api-c2mvws-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://services-card-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -5814,7 +5814,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://soam-api-c2mvws-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://soam-api-${NAMESPACE}-prod.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -5905,7 +5905,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://c2mvws.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://${NAMESPACE}.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -5997,7 +5997,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-admin-c2mvws-prod.pathfinder.gov.bc.ca/api/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-prod.pathfinder.gov.bc.ca/api/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -6089,7 +6089,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-admin-c2mvws-prod.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-prod.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -6181,7 +6181,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "redis_up{instance=\"redis-exporter-c2mvws-prod.pathfinder.gov.bc.ca:80\",job=\"redis_exporter\"}",
+                "expr": "redis_up{instance=\"redis-exporter-${NAMESPACE}-prod.pathfinder.gov.bc.ca:80\",job=\"redis_exporter\"}",
                 "interval": "",
                 "legendFormat": "",
                 "refId": "A"
@@ -6291,7 +6291,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-c2mvws-test.pathfinder.gov.bc.ca/api\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://pen-request-${NAMESPACE}-test.pathfinder.gov.bc.ca/api\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -6385,7 +6385,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-c2mvws-test.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://pen-request-${NAMESPACE}-test.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -6476,7 +6476,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://digitalid-api-c2mvws-test.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://digitalid-api-${NAMESPACE}-test.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -6568,7 +6568,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-api-c2mvws-test.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://pen-request-api-${NAMESPACE}-test.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -6659,7 +6659,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-api-c2mvws-test.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://student-api-${NAMESPACE}-test.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -6751,7 +6751,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-email-api-c2mvws-test.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://pen-request-email-api-${NAMESPACE}-test.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -6842,7 +6842,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-demographics-api-c2mvws-test.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://pen-demographics-api-${NAMESPACE}-test.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -6933,7 +6933,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://services-card-api-c2mvws-test.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://services-card-api-${NAMESPACE}-test.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -7024,7 +7024,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://soam-api-c2mvws-test.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://soam-api-${NAMESPACE}-test.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -7115,7 +7115,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://c2mvws-test.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://${NAMESPACE}-test.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -7207,7 +7207,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-admin-c2mvws-test.pathfinder.gov.bc.ca/api/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-test.pathfinder.gov.bc.ca/api/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -7299,7 +7299,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-admin-c2mvws-test.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-test.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -7391,7 +7391,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "redis_up{instance=\"redis-exporter-c2mvws-test.pathfinder.gov.bc.ca:80\",job=\"redis_exporter\"}",
+                "expr": "redis_up{instance=\"redis-exporter-${NAMESPACE}-test.pathfinder.gov.bc.ca:80\",job=\"redis_exporter\"}",
                 "interval": "",
                 "legendFormat": "",
                 "refId": "A"
@@ -7501,7 +7501,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-c2mvws-dev.pathfinder.gov.bc.ca/api\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://pen-request-${NAMESPACE}-dev.pathfinder.gov.bc.ca/api\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -7595,7 +7595,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-c2mvws-dev.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://pen-request-${NAMESPACE}-dev.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -7686,7 +7686,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://digitalid-api-c2mvws-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://digitalid-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -7778,7 +7778,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-api-c2mvws-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://pen-request-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -7869,7 +7869,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-api-c2mvws-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://student-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -7961,7 +7961,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-email-api-c2mvws-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://pen-request-email-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -8052,7 +8052,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-demographics-api-c2mvws-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://pen-demographics-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -8143,7 +8143,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://services-card-api-c2mvws-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://services-card-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -8234,7 +8234,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://soam-api-c2mvws-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://soam-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -8325,7 +8325,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://c2mvws-dev.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://${NAMESPACE}-dev.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -8417,7 +8417,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-admin-c2mvws-dev.pathfinder.gov.bc.ca/api/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-dev.pathfinder.gov.bc.ca/api/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -8509,7 +8509,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-admin-c2mvws-dev.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-dev.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -8601,7 +8601,7 @@ objects:
             "tableColumn": "",
             "targets": [
               {
-                "expr": "redis_up{instance=\"redis-exporter-c2mvws-dev.pathfinder.gov.bc.ca:80\",job=\"redis_exporter\"}",
+                "expr": "redis_up{instance=\"redis-exporter-${NAMESPACE}-dev.pathfinder.gov.bc.ca:80\",job=\"redis_exporter\"}",
                 "interval": "",
                 "legendFormat": "",
                 "refId": "A"
