@@ -82,6 +82,9 @@ objects:
         containers:
         - name: blackbox
           image: ${IMAGE_BLACKBOX}
+          env:
+            - name: TZ
+              value: "America/Vancouver"
           ports:
           - name: blackbox-http
             containerPort: 80

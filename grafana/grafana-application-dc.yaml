@@ -100,6 +100,9 @@ objects:
         containers:
         - name: grafana
           image: ${IMAGE_GRAFANA}
+          env:
+            - name: TZ
+              value: "America/Vancouver"
           ports:
           - name: grafana-http
             containerPort: 3000
