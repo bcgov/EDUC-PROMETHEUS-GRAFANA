@@ -10,7 +10,7 @@ metadata:
     iconClass: fa fa-cogs
     tags: "metrics,monitoring,blackbox"
 parameters:
-- description: The location of the grafana image
+- description: The location of the blackbox image
   name: IMAGE_BLACKBOX
   value: docker.io/bitnami/blackbox-exporter:latest
 - description: External URL for the blackbox route
@@ -28,12 +28,15 @@ objects:
   metadata:
     name: blackbox
     namespace: "${NAMESPACE}-${ENVIRONMENT}"
-    
+    labels:
+      name: blackbox
 - apiVersion: route.openshift.io/v1
   kind: Route
   metadata:
     name: blackbox
     namespace: "${NAMESPACE}-${ENVIRONMENT}"
+    labels:
+      name: blackbox
   spec:
     host: "${ROUTE_URL}"
     to:
@@ -64,7 +67,7 @@ objects:
   kind: Deployment
   metadata:
     labels:
-      app: blackbox
+      name: blackbox
     name: blackbox
     namespace: "${NAMESPACE}-${ENVIRONMENT}"
   spec:
@@ -75,7 +78,7 @@ objects:
     template:
       metadata:
         labels:
-          app: blackbox
+          name: blackbox
         name: blackbox
       spec:
         serviceAccountName: blackbox
