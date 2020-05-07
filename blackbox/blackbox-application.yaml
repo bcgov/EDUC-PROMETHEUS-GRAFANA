@@ -77,8 +77,6 @@ objects:
         app: blackbox
     template:
       metadata:
-        labels:
-          name: blackbox
         name: blackbox
       spec:
         serviceAccountName: blackbox
