@@ -106,6 +106,13 @@ objects:
           ports:
           - name: grafana-http
             containerPort: 3000
+          resources:
+            requests:
+              cpu: "10m"
+              memory: "100Mi"
+            limits:
+              cpu: "50m"
+              memory: "200Mi"
           volumeMounts:
             - mountPath: /etc/grafana
               name: grafana-config
