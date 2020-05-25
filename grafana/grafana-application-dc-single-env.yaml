@@ -353,7 +353,7 @@ objects:
                 }
               ],
               "executionErrorState": "alerting",
-              "for": "0m",
+              "for": "5m",
               "frequency": "1m",
               "handler": 1,
               "message": "Services Card API Monitor (${ENVIRONMENT}). If this message shows \"Alerting\", the service is down.",
@@ -490,7 +490,7 @@ objects:
                 }
               ],
               "executionErrorState": "alerting",
-              "for": "0m",
+              "for": "5m",
               "frequency": "1m",
               "handler": 1,
               "message": "Digital ID API Monitor (${ENVIRONMENT}). If this message shows \"Alerting\", the service is down.",
@@ -626,7 +626,7 @@ objects:
                 }
               ],
               "executionErrorState": "alerting",
-              "for": "0m",
+              "for": "5m",
               "frequency": "1m",
               "handler": 1,
               "message": "PEN Request API Monitor (${ENVIRONMENT}). If this message shows \"Alerting\", the service is down.",
@@ -762,7 +762,7 @@ objects:
                 }
               ],
               "executionErrorState": "alerting",
-              "for": "0m",
+              "for": "5m",
               "frequency": "1m",
               "handler": 1,
               "message": "PEN Demographics API Monitor (${ENVIRONMENT}). If this message shows \"Alerting\", the service is down.",
@@ -898,7 +898,7 @@ objects:
                 }
               ],
               "executionErrorState": "alerting",
-              "for": "0m",
+              "for": "5m",
               "frequency": "1m",
               "handler": 1,
               "message": "PEN Request Email API Monitor (${ENVIRONMENT}). If this message shows \"Alerting\", the service is down.",
@@ -1034,7 +1034,7 @@ objects:
                 }
               ],
               "executionErrorState": "alerting",
-              "for": "0m",
+              "for": "5m",
               "frequency": "1m",
               "handler": 1,
               "message": "PEN Request Backend Monitor (${ENVIRONMENT}). If this message shows \"Alerting\", the service is down.",
@@ -1170,7 +1170,7 @@ objects:
                 }
               ],
               "executionErrorState": "alerting",
-              "for": "0m",
+              "for": "5m",
               "frequency": "1m",
               "handler": 1,
               "message": "PEN Request Frontend Monitor (${ENVIRONMENT}). If this message shows \"Alerting\", the service is down.",
@@ -1306,7 +1306,7 @@ objects:
                 }
               ],
               "executionErrorState": "alerting",
-              "for": "0m",
+              "for": "5m",
               "frequency": "1m",
               "handler": 1,
               "message": "SOAM API Monitor (${ENVIRONMENT}). If this message shows \"Alerting\", the service is down.",
@@ -1578,7 +1578,7 @@ objects:
                 }
               ],
               "executionErrorState": "alerting",
-              "for": "0m",
+              "for": "5m",
               "frequency": "1m",
               "handler": 1,
               "message": "Student Admin Frontend Monitor (${ENVIRONMENT}). If this message shows \"Alerting\", the service is down.",
@@ -1714,7 +1714,7 @@ objects:
                 }
               ],
               "executionErrorState": "alerting",
-              "for": "0m",
+              "for": "5m",
               "frequency": "1m",
               "handler": 1,
               "message": "Student Admin Backend Monitor (${ENVIRONMENT}). If this message shows \"Alerting\", the service is down.",
@@ -1850,7 +1850,7 @@ objects:
                 }
               ],
               "executionErrorState": "alerting",
-              "for": "0m",
+              "for": "5m",
               "frequency": "1m",
               "handler": 1,
               "message": "Student API Monitor (${ENVIRONMENT}). If this message shows \"Alerting\", the service is down.",
