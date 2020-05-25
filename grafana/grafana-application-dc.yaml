@@ -344,7 +344,7 @@ objects:
                 }
               ],
               "executionErrorState": "alerting",
-              "for": "0m",
+              "for": "5m",
               "frequency": "1m",
               "handler": 1,
               "message": "Services Card API Monitor (PROD). If this message shows \"Alerting\", the service is down.",
@@ -481,7 +481,7 @@ objects:
                 }
               ],
               "executionErrorState": "alerting",
-              "for": "0m",
+              "for": "5m",
               "frequency": "1m",
               "handler": 1,
               "message": "Digital ID API Monitor (PROD). If this message shows \"Alerting\", the service is down.",
@@ -617,7 +617,7 @@ objects:
                 }
               ],
               "executionErrorState": "alerting",
-              "for": "0m",
+              "for": "5m",
               "frequency": "1m",
               "handler": 1,
               "message": "PEN Request API Monitor (PROD). If this message shows \"Alerting\", the service is down.",
@@ -753,7 +753,7 @@ objects:
                 }
               ],
               "executionErrorState": "alerting",
-              "for": "0m",
+              "for": "5m",
               "frequency": "1m",
               "handler": 1,
               "message": "PEN Demographics API Monitor (PROD). If this message shows \"Alerting\", the service is down.",
@@ -889,7 +889,7 @@ objects:
                 }
               ],
               "executionErrorState": "alerting",
-              "for": "0m",
+              "for": "5m",
               "frequency": "1m",
               "handler": 1,
               "message": "PEN Request Email API Monitor (PROD). If this message shows \"Alerting\", the service is down.",
@@ -1025,7 +1025,7 @@ objects:
                 }
               ],
               "executionErrorState": "alerting",
-              "for": "0m",
+              "for": "5m",
               "frequency": "1m",
               "handler": 1,
               "message": "PEN Request Backend Monitor (PROD). If this message shows \"Alerting\", the service is down.",
@@ -1161,7 +1161,7 @@ objects:
                 }
               ],
               "executionErrorState": "alerting",
-              "for": "0m",
+              "for": "5m",
               "frequency": "1m",
               "handler": 1,
               "message": "PEN Request Frontend Monitor (PROD). If this message shows \"Alerting\", the service is down.",
@@ -1297,7 +1297,7 @@ objects:
                 }
               ],
               "executionErrorState": "alerting",
-              "for": "0m",
+              "for": "5m",
               "frequency": "1m",
               "handler": 1,
               "message": "SOAM API Monitor (PROD). If this message shows \"Alerting\", the service is down.",
@@ -1569,7 +1569,7 @@ objects:
                 }
               ],
               "executionErrorState": "alerting",
-              "for": "0m",
+              "for": "5m",
               "frequency": "1m",
               "handler": 1,
               "message": "Student Admin Frontend Monitor (PROD). If this message shows \"Alerting\", the service is down.",
@@ -1705,7 +1705,7 @@ objects:
                 }
               ],
               "executionErrorState": "alerting",
-              "for": "0m",
+              "for": "5m",
               "frequency": "1m",
               "handler": 1,
               "message": "Student Admin Backend Monitor (PROD). If this message shows \"Alerting\", the service is down.",
@@ -1841,7 +1841,7 @@ objects:
                 }
               ],
               "executionErrorState": "alerting",
-              "for": "0m",
+              "for": "5m",
               "frequency": "1m",
               "handler": 1,
               "message": "Student API Monitor (PROD). If this message shows \"Alerting\", the service is down.",
