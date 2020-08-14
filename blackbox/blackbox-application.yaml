@@ -13,9 +13,9 @@ parameters:
 - description: The location of the blackbox image
   name: IMAGE_BLACKBOX
   value: docker.io/bitnami/blackbox-exporter:latest
-- description: External URL for the blackbox route
-  name: ROUTE_URL
-  value: ""
+- description: DOMAIN for the app to be hosted.
+  name: DOMAIN
+  required: true
 - description: The namespace to instantiate heapster under. Defaults to 'namespace'.
   name: NAMESPACE
   value: namespace
@@ -38,7 +38,7 @@ objects:
     labels:
       name: blackbox
   spec:
-    host: "${ROUTE_URL}"
+    host: "blackbox-${NAMESPACE}-${ENVIRONMENT}.${DOMAIN}"
     to:
       name: blackbox
       kind: Service
