@@ -74,9 +74,11 @@ objects:
     replicas: 1
     selector:
       matchLabels:
-        app: blackbox
+        name: blackbox
     template:
       metadata:
+        labels:
+          name: blackbox
         name: blackbox
       spec:
         serviceAccountName: blackbox
