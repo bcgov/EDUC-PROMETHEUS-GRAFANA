@@ -47,5 +47,5 @@ To Delete existing grafana switch to namespace where you want to delete, then ru
 * The `PROD_URL` parameter allows you to add a vanity URL if your app contains one (specific to our implementation)
 
 ```
-oc new-app -f https://raw.githubusercontent.com/bcgov/EDUC-PROMETHEUS-GRAFANA/master/grafana/grafana-application-dc.yaml  -p COMMON_NAMESPACE=<your common namespace> -p PEN_NAMESPACE=<pen namespace i.e. v3s4sw> -p ENVIRONMENT=<your env i.e. tools> -p EMAIL_SUPPORT_LIST="abc@sda.com,akdl@sadf.com"
+oc new-app -f https://raw.githubusercontent.com/bcgov/EDUC-PROMETHEUS-GRAFANA/master/grafana/grafana-application-dc-single-env.yaml  -p COMMON_NAMESPACE=<your common namespace> -p PEN_NAMESPACE=<pen namespace i.e. v3s4sw> -p ENVIRONMENT=<your env i.e. tools> -p EMAIL_SUPPORT_LIST="abc@sda.com,akdl@sadf.com"
 ```
