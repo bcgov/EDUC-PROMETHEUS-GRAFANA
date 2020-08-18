@@ -16,9 +16,12 @@ parameters:
 - description: External URL for the prometheus route
   name: ROUTE_URL
   value: ""
-- description: The namespace to instantiate heapster under. Defaults to 'namespace'.
-  name: NAMESPACE
-  value: namespace
+- name: COMMON_NAMESPACE
+  description: The value of common namespace
+  required: true
+- name: PEN_NAMESPACE
+  description: The value of pen namespace
+  required: true
 - description: The environment to instantiate heapster under. Defaults to 'environment'.
   name: ENVIRONMENT
   value: environment
@@ -32,7 +35,7 @@ objects:
     name: prometheus
     labels:
       name: prometheus
-    namespace: "${NAMESPACE}-${ENVIRONMENT}"
+    namespace: "${COMMON_NAMESPACE}-${ENVIRONMENT}"
 
 - apiVersion: route.openshift.io/v1
   kind: Route
@@ -40,7 +43,7 @@ objects:
     labels:
       name: prometheus
     name: prometheus
-    namespace: "${NAMESPACE}-${ENVIRONMENT}"
+    namespace: "${COMMON_NAMESPACE}-${ENVIRONMENT}"
   spec:
     host: "${ROUTE_URL}"
     to:
@@ -56,7 +59,7 @@ objects:
     annotations:
       prometheus.io/scrape: "true"
       prometheus.io/scheme: http
-    namespace: "${NAMESPACE}-${ENVIRONMENT}"
+    namespace: "${COMMON_NAMESPACE}-${ENVIRONMENT}"
     labels:
       metrics-infra: prometheus
       name: prometheus
@@ -75,7 +78,7 @@ objects:
       app: prometheus
       name: prometheus
     name: prometheus
-    namespace: "${NAMESPACE}-${ENVIRONMENT}"
+    namespace: "${COMMON_NAMESPACE}-${ENVIRONMENT}"
   spec:
     replicas: 1
     selector:
@@ -98,11 +101,11 @@ objects:
           name: prometheus-prometheus-service-configmap-reload
           resources:
             requests:
-              cpu: "10m"
+              cpu: "5m"
               memory: "10Mi"
             limits:
-              cpu: "20m"
-              memory: "50Mi"
+              cpu: "10m"
+              memory: "20Mi"
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           env:
@@ -138,22 +141,22 @@ objects:
             - containerPort: 9090
               protocol: TCP
           readinessProbe:
-            failureThreshold: 3
+            failureThreshold: 20
             httpGet:
               path: /-/ready
               port: 9090
               scheme: HTTP
-            initialDelaySeconds: 30
+            initialDelaySeconds: 10
             periodSeconds: 10
             successThreshold: 1
-            timeoutSeconds: 30
+            timeoutSeconds: 5
           resources:
             requests:
-              cpu: "50m"
-              memory: "300Mi"
+              cpu: "20m"
+              memory: "100Mi"
             limits:
-              cpu: "100m"
-              memory: "500Mi"
+              cpu: "40m"
+              memory: "200Mi"
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           volumeMounts:
@@ -176,7 +179,7 @@ objects:
     name: "prometheus-service"
     labels:
       name: prometheus  
-    namespace: "${NAMESPACE}-${ENVIRONMENT}"
+    namespace: "${COMMON_NAMESPACE}-${ENVIRONMENT}"
   spec:
      storageClassName: netapp-block-standard
      accessModes:
@@ -191,7 +194,7 @@ objects:
     labels:
       name: prometheus  
     name: prometheus-service
-    namespace: "${NAMESPACE}-${ENVIRONMENT}"
+    namespace: "${COMMON_NAMESPACE}-${ENVIRONMENT}"
   data:
      alerts: |
        {}
@@ -239,25 +242,30 @@ objects:
            module: [http_2xx]
          static_configs:
            - targets:
-             - https://digitalid-api-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health
-             - https://pen-demographics-api-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health
-             - https://pen-request-api-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health
-             - https://pen-request-email-api-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health
-             - https://${PEN_REQUEST_URL}/api/health
-             - https://${PEN_REQUEST_URL}
-             - https://services-card-api-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health
-             - https://soam-api-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health
-             - https://${NAMESPACE}.pathfinder.gov.bc.ca
-             - https://student-admin-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/api/health
-             - https://student-admin-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca
-             - https://student-api-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health
+             - https://digitalid-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health
+             - https://pen-demographics-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health
+             - https://pen-request-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health
+             - https://services-card-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health
+             - https://soam-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health
+             - https://student-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health
+             - https://student-profile-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health
+             - https://${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca
+             - https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/api/health
+             - https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca
+             - https://student-profile-email-api-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health
+             - https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/api/health
+             - https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca
+             - https://student-profile-saga-api-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health
+             - https://getmypen.gov.bc.ca/api/health
+             - https://getmypen.gov.bc.ca
+             - http://grafana-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca
          relabel_configs:
            - source_labels: [__address__]
              target_label: __param_target
            - source_labels: [__param_target]
              target_label: instance
            - target_label: __address__
-             replacement: blackbox-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca # Blackbox exporter.
+             replacement: blackbox-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca # Blackbox exporter.
        - job_name: prometheus
          static_configs:
          - targets:
@@ -266,6 +274,6 @@ objects:
          scrape_timeout: 30s
          static_configs:
          - targets:
-           - redis-exporter-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca
+           - redis-exporter-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca
      rules: |
        {}

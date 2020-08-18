@@ -8,44 +8,44 @@ This repository contains OpenShift deployment templates for BlackBox, Prometheus
 ```
 static_configs:
  - targets:
-   - https://digitalid-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health
-   - http://grafana-${NAMESPACE}-tools.pathfinder.gov.bc.ca
-   - https://pen-demographics-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health
-   - https://pen-request-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health
-   - https://pen-request-email-api-${NAMESPACE}-dev.pathfinder.gov.bc.ca/health
+   - https://digitalid-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/health
+   - http://grafana-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca
+   - https://pen-demographics-api-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/health
+   - https://pen-request-api-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/health
+   - https://pen-request-email-api-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/health
 ...
 ```
 * You will need to create your own dashboards to probe any endpoints your team needs
 
 ## BlackBox Exporter Deployment
-Black box is used to allow probes between Prometheus and Grafana
-* Blackbox can be deployed by cloning this repository locally from Git
-* Switch to the correct project/namespace (tools)
-* Navigate to the `./blackbox` folder
-* Run the following command where the `namespace` value is your namespace and `environment` is the environment you wish to deploy to.
+To Delete existing blackbox switch to namespace where you want to delete, then run the below command.
+`oc delete all,rc,svc,dc,route,pvc,secret,configmap,sa,RoleBinding -l name=blackbox`
+
+* Run the following command after replacing the placeholder values. NAMESPACE here is common namespace.
 
 ```
-oc new-app -f blackbox-application.yaml -p NAMESPACE=<your namespace i.e. v3s4sw> -p ENVIRONMENT=<your env i.e. tools>
+oc new-app -f https://raw.githubusercontent.com/bcgov/EDUC-PROMETHEUS-GRAFANA/master/blackbox/blackbox-application.yaml -p NAMESPACE=<your common namespace> -p ENVIRONMENT=<your env i.e. tools> -p DOMAIN =<Domain name goes here.>
 ```
 
 ## Prometheus Deployment
-* Prometheus can be deployed by cloning this repository locally from Git
-* Switch to the correct project/namespace (tools)
-* Navigate to the `./prometheus` folder
-* Run the following command where the `namespace` value is your namespace and `environment` is the environment you wish to deploy to.
+To Delete existing Prometheus switch to namespace where you want to delete, then run the below command.
+`oc delete all,rc,svc,dc,route,pvc,secret,configmap,sa,RoleBinding -l name=prometheus`
+
+* Run the following command after replacing the placeholder values.
 
 ```
-oc new-app -f prometheus-application.yaml -p NAMESPACE=<your namespace i.e. v3s4sw> -p ENVIRONMENT=<your env i.e. tools> 
+oc new-app -f https://raw.githubusercontent.com/bcgov/EDUC-PROMETHEUS-GRAFANA/master/prometheus/prometheus-application-single-env.yaml -p COMMON_NAMESPACE=<your common namespace> -p PEN_NAMESPACE=<pen namespace i.e. v3s4sw> -p ENVIRONMENT=<your env i.e. tools> 
 ```
 
 ## Grafana Deployment
-* Grafana can be deployed by cloning this repository locally from Git 
-* Switch to the correct project/namespace (tools)
-* Navigate to `./grafana` folder
-* Run the following command where the `namespace` value is your namespace and `environment` is the environment you wish to deploy to.
-* You can also include the `EMAIL_SUPPORT_LIST` paramater if you wish to receive alerts. List is comma separated. 
+
+To Delete existing grafana switch to namespace where you want to delete, then run the below command.
+`oc delete all,rc,svc,dc,route,pvc,secret,configmap,sa,RoleBinding -l name=grafana`
+
+* Run the following command after replacing the placeholder values.
+* You can also include the `EMAIL_SUPPORT_LIST` parameter if you wish to receive alerts. List is comma separated. 
 * The `PROD_URL` parameter allows you to add a vanity URL if your app contains one (specific to our implementation)
 
 ```
-oc new-app -f grafana-application-dc.yaml -p NAMESPACE=<your namespace i.e. v3s4sw> -p ENVIRONMENT=<your env i.e. tools> -p EMAIL_SUPPORT_LIST="abc@sda.com,akdl@sadf.com" -p PROD_URL=<your prod URL e.g. vanity URL>
+oc new-app -f https://raw.githubusercontent.com/bcgov/EDUC-PROMETHEUS-GRAFANA/master/grafana/grafana-application-dc.yaml  -p COMMON_NAMESPACE=<your common namespace> -p PEN_NAMESPACE=<pen namespace i.e. v3s4sw> -p ENVIRONMENT=<your env i.e. tools> -p EMAIL_SUPPORT_LIST="abc@sda.com,akdl@sadf.com"
 ```
