@@ -16,9 +16,12 @@ parameters:
 - description: External URL for the grafana route
   name: ROUTE_URL
   value: ""
-- description: The namespace to instantiate heapster under. Defaults to 'grafana'.
-  name: NAMESPACE
-  value: namespace
+- name: COMMON_NAMESPACE
+  description: The value of common namespace
+  required: true
+- name: PEN_NAMESPACE
+  description: The value of pen namespace
+  required: true
 - description: The environment to instantiate heapster under. Defaults to 'environment'.
   name: ENVIRONMENT
   value: environment
@@ -46,14 +49,14 @@ objects:
   kind: ServiceAccount
   metadata:
     name: grafana
-    namespace: "${NAMESPACE}-${ENVIRONMENT}"
+    namespace: "${COMMON_NAMESPACE}-${ENVIRONMENT}"
     labels:
       name: grafana
 - apiVersion: route.openshift.io/v1
   kind: Route
   metadata:
     name: grafana
-    namespace: "${NAMESPACE}-${ENVIRONMENT}"
+    namespace: "${COMMON_NAMESPACE}-${ENVIRONMENT}"
     labels:
       name: grafana
   spec:
@@ -76,7 +79,7 @@ objects:
       prometheus.io/scrape: "true"
       prometheus.io/scheme: https
       service.alpha.openshift.io/serving-cert-secret-name: grafana-tls
-    namespace: "${NAMESPACE}-${ENVIRONMENT}"
+    namespace: "${COMMON_NAMESPACE}-${ENVIRONMENT}"
     labels:
       name: grafana
   spec:
@@ -93,7 +96,7 @@ objects:
     labels:
       name: grafana
     name: grafana
-    namespace: "${NAMESPACE}-${ENVIRONMENT}"
+    namespace: "${COMMON_NAMESPACE}-${ENVIRONMENT}"
   spec:
     replicas: 1
     selector:
@@ -117,10 +120,10 @@ objects:
             containerPort: 3000
           resources:
             requests:
-              cpu: "10m"
+              cpu: "50m"
               memory: "100Mi"
             limits:
-              cpu: "50m"
+              cpu: "100m"
               memory: "200Mi"
           volumeMounts:
             - mountPath: /etc/grafana
@@ -166,7 +169,7 @@ objects:
   kind: Secret
   metadata:
     name: openshift-monitoring-grafana-datasource
-    namespace: "${NAMESPACE}-${ENVIRONMENT}"
+    namespace: "${COMMON_NAMESPACE}-${ENVIRONMENT}"
     labels:
       name: grafana
   stringData:
@@ -176,13 +179,13 @@ objects:
       - name: Prometheus
         type: prometheus
         access: proxy
-        url: https://prometheus-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/
+        url: https://prometheus-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/
 
 - apiVersion: v1
   kind: ConfigMap
   metadata:
     name: grafana-notification-channel-config
-    namespace: "${NAMESPACE}-${ENVIRONMENT}"
+    namespace: "${COMMON_NAMESPACE}-${ENVIRONMENT}"
     labels:
       name: grafana
   data:
@@ -202,7 +205,7 @@ objects:
   kind: ConfigMap
   metadata:
     name: grafana-config
-    namespace: "${NAMESPACE}-${ENVIRONMENT}"
+    namespace: "${COMMON_NAMESPACE}-${ENVIRONMENT}"
     labels:
       name: grafana
   data:
@@ -213,7 +216,7 @@ objects:
       plugins = /var/lib/grafana/plugins
       
       [server]
-      root_url = https://grafana-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/
+      root_url = https://grafana-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/
       
       [log]
       # Either "console", "file", "syslog". Default is console and  file
@@ -251,7 +254,7 @@ objects:
   kind: ConfigMap
   metadata:
     name: grafana-dashboards-config
-    namespace: "${NAMESPACE}-${ENVIRONMENT}"
+    namespace: "${COMMON_NAMESPACE}-${ENVIRONMENT}"
     labels:
       name: grafana
   data:
@@ -285,7 +288,7 @@ objects:
   kind: ConfigMap
   metadata:
     name: grafana-predefined-dashboards-config
-    namespace: "${NAMESPACE}-${ENVIRONMENT}"
+    namespace: "${COMMON_NAMESPACE}-${ENVIRONMENT}"
     labels:
       name: grafana
   data:
@@ -307,7 +310,6 @@ objects:
         "editable": true,
         "gnetId": null,
         "graphTooltip": 0,
-        "id": 4,
         "links": [],
         "panels": [
           {
@@ -321,7 +323,7 @@ objects:
             },
             "id": 15,
             "panels": [],
-            "title": "${ENVIRONMENT} Environment",
+            "title": "dev Environment",
             "type": "row"
           },
           {
@@ -369,7 +371,8 @@ objects:
             "description": "",
             "fieldConfig": {
               "defaults": {
-                "custom": {}
+                "custom": {},
+                "links": []
               },
               "overrides": []
             },
@@ -396,9 +399,10 @@ objects:
             "linewidth": 1,
             "nullPointMode": "null",
             "options": {
-              "dataLinks": []
+              "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.2.0-fa766158pre",
             "pointradius": 2,
             "points": false,
             "renderer": "flot",
@@ -408,7 +412,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://services-card-api-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://services-card-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -505,7 +509,8 @@ objects:
             "datasource": "Prometheus",
             "fieldConfig": {
               "defaults": {
-                "custom": {}
+                "custom": {},
+                "links": []
               },
               "overrides": []
             },
@@ -532,9 +537,10 @@ objects:
             "linewidth": 1,
             "nullPointMode": "null",
             "options": {
-              "dataLinks": []
+              "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.2.0-fa766158pre",
             "pointradius": 2,
             "points": false,
             "renderer": "flot",
@@ -544,7 +550,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://digitalid-api-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://digitalid-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -641,7 +647,8 @@ objects:
             "datasource": "Prometheus",
             "fieldConfig": {
               "defaults": {
-                "custom": {}
+                "custom": {},
+                "links": []
               },
               "overrides": []
             },
@@ -668,9 +675,10 @@ objects:
             "linewidth": 1,
             "nullPointMode": "null",
             "options": {
-              "dataLinks": []
+              "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.2.0-fa766158pre",
             "pointradius": 2,
             "points": false,
             "renderer": "flot",
@@ -680,7 +688,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-api-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://pen-request-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -777,7 +785,8 @@ objects:
             "datasource": "Prometheus",
             "fieldConfig": {
               "defaults": {
-                "custom": {}
+                "custom": {},
+                "links": []
               },
               "overrides": []
             },
@@ -804,9 +813,10 @@ objects:
             "linewidth": 1,
             "nullPointMode": "null",
             "options": {
-              "dataLinks": []
+              "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.2.0-fa766158pre",
             "pointradius": 2,
             "points": false,
             "renderer": "flot",
@@ -816,7 +826,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-demographics-api-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://pen-demographics-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -901,8 +911,8 @@ objects:
               "for": "5m",
               "frequency": "1m",
               "handler": 1,
-              "message": "PEN Request Email API Monitor (${ENVIRONMENT}). If this message shows \"Alerting\", the service is down.",
-              "name": "PEN Request Email API Monitor (${ENVIRONMENT})",
+              "message": "Student Profile Email API Monitor (${ENVIRONMENT}). If this message shows \"Alerting\", the service is down.",
+              "name": "Student Profile Email API Monitor (${ENVIRONMENT})",
               "noDataState": "alerting",
               "notifications": []
             },
@@ -913,7 +923,8 @@ objects:
             "datasource": "Prometheus",
             "fieldConfig": {
               "defaults": {
-                "custom": {}
+                "custom": {},
+                "links": []
               },
               "overrides": []
             },
@@ -940,9 +951,10 @@ objects:
             "linewidth": 1,
             "nullPointMode": "null",
             "options": {
-              "dataLinks": []
+              "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.2.0-fa766158pre",
             "pointradius": 2,
             "points": false,
             "renderer": "flot",
@@ -952,7 +964,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-email-api-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-profile-email-api-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -968,7 +980,7 @@ objects:
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "PEN Request Email API Monitor (${ENVIRONMENT})",
+            "title": "Student Profile Email API Monitor (${ENVIRONMENT})",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -1049,7 +1061,8 @@ objects:
             "datasource": "Prometheus",
             "fieldConfig": {
               "defaults": {
-                "custom": {}
+                "custom": {},
+                "links": []
               },
               "overrides": []
             },
@@ -1076,9 +1089,10 @@ objects:
             "linewidth": 1,
             "nullPointMode": "null",
             "options": {
-              "dataLinks": []
+              "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.2.0-fa766158pre",
             "pointradius": 2,
             "points": false,
             "renderer": "flot",
@@ -1088,7 +1102,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://${PEN_REQUEST_URL}/api/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/api/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1104,7 +1118,7 @@ objects:
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "PEN Request Backend Monitor (${ENVIRONMENT})",
+            "title": "Profile Request Backend Monitor (${ENVIRONMENT})",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -1173,8 +1187,8 @@ objects:
               "for": "5m",
               "frequency": "1m",
               "handler": 1,
-              "message": "PEN Request Frontend Monitor (${ENVIRONMENT}). If this message shows \"Alerting\", the service is down.",
-              "name": "PEN Request Frontend Monitor (${ENVIRONMENT})",
+              "message": "Profile Request Frontend Monitor (${ENVIRONMENT}). If this message shows \"Alerting\", the service is down.",
+              "name": "Profile Request Frontend Monitor (${ENVIRONMENT})",
               "noDataState": "alerting",
               "notifications": []
             },
@@ -1185,7 +1199,8 @@ objects:
             "datasource": "Prometheus",
             "fieldConfig": {
               "defaults": {
-                "custom": {}
+                "custom": {},
+                "links": []
               },
               "overrides": []
             },
@@ -1212,9 +1227,10 @@ objects:
             "linewidth": 1,
             "nullPointMode": "null",
             "options": {
-              "dataLinks": []
+              "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.2.0-fa766158pre",
             "pointradius": 2,
             "points": false,
             "renderer": "flot",
@@ -1224,7 +1240,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://${PEN_REQUEST_URL}\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1240,7 +1256,7 @@ objects:
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "PEN Request Frontend Monitor (${ENVIRONMENT})",
+            "title": "Profile Request Frontend Monitor (${ENVIRONMENT})",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -1321,7 +1337,8 @@ objects:
             "datasource": "Prometheus",
             "fieldConfig": {
               "defaults": {
-                "custom": {}
+                "custom": {},
+                "links": []
               },
               "overrides": []
             },
@@ -1348,9 +1365,10 @@ objects:
             "linewidth": 1,
             "nullPointMode": "null",
             "options": {
-              "dataLinks": []
+              "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.2.0-fa766158pre",
             "pointradius": 2,
             "points": false,
             "renderer": "flot",
@@ -1360,7 +1378,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://soam-api-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://soam-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1457,7 +1475,8 @@ objects:
             "datasource": "Prometheus",
             "fieldConfig": {
               "defaults": {
-                "custom": {}
+                "custom": {},
+                "links": []
               },
               "overrides": []
             },
@@ -1484,9 +1503,10 @@ objects:
             "linewidth": 1,
             "nullPointMode": "null",
             "options": {
-              "dataLinks": []
+              "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.2.0-fa766158pre",
             "pointradius": 2,
             "points": false,
             "renderer": "flot",
@@ -1496,7 +1516,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://${NAMESPACE}.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1593,7 +1613,8 @@ objects:
             "datasource": "Prometheus",
             "fieldConfig": {
               "defaults": {
-                "custom": {}
+                "custom": {},
+                "links": []
               },
               "overrides": []
             },
@@ -1620,9 +1641,10 @@ objects:
             "linewidth": 1,
             "nullPointMode": "null",
             "options": {
-              "dataLinks": []
+              "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.2.0-fa766158pre",
             "pointradius": 2,
             "points": false,
             "renderer": "flot",
@@ -1632,7 +1654,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1729,7 +1751,8 @@ objects:
             "datasource": "Prometheus",
             "fieldConfig": {
               "defaults": {
-                "custom": {}
+                "custom": {},
+                "links": []
               },
               "overrides": []
             },
@@ -1756,9 +1779,10 @@ objects:
             "linewidth": 1,
             "nullPointMode": "null",
             "options": {
-              "dataLinks": []
+              "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.2.0-fa766158pre",
             "pointradius": 2,
             "points": false,
             "renderer": "flot",
@@ -1768,7 +1792,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/api/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/api/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1865,7 +1889,8 @@ objects:
             "datasource": "Prometheus",
             "fieldConfig": {
               "defaults": {
-                "custom": {}
+                "custom": {},
+                "links": []
               },
               "overrides": []
             },
@@ -1892,9 +1917,10 @@ objects:
             "linewidth": 1,
             "nullPointMode": "null",
             "options": {
-              "dataLinks": []
+              "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.2.0-fa766158pre",
             "pointradius": 2,
             "points": false,
             "renderer": "flot",
@@ -1904,7 +1930,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-api-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1965,7 +1991,8 @@ objects:
             "datasource": "Prometheus",
             "fieldConfig": {
               "defaults": {
-                "custom": {}
+                "custom": {},
+                "links": []
               },
               "overrides": []
             },
@@ -1992,9 +2019,10 @@ objects:
             "linewidth": 1,
             "nullPointMode": "null",
             "options": {
-              "dataLinks": []
+              "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.2.0-fa766158pre",
             "pointradius": 2,
             "points": false,
             "renderer": "flot",
@@ -2004,7 +2032,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "redis_up{instance=\"redis-exporter-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca:80\",job=\"redis_exporter\"}",
+                "expr": "redis_up{instance=\"redis-exporter-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca:80\",job=\"redis_exporter\"}",
                 "interval": "",
                 "legendFormat": "",
                 "refId": "A"
@@ -2050,10 +2078,202 @@ objects:
               "align": false,
               "alignLevel": null
             }
+          },
+          {
+            "aliasColors": {},
+            "bars": true,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "Prometheus",
+            "fieldConfig": {
+              "defaults": {
+                "custom": {},
+                "links": []
+              },
+              "overrides": []
+            },
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+              "h": 9,
+              "w": 3,
+              "x": 18,
+              "y": 10
+            },
+            "hiddenSeries": false,
+            "id": 72,
+            "legend": {
+              "avg": false,
+              "current": false,
+              "max": false,
+              "min": false,
+              "show": true,
+              "total": false,
+              "values": false
+            },
+            "lines": false,
+            "linewidth": 1,
+            "nullPointMode": "null",
+            "options": {
+              "alertThreshold": true
+            },
+            "percentage": false,
+            "pluginVersion": "7.2.0-fa766158pre",
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+              {
+                "expr": "probe_success{instance=\"https://student-profile-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
+                "interval": "",
+                "legendFormat": "",
+                "refId": "A"
+              }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "PROFILE API Monitor (${ENVIRONMENT})",
+            "tooltip": {
+              "shared": true,
+              "sort": 0,
+              "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+              "buckets": null,
+              "mode": "time",
+              "name": null,
+              "show": true,
+              "values": []
+            },
+            "yaxes": [
+              {
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              },
+              {
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              }
+            ],
+            "yaxis": {
+              "align": false,
+              "alignLevel": null
+            }
+          },
+          {
+            "aliasColors": {},
+            "bars": true,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "Prometheus",
+            "fieldConfig": {
+              "defaults": {
+                "custom": {},
+                "links": []
+              },
+              "overrides": []
+            },
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+              "h": 9,
+              "w": 3,
+              "x": 0,
+              "y": 19
+            },
+            "hiddenSeries": false,
+            "id": 73,
+            "legend": {
+              "avg": false,
+              "current": false,
+              "max": false,
+              "min": false,
+              "show": true,
+              "total": false,
+              "values": false
+            },
+            "lines": false,
+            "linewidth": 1,
+            "nullPointMode": "null",
+            "options": {
+              "alertThreshold": true
+            },
+            "percentage": false,
+            "pluginVersion": "7.2.0-fa766158pre",
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+              {
+                "expr": "probe_success{instance=\"https://student-profile-saga-api-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
+                "interval": "",
+                "legendFormat": "",
+                "refId": "A"
+              }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "PROFILE SAGA API Monitor (${ENVIRONMENT})",
+            "tooltip": {
+              "shared": true,
+              "sort": 0,
+              "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+              "buckets": null,
+              "mode": "time",
+              "name": null,
+              "show": true,
+              "values": []
+            },
+            "yaxes": [
+              {
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              },
+              {
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              }
+            ],
+            "yaxis": {
+              "align": false,
+              "alignLevel": null
+            }
           }
         ],
         "refresh": "10s",
-        "schemaVersion": 24,
+        "schemaVersion": 26,
         "style": "dark",
         "tags": [],
         "templating": {
@@ -2079,7 +2299,7 @@ objects:
         "timezone": "",
         "title": "Ministry of Education Alerts",
         "uid": "sVID2XlWknew",
-        "version": 2
+        "version": 1
       }
     dashboard-education-status.json: |-
       {
@@ -2099,7 +2319,6 @@ objects:
         "editable": true,
         "gnetId": null,
         "graphTooltip": 0,
-        "id": 3,
         "links": [],
         "panels": [
           {
@@ -2113,7 +2332,7 @@ objects:
             },
             "id": 15,
             "panels": [],
-            "title": "${ENVIRONMENT} Environment",
+            "title": "dev Environment",
             "type": "row"
           },
           {
@@ -2153,10 +2372,12 @@ objects:
             "mappingType": 1,
             "mappingTypes": [
               {
+                "$$hashKey": "object:150",
                 "name": "value to text",
                 "value": 1
               },
               {
+                "$$hashKey": "object:151",
                 "name": "range to text",
                 "value": 2
               }
@@ -2183,26 +2404,30 @@ objects:
               "ymax": null,
               "ymin": null
             },
-            "tableColumn": "",
+            "tableColumn": "{instance=\"https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/api/health\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://${PEN_REQUEST_URL}/api/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/api/health\",job=\"blackbox\"}*-1",
+                "interval": "",
+                "legendFormat": "",
                 "refId": "A"
               }
             ],
             "thresholds": "-0.5,0",
             "timeFrom": null,
             "timeShift": null,
-            "title": "PEN Request Backend",
+            "title": "Student Profile Backend",
             "type": "singlestat",
             "valueFontSize": "100%",
             "valueMaps": [
               {
+                "$$hashKey": "object:153",
                 "op": "=",
                 "text": "DOWN",
                 "value": "0"
               },
               {
+                "$$hashKey": "object:154",
                 "op": "=",
                 "text": "UP",
                 "value": "-1"
@@ -2249,10 +2474,12 @@ objects:
             "mappingType": 1,
             "mappingTypes": [
               {
+                "$$hashKey": "object:234",
                 "name": "value to text",
                 "value": 1
               },
               {
+                "$$hashKey": "object:235",
                 "name": "range to text",
                 "value": 2
               }
@@ -2277,24 +2504,28 @@ objects:
               "lineColor": "rgb(31, 120, 193)",
               "show": false
             },
-            "tableColumn": "",
+            "tableColumn": "{instance=\"https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://${PEN_REQUEST_URL}\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
+                "interval": "",
+                "legendFormat": "",
                 "refId": "A"
               }
             ],
             "thresholds": "-0.5,0",
-            "title": "PEN Request Frontend",
+            "title": "Student Profile Frontend",
             "type": "singlestat",
             "valueFontSize": "100%",
             "valueMaps": [
               {
+                "$$hashKey": "object:237",
                 "op": "=",
                 "text": "DOWN",
                 "value": 0
               },
               {
+                "$$hashKey": "object:238",
                 "op": "=",
                 "text": "UP",
                 "value": -1
@@ -2368,10 +2599,10 @@ objects:
               "lineColor": "rgb(31, 120, 193)",
               "show": false
             },
-            "tableColumn": "",
+            "tableColumn": "{instance=\"https://digitalid-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://digitalid-api-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://digitalid-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -2460,10 +2691,10 @@ objects:
               "lineColor": "rgb(31, 120, 193)",
               "show": false
             },
-            "tableColumn": "",
+            "tableColumn": "{instance=\"https://pen-request-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-api-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://pen-request-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -2551,10 +2782,10 @@ objects:
               "lineColor": "rgb(31, 120, 193)",
               "show": false
             },
-            "tableColumn": "",
+            "tableColumn": "{instance=\"https://student-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-api-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://student-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -2615,10 +2846,12 @@ objects:
             "mappingType": 1,
             "mappingTypes": [
               {
+                "$$hashKey": "object:488",
                 "name": "value to text",
                 "value": 1
               },
               {
+                "$$hashKey": "object:489",
                 "name": "range to text",
                 "value": 2
               }
@@ -2643,24 +2876,26 @@ objects:
               "lineColor": "rgb(31, 120, 193)",
               "show": false
             },
-            "tableColumn": "",
+            "tableColumn": "{instance=\"https://student-profile-email-api-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-email-api-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://student-profile-email-api-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
             "thresholds": "-0.5,0",
-            "title": "PEN Request Email API",
+            "title": "PROFILE Request Email API",
             "type": "singlestat",
             "valueFontSize": "100%",
             "valueMaps": [
               {
+                "$$hashKey": "object:491",
                 "op": "=",
                 "text": "DOWN",
                 "value": 0
               },
               {
+                "$$hashKey": "object:492",
                 "op": "=",
                 "text": "UP",
                 "value": -1
@@ -2734,15 +2969,106 @@ objects:
               "lineColor": "rgb(31, 120, 193)",
               "show": false
             },
-            "tableColumn": "",
+            "tableColumn": "{instance=\"https://pen-demographics-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-demographics-api-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://pen-demographics-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
             "thresholds": "-0.5,0",
             "title": "PEN Demographics API",
+            "type": "singlestat",
+            "valueFontSize": "100%",
+            "valueMaps": [
+              {
+                "op": "=",
+                "text": "DOWN",
+                "value": 0
+              },
+              {
+                "op": "=",
+                "text": "UP",
+                "value": -1
+              }
+            ],
+            "valueName": "current"
+          },
+          {
+            "cacheTimeout": null,
+            "colorBackground": true,
+            "colorValue": false,
+            "colors": [
+              "#299c46",
+              "rgba(237, 129, 40, 0.89)",
+              "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "editable": true,
+            "error": false,
+            "fieldConfig": {
+              "defaults": {
+                "custom": {}
+              },
+              "overrides": []
+            },
+            "format": "none",
+            "gauge": {
+              "maxValue": 100,
+              "minValue": 0,
+              "show": false,
+              "thresholdLabels": false,
+              "thresholdMarkers": true
+            },
+            "gridPos": {
+              "h": 6,
+              "w": 2,
+              "x": 12,
+              "y": 1
+            },
+            "id": 98,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+              {
+                "name": "value to text",
+                "value": 1
+              },
+              {
+                "name": "range to text",
+                "value": 2
+              }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+              {
+                "from": "null",
+                "text": "N/A",
+                "to": "null"
+              }
+            ],
+            "sparkline": {
+              "fillColor": "rgba(31, 118, 189, 0.18)",
+              "full": false,
+              "lineColor": "rgb(31, 120, 193)",
+              "show": false
+            },
+            "tableColumn": "{instance=\"https://student-profile-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\", job=\"blackbox\"}",
+            "targets": [
+              {
+                "expr": "probe_success{instance=\"https://student-profile-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
+                "refId": "A"
+              }
+            ],
+            "thresholds": "-0.5,0",
+            "title": "PROFILE API",
             "type": "singlestat",
             "valueFontSize": "100%",
             "valueMaps": [
@@ -2825,10 +3151,10 @@ objects:
               "lineColor": "rgb(31, 120, 193)",
               "show": false
             },
-            "tableColumn": "",
+            "tableColumn": "{instance=\"https://services-card-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://services-card-api-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://services-card-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -2916,10 +3242,10 @@ objects:
               "lineColor": "rgb(31, 120, 193)",
               "show": false
             },
-            "tableColumn": "",
+            "tableColumn": "{instance=\"https://soam-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://soam-api-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://soam-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -2979,10 +3305,12 @@ objects:
             "mappingType": 1,
             "mappingTypes": [
               {
+                "$$hashKey": "object:316",
                 "name": "value to text",
                 "value": 1
               },
               {
+                "$$hashKey": "object:317",
                 "name": "range to text",
                 "value": 2
               }
@@ -3007,10 +3335,12 @@ objects:
               "lineColor": "rgb(31, 120, 193)",
               "show": false
             },
-            "tableColumn": "",
+            "tableColumn": "{instance=\"https://${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://${NAMESPACE}.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
+                "interval": "",
+                "legendFormat": "",
                 "refId": "A"
               }
             ],
@@ -3020,11 +3350,13 @@ objects:
             "valueFontSize": "100%",
             "valueMaps": [
               {
+                "$$hashKey": "object:319",
                 "op": "=",
                 "text": "DOWN",
                 "value": 0
               },
               {
+                "$$hashKey": "object:320",
                 "op": "=",
                 "text": "UP",
                 "value": -1
@@ -3099,10 +3431,10 @@ objects:
               "lineColor": "rgb(31, 120, 193)",
               "show": false
             },
-            "tableColumn": "",
+            "tableColumn": "{instance=\"https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/api/health\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/api/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/api/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -3191,10 +3523,10 @@ objects:
               "lineColor": "rgb(31, 120, 193)",
               "show": false
             },
-            "tableColumn": "",
+            "tableColumn": "{instance=\"https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-admin-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -3253,10 +3585,12 @@ objects:
             "mappingType": 1,
             "mappingTypes": [
               {
+                "$$hashKey": "object:106",
                 "name": "value to text",
                 "value": 1
               },
               {
+                "$$hashKey": "object:107",
                 "name": "range to text",
                 "value": 2
               }
@@ -3283,10 +3617,10 @@ objects:
               "ymax": null,
               "ymin": null
             },
-            "tableColumn": "",
+            "tableColumn": "redis_up{instance=\"redis-exporter-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca:80\", job=\"redis_exporter\"}",
             "targets": [
               {
-                "expr": "redis_up{instance=\"redis-exporter-${NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca:80\",job=\"redis_exporter\"}",
+                "expr": "redis_up{instance=\"redis-exporter-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca:80\",job=\"redis_exporter\"}",
                 "interval": "",
                 "legendFormat": "",
                 "refId": "A"
@@ -3300,21 +3634,114 @@ objects:
             "valueFontSize": "100%",
             "valueMaps": [
               {
+                "$$hashKey": "object:109",
                 "op": "=",
                 "text": "DOWN",
                 "value": "0"
               },
               {
+                "$$hashKey": "object:110",
                 "op": "=",
                 "text": "UP",
                 "value": "1"
               }
             ],
             "valueName": "current"
+          },
+          {
+            "cacheTimeout": null,
+            "colorBackground": true,
+            "colorValue": false,
+            "colors": [
+              "#299c46",
+              "rgba(237, 129, 40, 0.89)",
+              "#d44a3a"
+            ],
+            "datasource": "Prometheus",
+            "editable": true,
+            "error": false,
+            "fieldConfig": {
+              "defaults": {
+                "custom": {}
+              },
+              "overrides": []
+            },
+            "format": "none",
+            "gauge": {
+              "maxValue": 100,
+              "minValue": 0,
+              "show": false,
+              "thresholdLabels": false,
+              "thresholdMarkers": true
+            },
+            "gridPos": {
+              "h": 6,
+              "w": 2,
+              "x": 12,
+              "y": 7
+            },
+            "id": 96,
+            "interval": null,
+            "links": [],
+            "mappingType": 1,
+            "mappingTypes": [
+              {
+                "name": "value to text",
+                "value": 1
+              },
+              {
+                "name": "range to text",
+                "value": 2
+              }
+            ],
+            "maxDataPoints": 100,
+            "nullPointMode": "connected",
+            "nullText": null,
+            "postfix": "",
+            "postfixFontSize": "50%",
+            "prefix": "",
+            "prefixFontSize": "50%",
+            "rangeMaps": [
+              {
+                "from": "null",
+                "text": "N/A",
+                "to": "null"
+              }
+            ],
+            "sparkline": {
+              "fillColor": "rgba(31, 118, 189, 0.18)",
+              "full": false,
+              "lineColor": "rgb(31, 120, 193)",
+              "show": false
+            },
+            "tableColumn": "{instance=\"https://student-profile-saga-api-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\", job=\"blackbox\"}",
+            "targets": [
+              {
+                "expr": "probe_success{instance=\"https://student-profile-saga-api-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
+                "refId": "A"
+              }
+            ],
+            "thresholds": "-0.5,0",
+            "title": "PROFILE SAGA API",
+            "type": "singlestat",
+            "valueFontSize": "100%",
+            "valueMaps": [
+              {
+                "op": "=",
+                "text": "DOWN",
+                "value": 0
+              },
+              {
+                "op": "=",
+                "text": "UP",
+                "value": -1
+              }
+            ],
+            "valueName": "current"
           }
         ],
         "refresh": "10s",
-        "schemaVersion": 24,
+        "schemaVersion": 26,
         "style": "dark",
         "tags": [],
         "templating": {
@@ -3340,5 +3767,5 @@ objects:
         "timezone": "utc",
         "title": "Ministry of Education Status",
         "uid": "homedashboard",
-        "version": 2
+        "version": 1
       }
