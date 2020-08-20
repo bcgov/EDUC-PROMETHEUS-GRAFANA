@@ -323,7 +323,7 @@ objects:
             },
             "id": 15,
             "panels": [],
-            "title": "dev Environment",
+            "title": "${ENVIRONMENT} Environment",
             "type": "row"
           },
           {
@@ -2332,7 +2332,7 @@ objects:
             },
             "id": 15,
             "panels": [],
-            "title": "dev Environment",
+            "title": "${ENVIRONMENT} Environment",
             "type": "row"
           },
           {
