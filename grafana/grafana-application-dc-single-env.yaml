@@ -179,7 +179,7 @@ objects:
       - name: Prometheus
         type: prometheus
         access: proxy
-        url: https://prometheus-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/
+        url: https://prometheus-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/
 
 - apiVersion: v1
   kind: ConfigMap
@@ -216,7 +216,7 @@ objects:
       plugins = /var/lib/grafana/plugins
       
       [server]
-      root_url = https://grafana-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/
+      root_url = https://grafana-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/
       
       [log]
       # Either "console", "file", "syslog". Default is console and  file
@@ -412,7 +412,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://services-card-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://services-card-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -550,7 +550,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://digitalid-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://digitalid-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -688,7 +688,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://pen-request-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -826,7 +826,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-demographics-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://pen-demographics-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -964,7 +964,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-profile-email-api-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-profile-email-api-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1102,7 +1102,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/api/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/api/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1240,7 +1240,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1378,7 +1378,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://soam-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://soam-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1516,7 +1516,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1654,7 +1654,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1792,7 +1792,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/api/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/api/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1930,7 +1930,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -2032,7 +2032,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "redis_up{instance=\"redis-exporter-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca:80\",job=\"redis_exporter\"}",
+                "expr": "redis_up{instance=\"redis-exporter-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca:80\",job=\"redis_exporter\"}",
                 "interval": "",
                 "legendFormat": "",
                 "refId": "A"
@@ -2128,7 +2128,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-profile-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-profile-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
                 "interval": "",
                 "legendFormat": "",
                 "refId": "A"
@@ -2224,7 +2224,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-profile-saga-api-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-profile-saga-api-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health\",job=\"blackbox\"}",
                 "interval": "",
                 "legendFormat": "",
                 "refId": "A"
@@ -2404,10 +2404,10 @@ objects:
               "ymax": null,
               "ymin": null
             },
-            "tableColumn": "{instance=\"https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/api/health\", job=\"blackbox\"}",
+            "tableColumn": "{instance=\"https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/api/health\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/api/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/api/health\",job=\"blackbox\"}*-1",
                 "interval": "",
                 "legendFormat": "",
                 "refId": "A"
@@ -2504,10 +2504,10 @@ objects:
               "lineColor": "rgb(31, 120, 193)",
               "show": false
             },
-            "tableColumn": "{instance=\"https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca\", job=\"blackbox\"}",
+            "tableColumn": "{instance=\"https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca\",job=\"blackbox\"}*-1",
                 "interval": "",
                 "legendFormat": "",
                 "refId": "A"
@@ -2599,10 +2599,10 @@ objects:
               "lineColor": "rgb(31, 120, 193)",
               "show": false
             },
-            "tableColumn": "{instance=\"https://digitalid-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\", job=\"blackbox\"}",
+            "tableColumn": "{instance=\"https://digitalid-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://digitalid-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://digitalid-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -2691,10 +2691,10 @@ objects:
               "lineColor": "rgb(31, 120, 193)",
               "show": false
             },
-            "tableColumn": "{instance=\"https://pen-request-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\", job=\"blackbox\"}",
+            "tableColumn": "{instance=\"https://pen-request-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-request-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://pen-request-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -2782,10 +2782,10 @@ objects:
               "lineColor": "rgb(31, 120, 193)",
               "show": false
             },
-            "tableColumn": "{instance=\"https://student-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\", job=\"blackbox\"}",
+            "tableColumn": "{instance=\"https://student-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://student-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -2876,10 +2876,10 @@ objects:
               "lineColor": "rgb(31, 120, 193)",
               "show": false
             },
-            "tableColumn": "{instance=\"https://student-profile-email-api-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\", job=\"blackbox\"}",
+            "tableColumn": "{instance=\"https://student-profile-email-api-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-profile-email-api-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://student-profile-email-api-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -2969,10 +2969,10 @@ objects:
               "lineColor": "rgb(31, 120, 193)",
               "show": false
             },
-            "tableColumn": "{instance=\"https://pen-demographics-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\", job=\"blackbox\"}",
+            "tableColumn": "{instance=\"https://pen-demographics-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://pen-demographics-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://pen-demographics-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -3060,10 +3060,10 @@ objects:
               "lineColor": "rgb(31, 120, 193)",
               "show": false
             },
-            "tableColumn": "{instance=\"https://student-profile-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\", job=\"blackbox\"}",
+            "tableColumn": "{instance=\"https://student-profile-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-profile-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://student-profile-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -3151,10 +3151,10 @@ objects:
               "lineColor": "rgb(31, 120, 193)",
               "show": false
             },
-            "tableColumn": "{instance=\"https://services-card-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\", job=\"blackbox\"}",
+            "tableColumn": "{instance=\"https://services-card-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://services-card-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://services-card-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -3242,10 +3242,10 @@ objects:
               "lineColor": "rgb(31, 120, 193)",
               "show": false
             },
-            "tableColumn": "{instance=\"https://soam-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\", job=\"blackbox\"}",
+            "tableColumn": "{instance=\"https://soam-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://soam-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://soam-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -3335,10 +3335,10 @@ objects:
               "lineColor": "rgb(31, 120, 193)",
               "show": false
             },
-            "tableColumn": "{instance=\"https://${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca\", job=\"blackbox\"}",
+            "tableColumn": "{instance=\"https://${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca\",job=\"blackbox\"}*-1",
                 "interval": "",
                 "legendFormat": "",
                 "refId": "A"
@@ -3431,10 +3431,10 @@ objects:
               "lineColor": "rgb(31, 120, 193)",
               "show": false
             },
-            "tableColumn": "{instance=\"https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/api/health\", job=\"blackbox\"}",
+            "tableColumn": "{instance=\"https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/api/health\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/api/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/api/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -3523,10 +3523,10 @@ objects:
               "lineColor": "rgb(31, 120, 193)",
               "show": false
             },
-            "tableColumn": "{instance=\"https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca\", job=\"blackbox\"}",
+            "tableColumn": "{instance=\"https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -3617,10 +3617,10 @@ objects:
               "ymax": null,
               "ymin": null
             },
-            "tableColumn": "redis_up{instance=\"redis-exporter-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca:80\", job=\"redis_exporter\"}",
+            "tableColumn": "redis_up{instance=\"redis-exporter-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca:80\", job=\"redis_exporter\"}",
             "targets": [
               {
-                "expr": "redis_up{instance=\"redis-exporter-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca:80\",job=\"redis_exporter\"}",
+                "expr": "redis_up{instance=\"redis-exporter-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca:80\",job=\"redis_exporter\"}",
                 "interval": "",
                 "legendFormat": "",
                 "refId": "A"
@@ -3714,10 +3714,10 @@ objects:
               "lineColor": "rgb(31, 120, 193)",
               "show": false
             },
-            "tableColumn": "{instance=\"https://student-profile-saga-api-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\", job=\"blackbox\"}",
+            "tableColumn": "{instance=\"https://student-profile-saga-api-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-profile-saga-api-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://student-profile-saga-api-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
