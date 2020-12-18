@@ -242,30 +242,30 @@ objects:
            module: [http_2xx]
          static_configs:
            - targets:
-             - https://digitalid-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health
-             - https://pen-demographics-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health
-             - https://pen-request-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health
-             - https://services-card-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health
-             - https://soam-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health
-             - https://student-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health
-             - https://student-profile-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health
-             - https://${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca
-             - https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/api/health
-             - https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca
-             - https://student-profile-email-api-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health
-             - https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/api/health
-             - https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca
-             - https://student-profile-saga-api-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca/actuator/health
+             - https://digitalid-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health
+             - https://pen-demographics-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health
+             - https://pen-request-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health
+             - https://services-card-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health
+             - https://soam-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health
+             - https://student-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health
+             - https://student-profile-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health
+             - https://soam-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca
+             - https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/api/health
+             - https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca
+             - https://student-profile-email-api-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health
+             - https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/api/health
+             - https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca
+             - https://student-profile-saga-api-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health
              - https://getmypen.gov.bc.ca/api/health
              - https://getmypen.gov.bc.ca
-             - http://grafana-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca
+             - http://grafana-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca.gov.bc.ca
          relabel_configs:
            - source_labels: [__address__]
              target_label: __param_target
            - source_labels: [__param_target]
              target_label: instance
            - target_label: __address__
-             replacement: blackbox-${COMMON_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca # Blackbox exporter.
+             replacement: blackbox-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca # Blackbox exporter.
        - job_name: prometheus
          static_configs:
          - targets:
@@ -274,6 +274,6 @@ objects:
          scrape_timeout: 30s
          static_configs:
          - targets:
-           - redis-exporter-${PEN_NAMESPACE}-${ENVIRONMENT}.pathfinder.gov.bc.ca
+           - redis-exporter-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca
      rules: |
        {}
