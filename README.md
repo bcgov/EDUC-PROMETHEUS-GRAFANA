@@ -1,3 +1,5 @@
+[![img](https://img.shields.io/badge/Lifecycle-Maturing-007EC6)](https://github.com/bcgov/repomountie/blob/master/doc/lifecycle-badges.md)
+
 # EDUC-PROMETHEUS-GRAFANA
 
 Steps for installing Prometheus and Grafana. This installation includes the use of blackbox exporter to allow probes against our containers.  
