@@ -82,9 +82,9 @@ objects:
         name: blackbox
       spec:
         serviceAccountName: blackbox
-        containers:
         imagePullSecrets:
           - name: artifactory-creds
+        containers:
         - name: blackbox
           image: ${IMAGE_BLACKBOX}
           env:
