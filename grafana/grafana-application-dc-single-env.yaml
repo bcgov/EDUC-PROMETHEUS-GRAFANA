@@ -1102,7 +1102,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/api/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://${ENVIRONMENT}.getmypen.gov.bc.ca/api/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1240,7 +1240,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://${ENVIRONMENT}.getmypen.gov.bc.ca\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -2404,10 +2404,10 @@ objects:
               "ymax": null,
               "ymin": null
             },
-            "tableColumn": "{instance=\"https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/api/health\", job=\"blackbox\"}",
+            "tableColumn": "{instance=\"https://https://${ENVIRONMENT}.getmypen.gov.bc.ca/api/health\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/api/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://${ENVIRONMENT}.getmypen.gov.bc.ca/api/health\",job=\"blackbox\"}*-1",
                 "interval": "",
                 "legendFormat": "",
                 "refId": "A"
@@ -2504,10 +2504,10 @@ objects:
               "lineColor": "rgb(31, 120, 193)",
               "show": false
             },
-            "tableColumn": "{instance=\"https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca\", job=\"blackbox\"}",
+            "tableColumn": "{instance=\"https://${ENVIRONMENT}.getmypen.gov.bc.ca\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://${ENVIRONMENT}.getmypen.gov.bc.ca\",job=\"blackbox\"}*-1",
                 "interval": "",
                 "legendFormat": "",
                 "refId": "A"
