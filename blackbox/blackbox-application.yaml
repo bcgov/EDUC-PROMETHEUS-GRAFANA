@@ -83,10 +83,10 @@ objects:
       spec:
         serviceAccountName: blackbox
         containers:
+        imagePullSecrets:
+          - name: artifactory-creds
         - name: blackbox
           image: ${IMAGE_BLACKBOX}
-          imagePullSecrets:
-            - name: artifactory-creds
           env:
             - name: TZ
               value: "America/Vancouver"
