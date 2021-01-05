@@ -253,8 +253,6 @@ objects:
              - https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/api/health
              - https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca
              - https://student-profile-email-api-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health
-             - https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/api/health
-             - https://student-profile-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca
              - https://student-profile-saga-api-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health
              - https://getmypen.gov.bc.ca/api/health
              - https://getmypen.gov.bc.ca
