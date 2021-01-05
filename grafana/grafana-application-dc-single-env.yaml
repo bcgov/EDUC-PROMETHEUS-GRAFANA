@@ -1516,7 +1516,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://soam-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -3335,10 +3335,10 @@ objects:
               "lineColor": "rgb(31, 120, 193)",
               "show": false
             },
-            "tableColumn": "{instance=\"https://${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca\", job=\"blackbox\"}",
+            "tableColumn": "{instance=\"https://soam-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://soam-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca\",job=\"blackbox\"}*-1",
                 "interval": "",
                 "legendFormat": "",
                 "refId": "A"
