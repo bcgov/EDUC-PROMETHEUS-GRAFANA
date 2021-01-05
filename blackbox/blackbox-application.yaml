@@ -84,7 +84,7 @@ objects:
         serviceAccountName: blackbox
         containers:
         - name: blackbox
-          image: ${IMAGE_BLACKBOX}
+          image: docker-remote.artifacts.developer.gov.bc.ca/${IMAGE_BLACKBOX}
           env:
             - name: TZ
               value: "America/Vancouver"
