@@ -12,7 +12,7 @@ metadata:
 parameters:
 - description: The location of the grafana image
   name: IMAGE_PROMETHEUS
-  value: docker.io/prom/prometheus:v2.9.2
+  value: docker-remote.artifacts.developer.gov.bc.ca/prom/prometheus:v2.9.2
 - description: External URL for the prometheus route
   name: ROUTE_URL
   value: ""
@@ -172,13 +172,13 @@ objects:
          - name: prometheus-data
            persistentVolumeClaim:
               claimName: prometheus-service
-              
+
 - apiVersion: v1
   kind: "PersistentVolumeClaim"
   metadata:
     name: "prometheus-service"
     labels:
-      name: prometheus  
+      name: prometheus
     namespace: "${COMMON_NAMESPACE}-${ENVIRONMENT}"
   spec:
      storageClassName: netapp-block-standard
@@ -192,7 +192,7 @@ objects:
   kind: ConfigMap
   metadata:
     labels:
-      name: prometheus  
+      name: prometheus
     name: prometheus-service
     namespace: "${COMMON_NAMESPACE}-${ENVIRONMENT}"
   data:
@@ -213,7 +213,7 @@ objects:
          - alert: "Too Many Pods"
            expr: sum(kubelet_running_pod_count) > 15
            annotations:
-             miqTarget: "ExtManagementSystem"  
+             miqTarget: "ExtManagementSystem"
              severity: "ERROR"
              url: "https://www.example.com/too_many_pods_fixing_instructions"
              message: "Too many running pods"
@@ -242,21 +242,21 @@ objects:
            module: [http_2xx]
          static_configs:
            - targets:
-             - https://digitalid-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health
-             - https://pen-demographics-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health
-             - https://pen-request-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health
-             - https://services-card-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health
-             - https://soam-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health
-             - https://student-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health
-             - https://student-profile-api-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health
+             - http://digitalid-api-master.${COMMON_NAMESPACE}-${ENVIRONMENT}.svc.cluster.local:8080/actuator/health
+             - http://pen-demographics-api-master.${COMMON_NAMESPACE}-${ENVIRONMENT}.svc.cluster.local:8080/actuator/health
+             - http://pen-request-api-master.${COMMON_NAMESPACE}-${ENVIRONMENT}.svc.cluster.local:8080/actuator/health
+             - http://services-card-api-master.${COMMON_NAMESPACE}-${ENVIRONMENT}.svc.cluster.local:8080/actuator/health
+             - http://soam-api-master.${COMMON_NAMESPACE}-${ENVIRONMENT}.svc.cluster.local:8080/actuator/health
+             - http://student-api-master.${COMMON_NAMESPACE}-${ENVIRONMENT}.svc.cluster.local:8080/actuator/health
+             - http://student-profile-api-master.${COMMON_NAMESPACE}-${ENVIRONMENT}.svc.cluster.local:8080/actuator/health
              - https://soam-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca
              - https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/api/health
              - https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca
-             - https://student-profile-email-api-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health
-             - https://student-profile-saga-api-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/actuator/health
+             - http://student-profile-email-api-master.${PEN_NAMESPACE}-${ENVIRONMENT}.svc.cluster.local:8080/actuator/health
+             - http://student-profile-saga-api-master.${PEN_NAMESPACE}-${ENVIRONMENT}.svc.cluster.local:8080/actuator/health
              - https://getmypen.gov.bc.ca/api/health
              - https://getmypen.gov.bc.ca
-             - http://grafana-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca.gov.bc.ca
+             - https://grafana-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca.gov.bc.ca
          relabel_configs:
            - source_labels: [__address__]
              target_label: __param_target
