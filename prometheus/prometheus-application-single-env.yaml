@@ -98,6 +98,8 @@ objects:
             - '--webhook-url=http://127.0.0.1:9090/-/reload'
           image: 'docker-remote.artifacts.developer.gov.bc.ca/jimmidyson/configmap-reload:v0.2.2'
           imagePullPolicy: IfNotPresent
+          imagePullSecrets:
+          - name: artifactory-creds
           name: prometheus-prometheus-service-configmap-reload
           resources:
             requests:
@@ -126,6 +128,8 @@ objects:
             - name: TZ
               value: "America/Vancouver"
           imagePullPolicy: IfNotPresent
+          imagePullSecrets:
+          - name: artifactory-creds
           livenessProbe:
             failureThreshold: 3
             httpGet:
