@@ -96,7 +96,7 @@ objects:
         - args:
             - '--volume-dir=/etc/config'
             - '--webhook-url=http://127.0.0.1:9090/-/reload'
-          image: 'jimmidyson/configmap-reload:v0.2.2'
+          image: 'docker-remote.artifacts.developer.gov.bc.ca/jimmidyson/configmap-reload:v0.2.2'
           imagePullPolicy: IfNotPresent
           name: prometheus-prometheus-service-configmap-reload
           resources:
