@@ -26,7 +26,7 @@ To Delete existing blackbox switch to namespace where you want to delete, then r
 * Run the following command after replacing the placeholder values. NAMESPACE here is common namespace.
 
 ```
-oc new-app -f https://raw.githubusercontent.com/bcgov/EDUC-PROMETHEUS-GRAFANA/master/blackbox/blackbox-application.yaml -p NAMESPACE=<your common namespace> -p ENVIRONMENT=<your env i.e. tools> -p DOMAIN=<Domain name goes here.>
+oc new-app -f https://raw.githubusercontent.com/bcgov/EDUC-PROMETHEUS-GRAFANA/master/blackbox/blackbox-application.yaml -p NAMESPACE=<your common namespace> -p ENVIRONMENT=<your env i.e. tools> -p DOMAIN="apps.silver.devops.gov.bc.ca"
 ```
 
 ## Prometheus Deployment
