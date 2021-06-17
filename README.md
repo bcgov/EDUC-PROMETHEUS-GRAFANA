@@ -21,7 +21,9 @@ static_configs:
 
 ## BlackBox Exporter Deployment
 To Delete existing blackbox switch to namespace where you want to delete, then run the below command.
-`oc delete all,rc,svc,dc,route,pvc,secret,configmap,sa,RoleBinding -l name=blackbox`
+```
+oc delete all,rc,svc,dc,route,pvc,secret,configmap,sa,RoleBinding -l name=blackbox
+```
 
 * Run the following command after replacing the placeholder values. NAMESPACE here is common namespace.
 
@@ -31,7 +33,9 @@ oc new-app -f https://raw.githubusercontent.com/bcgov/EDUC-PROMETHEUS-GRAFANA/ma
 
 ## Prometheus Deployment
 To Delete existing Prometheus switch to namespace where you want to delete, then run the below command.
-`oc delete all,rc,svc,dc,route,pvc,secret,configmap,sa,RoleBinding -l name=prometheus`
+```
+oc delete all,rc,svc,dc,route,pvc,secret,configmap,sa,RoleBinding -l name=prometheus
+```
 
 * Run the following command after replacing the placeholder values.
 
@@ -42,12 +46,13 @@ oc new-app -f https://raw.githubusercontent.com/bcgov/EDUC-PROMETHEUS-GRAFANA/ma
 ## Grafana Deployment
 
 To Delete existing grafana switch to namespace where you want to delete, then run the below command.
-`oc delete all,rc,svc,dc,route,pvc,secret,configmap,sa,RoleBinding -l name=grafana`
-
+```
+oc delete all,rc,svc,dc,route,pvc,secret,configmap,sa,RoleBinding -l name=grafana
+```
 * Run the following command after replacing the placeholder values.
 * You can also include the `EMAIL_SUPPORT_LIST` parameter if you wish to receive alerts. List is comma separated. 
 * The `PROD_URL` parameter allows you to add a vanity URL if your app contains one (specific to our implementation)
 
 ```
-oc new-app -f https://raw.githubusercontent.com/bcgov/EDUC-PROMETHEUS-GRAFANA/master/grafana/grafana-application-dc-single-env.yaml  -p COMMON_NAMESPACE=<your common namespace> -p PEN_NAMESPACE=<pen namespace i.e. v3s4sw> -p ENVIRONMENT=<your env i.e. tools> -p EMAIL_SUPPORT_LIST="abc@sda.com,akdl@sadf.com"
+oc new-app -f https://raw.githubusercontent.com/bcgov/EDUC-PROMETHEUS-GRAFANA/master/grafana/grafana-application-dc-single-env.yaml  -p COMMON_NAMESPACE=<your common namespace> -p PEN_NAMESPACE=<pen namespace i.e. v3s4sw> -p ENVIRONMENT=<your env i.e. tools> -p EQUIV_ENVIRONMENT=<your equivalent env i.e. tools is dev, dev is test, test is uat> -p EMAIL_SUPPORT_LIST="abc@sda.com,akdl@sadf.com"
 ```

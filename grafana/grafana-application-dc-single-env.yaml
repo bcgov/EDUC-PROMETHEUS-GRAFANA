@@ -22,12 +22,12 @@ parameters:
 - name: PEN_NAMESPACE
   description: The value of pen namespace
   required: true
-- description: The environment to instantiate heapster under. Defaults to 'environment'.
+- description: The environment, tools, dev, test, prod.
   name: ENVIRONMENT
-  value: environment
-- description: The environment to instantiate heapster under. No default.
-  name: PEN_REQUEST_URL
-  value: ""
+  required: true
+- description: The equivalent environment. since we use tools-> dev, dev->test, test->uat it is needed. for prod it is prod.
+  name: EQUIV_ENVIRONMENT
+  required: true
 - description: The list of comma separated email addresses. This mailing list will receive support updates.
   name: EMAIL_SUPPORT_LIST
   value: none
@@ -1104,7 +1104,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://${ENVIRONMENT}.getmypen.gov.bc.ca/api/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://${EQUIV_ENVIRONMENT}.getmypen.gov.bc.ca/api/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1242,7 +1242,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://${ENVIRONMENT}.getmypen.gov.bc.ca\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://${EQUIV_ENVIRONMENT}.getmypen.gov.bc.ca\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1656,7 +1656,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-admin-${PEN_NAMESPACE}-${EQUIV_ENVIRONMENT}.apps.silver.devops.gov.bc.ca\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -1794,7 +1794,7 @@ objects:
             "steppedLine": false,
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/api/health\",job=\"blackbox\"}",
+                "expr": "probe_success{instance=\"https://student-admin-${PEN_NAMESPACE}-${EQUIV_ENVIRONMENT}.apps.silver.devops.gov.bc.ca/api/health\",job=\"blackbox\"}",
                 "refId": "A"
               }
             ],
@@ -2406,10 +2406,10 @@ objects:
               "ymax": null,
               "ymin": null
             },
-            "tableColumn": "{instance=\"https://https://${ENVIRONMENT}.getmypen.gov.bc.ca/api/health\", job=\"blackbox\"}",
+            "tableColumn": "{instance=\"https://https://${EQUIV_ENVIRONMENT}.getmypen.gov.bc.ca/api/health\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://${ENVIRONMENT}.getmypen.gov.bc.ca/api/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://${EQUIV_ENVIRONMENT}.getmypen.gov.bc.ca/api/health\",job=\"blackbox\"}*-1",
                 "interval": "",
                 "legendFormat": "",
                 "refId": "A"
@@ -2506,10 +2506,10 @@ objects:
               "lineColor": "rgb(31, 120, 193)",
               "show": false
             },
-            "tableColumn": "{instance=\"https://${ENVIRONMENT}.getmypen.gov.bc.ca\", job=\"blackbox\"}",
+            "tableColumn": "{instance=\"https://${EQUIV_ENVIRONMENT}.getmypen.gov.bc.ca\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://${ENVIRONMENT}.getmypen.gov.bc.ca\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://${EQUIV_ENVIRONMENT}.getmypen.gov.bc.ca\",job=\"blackbox\"}*-1",
                 "interval": "",
                 "legendFormat": "",
                 "refId": "A"
@@ -3433,10 +3433,10 @@ objects:
               "lineColor": "rgb(31, 120, 193)",
               "show": false
             },
-            "tableColumn": "{instance=\"https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/api/health\", job=\"blackbox\"}",
+            "tableColumn": "{instance=\"https://student-admin-${PEN_NAMESPACE}-${EQUIV_ENVIRONMENT}.apps.silver.devops.gov.bc.ca/api/health\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/api/health\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://student-admin-${PEN_NAMESPACE}-${EQUIV_ENVIRONMENT}.apps.silver.devops.gov.bc.ca/api/health\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
@@ -3525,10 +3525,10 @@ objects:
               "lineColor": "rgb(31, 120, 193)",
               "show": false
             },
-            "tableColumn": "{instance=\"https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca\", job=\"blackbox\"}",
+            "tableColumn": "{instance=\"https://student-admin-${PEN_NAMESPACE}-${EQUIV_ENVIRONMENT}.apps.silver.devops.gov.bc.ca\", job=\"blackbox\"}",
             "targets": [
               {
-                "expr": "probe_success{instance=\"https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca\",job=\"blackbox\"}*-1",
+                "expr": "probe_success{instance=\"https://student-admin-${PEN_NAMESPACE}-${EQUIV_ENVIRONMENT}.apps.silver.devops.gov.bc.ca\",job=\"blackbox\"}*-1",
                 "refId": "A"
               }
             ],
