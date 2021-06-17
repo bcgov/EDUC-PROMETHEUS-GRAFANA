@@ -40,7 +40,7 @@ oc delete all,rc,svc,dc,route,pvc,secret,configmap,sa,RoleBinding -l name=promet
 * Run the following command after replacing the placeholder values.
 
 ```
-oc new-app -f https://raw.githubusercontent.com/bcgov/EDUC-PROMETHEUS-GRAFANA/master/prometheus/prometheus-application-single-env.yaml -p COMMON_NAMESPACE=<your common namespace> -p PEN_NAMESPACE=<pen namespace i.e. v3s4sw> -p ENVIRONMENT=<your env i.e. tools> 
+oc new-app -f https://raw.githubusercontent.com/bcgov/EDUC-PROMETHEUS-GRAFANA/master/prometheus/prometheus-application-single-env.yaml -p COMMON_NAMESPACE=<your common namespace> -p PEN_NAMESPACE=<pen namespace i.e. v3s4sw> -p ENVIRONMENT=<your env i.e. tools>  -p EQUIV_ENVIRONMENT=<your equivalent env i.e. tools is dev, dev is test, test is uat>
 ```
 
 ## Grafana Deployment

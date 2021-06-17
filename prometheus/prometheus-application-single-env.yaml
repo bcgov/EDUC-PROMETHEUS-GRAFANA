@@ -22,12 +22,12 @@ parameters:
 - name: PEN_NAMESPACE
   description: The value of pen namespace
   required: true
-- description: The environment to instantiate heapster under. Defaults to 'environment'.
+- description: The environment, tools, dev, test, prod.
   name: ENVIRONMENT
-  value: environment
-- description: PROD URL for PEN Request - no default
-  name: PEN_REQUEST_URL
-  value: ""
+  required: true
+- description: The equivalent environment. since we use tools-> dev, dev->test, test->uat it is needed. for prod it is prod.
+  name: EQUIV_ENVIRONMENT
+  required: true
 objects:
 - apiVersion: v1
   kind: ServiceAccount
@@ -252,8 +252,8 @@ objects:
              - http://student-api-master.${COMMON_NAMESPACE}-${ENVIRONMENT}.svc.cluster.local:8080/actuator/health
              - http://student-profile-api-master.${COMMON_NAMESPACE}-${ENVIRONMENT}.svc.cluster.local:8080/actuator/health
              - https://soam-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca
-             - https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca/api/health
-             - https://student-admin-${PEN_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca
+             - https://student-admin-${PEN_NAMESPACE}-${EQUIV_ENVIRONMENT}.apps.silver.devops.gov.bc.ca/api/health
+             - https://student-admin-${PEN_NAMESPACE}-${EQUIV_ENVIRONMENT}.apps.silver.devops.gov.bc.ca
              - http://student-profile-email-api-master.${PEN_NAMESPACE}-${ENVIRONMENT}.svc.cluster.local:8080/actuator/health
              - http://student-profile-saga-api-master.${PEN_NAMESPACE}-${ENVIRONMENT}.svc.cluster.local:8080/actuator/health
              - https://getmypen.gov.bc.ca/api/health
