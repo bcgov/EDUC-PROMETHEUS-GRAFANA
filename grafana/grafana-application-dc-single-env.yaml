@@ -109,6 +109,8 @@ objects:
         name: grafana
       spec:
         serviceAccountName: grafana
+        imagePullSecrets:
+          - name: artifactory-creds
         containers:
         - name: grafana
           image: ${IMAGE_GRAFANA}
