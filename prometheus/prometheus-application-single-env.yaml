@@ -99,7 +99,7 @@ objects:
           image: 'docker-remote.artifacts.developer.gov.bc.ca/jimmidyson/configmap-reload:v0.2.2'
           imagePullPolicy: IfNotPresent
           imagePullSecrets:
-          - name: artifactory-creds
+            - name: artifactory-creds
           name: prometheus-prometheus-service-configmap-reload
           resources:
             requests:
@@ -129,7 +129,7 @@ objects:
               value: "America/Vancouver"
           imagePullPolicy: IfNotPresent
           imagePullSecrets:
-          - name: artifactory-creds
+            - name: artifactory-creds
           livenessProbe:
             failureThreshold: 3
             httpGet:
