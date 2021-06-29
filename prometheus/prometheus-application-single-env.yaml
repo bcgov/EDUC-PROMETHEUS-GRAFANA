@@ -266,6 +266,11 @@ objects:
              target_label: instance
            - target_label: __address__
              replacement: blackbox-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca # Blackbox exporter.
+       - job_name: 'resilience4j'
+         metrics_path: /actuator/prometheus
+         static_configs:
+         - targets:
+           - soam-api-master.${COMMON_NAMESPACE}-${ENVIRONMENT}.svc.cluster.local:8080
        - job_name: prometheus
          static_configs:
          - targets:
