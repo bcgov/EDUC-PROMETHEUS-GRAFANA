@@ -268,6 +268,7 @@ objects:
              replacement: blackbox-${COMMON_NAMESPACE}-${ENVIRONMENT}.apps.silver.devops.gov.bc.ca # Blackbox exporter.
        - job_name: 'resilience4j'
          metrics_path: /actuator/prometheus
+         scrape_interval: 15s
          static_configs:
          - targets:
            - soam-api-master.${COMMON_NAMESPACE}-${ENVIRONMENT}.svc.cluster.local:8080

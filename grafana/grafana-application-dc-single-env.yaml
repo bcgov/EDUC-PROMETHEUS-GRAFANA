@@ -3790,8 +3790,8 @@ objects:
         "editable": true,
         "gnetId": null,
         "graphTooltip": 0,
-        "id": 7,
-        "iteration": 1624920107000,
+        "id": 6,
+        "iteration": 1625079157469,
         "links": [],
         "panels": [
           {
@@ -3808,353 +3808,352 @@ objects:
               "y": 0
             },
             "id": 19,
-            "panels": [
-              {
-                "cacheTimeout": null,
-                "datasource": "Prometheus",
-                "fieldConfig": {
-                  "defaults": {
-                    "color": {
-                      "mode": "thresholds"
-                    },
-                    "mappings": [
-                      {
-                        "options": {
-                          "match": "null",
-                          "result": {
-                            "text": "N/A"
-                          }
-                        },
-                        "type": "special"
-                      }
-                    ],
-                    "thresholds": {
-                      "mode": "absolute",
-                      "steps": [
-                        {
-                          "color": "#d44a3a",
-                          "value": null
-                        },
-                        {
-                          "color": "rgba(237, 129, 40, 0.89)",
-                          "value": 0
-                        },
-                        {
-                          "color": "#73BF69",
-                          "value": 1
-                        }
-                      ]
-                    },
-                    "unit": "none"
-                  },
-                  "overrides": []
-                },
-                "gridPos": {
-                  "h": 5,
-                  "w": 12,
-                  "x": 0,
-                  "y": 1
-                },
-                "id": 8,
-                "interval": null,
-                "links": [],
-                "maxDataPoints": 100,
-                "options": {
-                  "colorMode": "value",
-                  "graphMode": "area",
-                  "justifyMode": "auto",
-                  "orientation": "horizontal",
-                  "reduceOptions": {
-                    "calcs": [
-                      "lastNotNull"
-                    ],
-                    "fields": "",
-                    "values": false
-                  },
-                  "text": {},
-                  "textMode": "auto"
-                },
-                "pluginVersion": "8.0.3",
-                "targets": [
-                  {
-                    "expr": "sum(resilience4j_circuitbreaker_state{state=\"closed\"})",
-                    "format": "time_series",
-                    "instant": false,
-                    "intervalFactor": 1,
-                    "refId": "A"
-                  }
-                ],
-                "timeFrom": null,
-                "timeShift": null,
-                "title": "Number of closed CircuitBreaker",
-                "type": "stat"
-              },
-              {
-                "cacheTimeout": null,
-                "datasource": "Prometheus",
-                "fieldConfig": {
-                  "defaults": {
-                    "color": {
-                      "mode": "thresholds"
-                    },
-                    "mappings": [
-                      {
-                        "options": {
-                          "match": "null",
-                          "result": {
-                            "text": "N/A"
-                          }
-                        },
-                        "type": "special"
-                      }
-                    ],
-                    "thresholds": {
-                      "mode": "absolute",
-                      "steps": [
-                        {
-                          "color": "#299c46",
-                          "value": null
-                        },
-                        {
-                          "color": "rgba(237, 129, 40, 0.89)",
-                          "value": 1
-                        },
-                        {
-                          "color": "#F2495C",
-                          "value": 5
-                        }
-                      ]
-                    },
-                    "unit": "none"
-                  },
-                  "overrides": []
-                },
-                "gridPos": {
-                  "h": 5,
-                  "w": 12,
-                  "x": 12,
-                  "y": 1
-                },
-                "id": 6,
-                "interval": null,
-                "links": [],
-                "maxDataPoints": 100,
-                "options": {
-                  "colorMode": "value",
-                  "graphMode": "area",
-                  "justifyMode": "auto",
-                  "orientation": "horizontal",
-                  "reduceOptions": {
-                    "calcs": [
-                      "lastNotNull"
-                    ],
-                    "fields": "",
-                    "values": false
-                  },
-                  "text": {},
-                  "textMode": "auto"
-                },
-                "pluginVersion": "8.0.3",
-                "targets": [
-                  {
-                    "expr": "sum(resilience4j_circuitbreaker_state{state=~\"open|forced_open\"})",
-                    "format": "time_series",
-                    "intervalFactor": 1,
-                    "refId": "A"
-                  }
-                ],
-                "timeFrom": null,
-                "timeShift": null,
-                "title": "Number of open CircuitBreaker",
-                "type": "stat"
-              },
-              {
-                "aliasColors": {},
-                "bars": false,
-                "cacheTimeout": null,
-                "dashLength": 10,
-                "dashes": false,
-                "datasource": "Prometheus",
-                "decimals": null,
-                "description": "",
-                "fill": 1,
-                "fillGradient": 0,
-                "gridPos": {
-                  "h": 7,
-                  "w": 12,
-                  "x": 0,
-                  "y": 6
-                },
-                "hiddenSeries": false,
-                "id": 4,
-                "interval": "",
-                "legend": {
-                  "alignAsTable": false,
-                  "avg": false,
-                  "current": true,
-                  "hideEmpty": false,
-                  "hideZero": false,
-                  "max": false,
-                  "min": false,
-                  "rightSide": true,
-                  "show": true,
-                  "sideWidth": null,
-                  "total": false,
-                  "values": true
-                },
-                "lines": true,
-                "linewidth": 1,
-                "links": [],
-                "nullPointMode": "null",
-                "options": {
-                  "alertThreshold": true
-                },
-                "percentage": false,
-                "pluginVersion": "8.0.3",
-                "pointradius": 2,
-                "points": false,
-                "renderer": "flot",
-                "repeat": null,
-                "seriesOverrides": [],
-                "spaceLength": 10,
-                "stack": false,
-                "steppedLine": false,
-                "targets": [
-                  {
-                    "expr": "resilience4j_circuitbreaker_state{instance=~\"$instance\"}",
-                    "format": "time_series",
-                    "intervalFactor": 1,
-                    "legendFormat": "{{ name }}: {{ state }}",
-                    "refId": "A"
-                  }
-                ],
-                "thresholds": [],
-                "timeFrom": null,
-                "timeRegions": [],
-                "timeShift": null,
-                "title": "CircuitBreaker States",
-                "tooltip": {
-                  "shared": true,
-                  "sort": 0,
-                  "value_type": "individual"
-                },
-                "type": "graph",
-                "xaxis": {
-                  "buckets": null,
-                  "mode": "time",
-                  "name": null,
-                  "show": true,
-                  "values": []
-                },
-                "yaxes": [
-                  {
-                    "decimals": 0,
-                    "format": "short",
-                    "label": "Number",
-                    "logBase": 1,
-                    "max": null,
-                    "min": null,
-                    "show": true
-                  },
-                  {
-                    "decimals": null,
-                    "format": "short",
-                    "label": null,
-                    "logBase": 1,
-                    "max": null,
-                    "min": null,
-                    "show": true
-                  }
-                ],
-                "yaxis": {
-                  "align": false,
-                  "alignLevel": null
-                }
-              },
-              {
-                "cacheTimeout": null,
-                "datasource": "Prometheus",
-                "fieldConfig": {
-                  "defaults": {
-                    "color": {
-                      "mode": "thresholds"
-                    },
-                    "mappings": [
-                      {
-                        "options": {
-                          "match": "null",
-                          "result": {
-                            "text": "N/A"
-                          }
-                        },
-                        "type": "special"
-                      }
-                    ],
-                    "thresholds": {
-                      "mode": "absolute",
-                      "steps": [
-                        {
-                          "color": "#299c46",
-                          "value": null
-                        },
-                        {
-                          "color": "#FF9830",
-                          "value": 0
-                        },
-                        {
-                          "color": "#d44a3a",
-                          "value": 1
-                        }
-                      ]
-                    },
-                    "unit": "none"
-                  },
-                  "overrides": []
-                },
-                "gridPos": {
-                  "h": 7,
-                  "w": 12,
-                  "x": 12,
-                  "y": 6
-                },
-                "id": 21,
-                "interval": null,
-                "links": [],
-                "maxDataPoints": 100,
-                "options": {
-                  "colorMode": "value",
-                  "graphMode": "area",
-                  "justifyMode": "auto",
-                  "orientation": "horizontal",
-                  "reduceOptions": {
-                    "calcs": [
-                      "lastNotNull"
-                    ],
-                    "fields": "",
-                    "values": false
-                  },
-                  "text": {},
-                  "textMode": "auto"
-                },
-                "pluginVersion": "8.0.3",
-                "targets": [
-                  {
-                    "expr": "sum(resilience4j_circuitbreaker_state{state=\"half_open\"})",
-                    "format": "time_series",
-                    "instant": false,
-                    "intervalFactor": 1,
-                    "legendFormat": "",
-                    "refId": "A"
-                  }
-                ],
-                "timeFrom": null,
-                "timeShift": null,
-                "title": "Number of half_open CircuitBreaker",
-                "type": "stat"
-              }
-            ],
+            "panels": [],
             "title": "Summary",
             "type": "row"
+          },
+          {
+            "cacheTimeout": null,
+            "datasource": "Prometheus",
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "thresholds"
+                },
+                "mappings": [
+                  {
+                    "options": {
+                      "match": "null",
+                      "result": {
+                        "text": "N/A"
+                      }
+                    },
+                    "type": "special"
+                  }
+                ],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "#d44a3a",
+                      "value": null
+                    },
+                    {
+                      "color": "rgba(237, 129, 40, 0.89)",
+                      "value": 0
+                    },
+                    {
+                      "color": "#73BF69",
+                      "value": 1
+                    }
+                  ]
+                },
+                "unit": "none"
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 5,
+              "w": 12,
+              "x": 0,
+              "y": 1
+            },
+            "id": 8,
+            "interval": null,
+            "links": [],
+            "maxDataPoints": 100,
+            "options": {
+              "colorMode": "value",
+              "graphMode": "area",
+              "justifyMode": "auto",
+              "orientation": "horizontal",
+              "reduceOptions": {
+                "calcs": [
+                  "lastNotNull"
+                ],
+                "fields": "",
+                "values": false
+              },
+              "text": {},
+              "textMode": "auto"
+            },
+            "pluginVersion": "8.1.0-27268pre",
+            "targets": [
+              {
+                "expr": "sum(resilience4j_circuitbreaker_state{state=\"closed\"})",
+                "format": "time_series",
+                "instant": false,
+                "intervalFactor": 1,
+                "refId": "A"
+              }
+            ],
+            "timeFrom": null,
+            "timeShift": null,
+            "title": "Number of closed CircuitBreaker",
+            "type": "stat"
+          },
+          {
+            "cacheTimeout": null,
+            "datasource": "Prometheus",
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "thresholds"
+                },
+                "mappings": [
+                  {
+                    "options": {
+                      "match": "null",
+                      "result": {
+                        "text": "N/A"
+                      }
+                    },
+                    "type": "special"
+                  }
+                ],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "#299c46",
+                      "value": null
+                    },
+                    {
+                      "color": "rgba(237, 129, 40, 0.89)",
+                      "value": 1
+                    },
+                    {
+                      "color": "#F2495C",
+                      "value": 5
+                    }
+                  ]
+                },
+                "unit": "none"
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 5,
+              "w": 12,
+              "x": 12,
+              "y": 1
+            },
+            "id": 6,
+            "interval": null,
+            "links": [],
+            "maxDataPoints": 100,
+            "options": {
+              "colorMode": "value",
+              "graphMode": "area",
+              "justifyMode": "auto",
+              "orientation": "horizontal",
+              "reduceOptions": {
+                "calcs": [
+                  "lastNotNull"
+                ],
+                "fields": "",
+                "values": false
+              },
+              "text": {},
+              "textMode": "auto"
+            },
+            "pluginVersion": "8.1.0-27268pre",
+            "targets": [
+              {
+                "expr": "sum(resilience4j_circuitbreaker_state{state=~\"open|forced_open\"})",
+                "format": "time_series",
+                "intervalFactor": 1,
+                "refId": "A"
+              }
+            ],
+            "timeFrom": null,
+            "timeShift": null,
+            "title": "Number of open CircuitBreaker",
+            "type": "stat"
+          },
+          {
+            "aliasColors": {},
+            "bars": false,
+            "cacheTimeout": null,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "Prometheus",
+            "decimals": null,
+            "description": "",
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+              "h": 7,
+              "w": 12,
+              "x": 0,
+              "y": 6
+            },
+            "hiddenSeries": false,
+            "id": 4,
+            "interval": "",
+            "legend": {
+              "alignAsTable": false,
+              "avg": false,
+              "current": true,
+              "hideEmpty": false,
+              "hideZero": false,
+              "max": false,
+              "min": false,
+              "rightSide": true,
+              "show": true,
+              "sideWidth": null,
+              "total": false,
+              "values": true
+            },
+            "lines": true,
+            "linewidth": 1,
+            "links": [],
+            "nullPointMode": "null",
+            "options": {
+              "alertThreshold": true
+            },
+            "percentage": false,
+            "pluginVersion": "8.1.0-27268pre",
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "repeat": null,
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+              {
+                "expr": "resilience4j_circuitbreaker_state{instance=~\"$instance\"}",
+                "format": "time_series",
+                "intervalFactor": 1,
+                "legendFormat": "{{ name }}: {{ state }}",
+                "refId": "A"
+              }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "CircuitBreaker States",
+            "tooltip": {
+              "shared": true,
+              "sort": 0,
+              "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+              "buckets": null,
+              "mode": "time",
+              "name": null,
+              "show": true,
+              "values": []
+            },
+            "yaxes": [
+              {
+                "decimals": 0,
+                "format": "short",
+                "label": "Number",
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              },
+              {
+                "decimals": null,
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              }
+            ],
+            "yaxis": {
+              "align": false,
+              "alignLevel": null
+            }
+          },
+          {
+            "cacheTimeout": null,
+            "datasource": "Prometheus",
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "thresholds"
+                },
+                "mappings": [
+                  {
+                    "options": {
+                      "match": "null",
+                      "result": {
+                        "text": "N/A"
+                      }
+                    },
+                    "type": "special"
+                  }
+                ],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "#299c46",
+                      "value": null
+                    },
+                    {
+                      "color": "#FF9830",
+                      "value": 0
+                    },
+                    {
+                      "color": "#d44a3a",
+                      "value": 1
+                    }
+                  ]
+                },
+                "unit": "none"
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 7,
+              "w": 12,
+              "x": 12,
+              "y": 6
+            },
+            "id": 21,
+            "interval": null,
+            "links": [],
+            "maxDataPoints": 100,
+            "options": {
+              "colorMode": "value",
+              "graphMode": "area",
+              "justifyMode": "auto",
+              "orientation": "horizontal",
+              "reduceOptions": {
+                "calcs": [
+                  "lastNotNull"
+                ],
+                "fields": "",
+                "values": false
+              },
+              "text": {},
+              "textMode": "auto"
+            },
+            "pluginVersion": "8.1.0-27268pre",
+            "targets": [
+              {
+                "expr": "sum(resilience4j_circuitbreaker_state{state=\"half_open\"})",
+                "format": "time_series",
+                "instant": false,
+                "intervalFactor": 1,
+                "legendFormat": "",
+                "refId": "A"
+              }
+            ],
+            "timeFrom": null,
+            "timeShift": null,
+            "title": "Number of half_open CircuitBreaker",
+            "type": "stat"
           },
           {
             "collapsed": false,
@@ -4167,540 +4166,544 @@ objects:
               "h": 1,
               "w": 24,
               "x": 0,
-              "y": 1
+              "y": 13
             },
             "id": 15,
-            "panels": [
-              {
-                "cacheTimeout": null,
-                "datasource": "Prometheus",
-                "description": "",
-                "fieldConfig": {
-                  "defaults": {
-                    "color": {
-                      "mode": "thresholds"
-                    },
-                    "mappings": [
-                      {
-                        "options": {
-                          "-1": {
-                            "text": "N/A"
-                          }
-                        },
-                        "type": "value"
-                      },
-                      {
-                        "options": {
-                          "match": "null",
-                          "result": {
-                            "text": "N/A"
-                          }
-                        },
-                        "type": "special"
-                      }
-                    ],
-                    "max": 100,
-                    "min": 0,
-                    "thresholds": {
-                      "mode": "absolute",
-                      "steps": [
-                        {
-                          "color": "#299c46",
-                          "value": null
-                        },
-                        {
-                          "color": "rgba(237, 129, 40, 0.89)",
-                          "value": 40
-                        },
-                        {
-                          "color": "#d44a3a",
-                          "value": 50
-                        }
-                      ]
-                    },
-                    "unit": "percent"
-                  },
-                  "overrides": []
-                },
-                "gridPos": {
-                  "h": 7,
-                  "w": 8,
-                  "x": 0,
-                  "y": 2
-                },
-                "id": 2,
-                "interval": null,
-                "links": [],
-                "maxDataPoints": 100,
-                "options": {
-                  "orientation": "horizontal",
-                  "reduceOptions": {
-                    "calcs": [
-                      "lastNotNull"
-                    ],
-                    "fields": "",
-                    "values": false
-                  },
-                  "showThresholdLabels": true,
-                  "showThresholdMarkers": true,
-                  "text": {}
-                },
-                "pluginVersion": "8.0.3",
-                "repeat": null,
-                "repeatDirection": "h",
-                "targets": [
-                  {
-                    "expr": "resilience4j_circuitbreaker_failure_rate{instance=~\"$instance\",name=~\"$circuitbreaker_name\"}",
-                    "format": "time_series",
-                    "hide": false,
-                    "interval": "",
-                    "intervalFactor": 1,
-                    "legendFormat": "{{ name }}",
-                    "refId": "A"
-                  }
-                ],
-                "timeFrom": null,
-                "timeShift": null,
-                "title": "Failure Rate: $circuitbreaker_name",
-                "type": "gauge"
-              },
-              {
-                "aliasColors": {
-                  "failed ": "red",
-                  "ignored ": "blue",
-                  "not_permitted ": "orange",
-                  "successful ": "green"
-                },
-                "bars": false,
-                "dashLength": 10,
-                "dashes": false,
-                "datasource": "Prometheus",
-                "fill": 1,
-                "fillGradient": 0,
-                "gridPos": {
-                  "h": 7,
-                  "w": 16,
-                  "x": 8,
-                  "y": 2
-                },
-                "hiddenSeries": false,
-                "id": 23,
-                "interval": "",
-                "legend": {
-                  "alignAsTable": true,
-                  "avg": true,
-                  "current": true,
-                  "max": true,
-                  "min": true,
-                  "rightSide": true,
-                  "show": true,
-                  "total": false,
-                  "values": true
-                },
-                "lines": true,
-                "linewidth": 1,
-                "links": [],
-                "nullPointMode": "null",
-                "options": {
-                  "alertThreshold": true
-                },
-                "percentage": false,
-                "pluginVersion": "8.0.3",
-                "pointradius": 2,
-                "points": true,
-                "renderer": "flot",
-                "seriesOverrides": [],
-                "spaceLength": 10,
-                "stack": false,
-                "steppedLine": false,
-                "targets": [
-                  {
-                    "expr": "rate(resilience4j_circuitbreaker_calls_seconds_count{instance=~\"$instance\",name=~\"$circuitbreaker_name\"}[1m])",
-                    "format": "time_series",
-                    "hide": false,
-                    "intervalFactor": 1,
-                    "legendFormat": "{{ kind }} ",
-                    "refId": "A"
-                  },
-                  {
-                    "expr": "rate(resilience4j_circuitbreaker_calls_total{instance=~\"$instance\",name=~\"$circuitbreaker_name\"}[1m])",
-                    "format": "time_series",
-                    "intervalFactor": 1,
-                    "legendFormat": "{{ kind  }} ",
-                    "refId": "B"
-                  }
-                ],
-                "thresholds": [],
-                "timeFrom": null,
-                "timeRegions": [],
-                "timeShift": null,
-                "title": "Call rate: $circuitbreaker_name",
-                "tooltip": {
-                  "shared": true,
-                  "sort": 0,
-                  "value_type": "individual"
-                },
-                "type": "graph",
-                "xaxis": {
-                  "buckets": null,
-                  "mode": "time",
-                  "name": null,
-                  "show": true,
-                  "values": []
-                },
-                "yaxes": [
-                  {
-                    "format": "short",
-                    "label": "Calls/sec",
-                    "logBase": 1,
-                    "max": null,
-                    "min": null,
-                    "show": true
-                  },
-                  {
-                    "format": "short",
-                    "label": null,
-                    "logBase": 1,
-                    "max": null,
-                    "min": null,
-                    "show": true
-                  }
-                ],
-                "yaxis": {
-                  "align": false,
-                  "alignLevel": null
-                }
-              },
-              {
-                "aliasColors": {
-                  "failed": "red",
-                  "successful": "green"
-                },
-                "bars": false,
-                "dashLength": 10,
-                "dashes": false,
-                "datasource": "Prometheus",
-                "fill": 1,
-                "fillGradient": 0,
-                "gridPos": {
-                  "h": 8,
-                  "w": 16,
-                  "x": 8,
-                  "y": 9
-                },
-                "hiddenSeries": false,
-                "id": 11,
-                "legend": {
-                  "alignAsTable": true,
-                  "avg": false,
-                  "current": true,
-                  "hideEmpty": false,
-                  "hideZero": false,
-                  "max": false,
-                  "min": false,
-                  "rightSide": true,
-                  "show": true,
-                  "total": false,
-                  "values": true
-                },
-                "lines": true,
-                "linewidth": 1,
-                "links": [],
-                "nullPointMode": "null",
-                "options": {
-                  "alertThreshold": true
-                },
-                "percentage": false,
-                "pluginVersion": "8.0.3",
-                "pointradius": 2,
-                "points": false,
-                "renderer": "flot",
-                "repeat": null,
-                "repeatDirection": "h",
-                "seriesOverrides": [],
-                "spaceLength": 10,
-                "stack": false,
-                "steppedLine": false,
-                "targets": [
-                  {
-                    "expr": "resilience4j_circuitbreaker_buffered_calls{instance=~\"$instance\",name=~\"$circuitbreaker_name\"}",
-                    "format": "time_series",
-                    "intervalFactor": 1,
-                    "legendFormat": "{{ kind }}",
-                    "refId": "A"
-                  },
-                  {
-                    "expr": "resilience4j_circuitbreaker_max_buffered_calls{instance=~\"$instance\",name=~\"$circuitbreaker_name\"}",
-                    "format": "time_series",
-                    "intervalFactor": 1,
-                    "legendFormat": "maximum",
-                    "refId": "B"
-                  }
-                ],
-                "thresholds": [],
-                "timeFrom": null,
-                "timeRegions": [],
-                "timeShift": null,
-                "title": "Buffered calls: $circuitbreaker_name",
-                "tooltip": {
-                  "shared": true,
-                  "sort": 0,
-                  "value_type": "individual"
-                },
-                "type": "graph",
-                "xaxis": {
-                  "buckets": null,
-                  "mode": "time",
-                  "name": null,
-                  "show": true,
-                  "values": []
-                },
-                "yaxes": [
-                  {
-                    "decimals": 1,
-                    "format": "short",
-                    "label": "Number",
-                    "logBase": 1,
-                    "max": null,
-                    "min": null,
-                    "show": true
-                  },
-                  {
-                    "format": "short",
-                    "label": null,
-                    "logBase": 1,
-                    "max": null,
-                    "min": null,
-                    "show": true
-                  }
-                ],
-                "yaxis": {
-                  "align": false,
-                  "alignLevel": null
-                }
-              },
-              {
-                "aliasColors": {},
-                "bars": false,
-                "dashLength": 10,
-                "dashes": false,
-                "datasource": "Prometheus",
-                "fill": 1,
-                "fillGradient": 0,
-                "gridPos": {
-                  "h": 7,
-                  "w": 16,
-                  "x": 8,
-                  "y": 17
-                },
-                "hiddenSeries": false,
-                "id": 26,
-                "legend": {
-                  "alignAsTable": true,
-                  "avg": true,
-                  "current": true,
-                  "hideZero": false,
-                  "max": true,
-                  "min": true,
-                  "rightSide": true,
-                  "show": true,
-                  "total": false,
-                  "values": true
-                },
-                "lines": true,
-                "linewidth": 1,
-                "links": [],
-                "nullPointMode": "null",
-                "options": {
-                  "alertThreshold": true
-                },
-                "percentage": false,
-                "pluginVersion": "8.0.3",
-                "pointradius": 2,
-                "points": false,
-                "renderer": "flot",
-                "seriesOverrides": [],
-                "spaceLength": 10,
-                "stack": false,
-                "steppedLine": false,
-                "targets": [
-                  {
-                    "expr": "histogram_quantile(0.9, sum(rate(resilience4j_circuitbreaker_calls_seconds_bucket{application=~\"$application\", instance=~\"$instance\", name=~\"$circuitbreaker_name\"}[1m])) by (le))",
-                    "format": "time_series",
-                    "hide": false,
-                    "intervalFactor": 1,
-                    "legendFormat": "90th Percentile",
-                    "refId": "A"
-                  },
-                  {
-                    "expr": "histogram_quantile(0.95, sum(rate(resilience4j_circuitbreaker_calls_seconds_bucket{application=~\"$application\", instance=~\"$instance\", name=~\"$circuitbreaker_name\"}[1m])) by (le))",
-                    "format": "time_series",
-                    "intervalFactor": 1,
-                    "legendFormat": "95th Percentile",
-                    "refId": "B"
-                  },
-                  {
-                    "expr": "histogram_quantile(0.98, sum(rate(resilience4j_circuitbreaker_calls_seconds_bucket{application=~\"$application\", instance=~\"$instance\", name=~\"$circuitbreaker_name\"}[1m])) by (le))",
-                    "format": "time_series",
-                    "intervalFactor": 1,
-                    "legendFormat": "98th Percentile",
-                    "refId": "C"
-                  },
-                  {
-                    "expr": "histogram_quantile(0.50, sum(rate(resilience4j_circuitbreaker_calls_seconds_bucket{application=~\"$application\", instance=~\"$instance\", name=~\"$circuitbreaker_name\"}[1m])) by (le))",
-                    "format": "time_series",
-                    "intervalFactor": 1,
-                    "legendFormat": "Median",
-                    "refId": "D"
-                  }
-                ],
-                "thresholds": [],
-                "timeFrom": null,
-                "timeRegions": [],
-                "timeShift": null,
-                "title": "Call duration percentiles",
-                "tooltip": {
-                  "shared": true,
-                  "sort": 0,
-                  "value_type": "individual"
-                },
-                "type": "graph",
-                "xaxis": {
-                  "buckets": null,
-                  "mode": "time",
-                  "name": null,
-                  "show": true,
-                  "values": []
-                },
-                "yaxes": [
-                  {
-                    "format": "s",
-                    "label": "Average duration",
-                    "logBase": 1,
-                    "max": null,
-                    "min": null,
-                    "show": true
-                  },
-                  {
-                    "format": "short",
-                    "label": null,
-                    "logBase": 1,
-                    "max": null,
-                    "min": null,
-                    "show": true
-                  }
-                ],
-                "yaxis": {
-                  "align": false,
-                  "alignLevel": null
-                }
-              },
-              {
-                "aliasColors": {
-                  "failed": "red",
-                  "ignored": "blue",
-                  "successful": "green"
-                },
-                "bars": false,
-                "dashLength": 10,
-                "dashes": false,
-                "datasource": "Prometheus",
-                "fill": 1,
-                "gridPos": {
-                  "h": 7,
-                  "w": 16,
-                  "x": 8,
-                  "y": 24
-                },
-                "id": 25,
-                "legend": {
-                  "alignAsTable": true,
-                  "avg": true,
-                  "current": true,
-                  "hideZero": false,
-                  "max": true,
-                  "min": true,
-                  "rightSide": true,
-                  "show": true,
-                  "total": false,
-                  "values": true
-                },
-                "lines": true,
-                "linewidth": 1,
-                "links": [],
-                "nullPointMode": "null",
-                "percentage": false,
-                "pluginVersion": "8.0.3",
-                "pointradius": 2,
-                "points": true,
-                "renderer": "flot",
-                "seriesOverrides": [],
-                "spaceLength": 10,
-                "stack": false,
-                "steppedLine": false,
-                "targets": [
-                  {
-                    "expr": "increase(resilience4j_circuitbreaker_calls_seconds_sum{instance=~\"$instance\",name=~\"$circuitbreaker_name\"}[1m]) / increase(resilience4j_circuitbreaker_calls_seconds_count{instance=~\"$instance\",name=~\"$circuitbreaker_name\"}[1m])",
-                    "format": "time_series",
-                    "intervalFactor": 1,
-                    "legendFormat": "{{ kind }}",
-                    "refId": "A"
-                  },
-                  {
-                    "expr": "sum(increase(resilience4j_circuitbreaker_calls_seconds_sum{instance=~\"$instance\",name=~\"$circuitbreaker_name\"}[1m])) / sum(increase(resilience4j_circuitbreaker_calls_seconds_count{instance=~\"$instance\",name=~\"$circuitbreaker_name\"}[1m]))",
-                    "format": "time_series",
-                    "intervalFactor": 1,
-                    "legendFormat": "total ",
-                    "refId": "B"
-                  }
-                ],
-                "thresholds": [],
-                "timeFrom": null,
-                "timeRegions": [],
-                "timeShift": null,
-                "title": "Average call durations",
-                "tooltip": {
-                  "shared": true,
-                  "sort": 0,
-                  "value_type": "individual"
-                },
-                "type": "graph",
-                "xaxis": {
-                  "buckets": null,
-                  "mode": "time",
-                  "name": null,
-                  "show": true,
-                  "values": []
-                },
-                "yaxes": [
-                  {
-                    "format": "s",
-                    "label": "Average duration",
-                    "logBase": 1,
-                    "max": null,
-                    "min": null,
-                    "show": true
-                  },
-                  {
-                    "format": "short",
-                    "label": null,
-                    "logBase": 1,
-                    "max": null,
-                    "min": null,
-                    "show": true
-                  }
-                ],
-                "yaxis": {
-                  "align": false,
-                  "alignLevel": null
-                }
-              }
-            ],
+            "panels": [],
             "repeat": "circuitbreaker_name",
             "title": "CircuitBreaker",
             "type": "row"
           },
           {
+            "cacheTimeout": null,
+            "datasource": "Prometheus",
+            "description": "",
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "thresholds"
+                },
+                "mappings": [
+                  {
+                    "options": {
+                      "-1": {
+                        "text": "N/A"
+                      }
+                    },
+                    "type": "value"
+                  },
+                  {
+                    "options": {
+                      "match": "null",
+                      "result": {
+                        "text": "N/A"
+                      }
+                    },
+                    "type": "special"
+                  }
+                ],
+                "max": 100,
+                "min": 0,
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "#299c46",
+                      "value": null
+                    },
+                    {
+                      "color": "rgba(237, 129, 40, 0.89)",
+                      "value": 40
+                    },
+                    {
+                      "color": "#d44a3a",
+                      "value": 50
+                    }
+                  ]
+                },
+                "unit": "percent"
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 7,
+              "w": 8,
+              "x": 0,
+              "y": 14
+            },
+            "id": 2,
+            "interval": null,
+            "links": [],
+            "maxDataPoints": 100,
+            "options": {
+              "orientation": "horizontal",
+              "reduceOptions": {
+                "calcs": [
+                  "lastNotNull"
+                ],
+                "fields": "",
+                "values": false
+              },
+              "showThresholdLabels": true,
+              "showThresholdMarkers": true,
+              "text": {}
+            },
+            "pluginVersion": "8.1.0-27268pre",
+            "repeat": null,
+            "repeatDirection": "h",
+            "targets": [
+              {
+                "expr": "resilience4j_circuitbreaker_failure_rate{instance=~\"$instance\",name=~\"$circuitbreaker_name\"}",
+                "format": "time_series",
+                "hide": false,
+                "interval": "",
+                "intervalFactor": 1,
+                "legendFormat": "{{ name }}",
+                "refId": "A"
+              }
+            ],
+            "timeFrom": null,
+            "timeShift": null,
+            "title": "Failure Rate: $circuitbreaker_name",
+            "type": "gauge"
+          },
+          {
+            "aliasColors": {
+              "failed ": "red",
+              "ignored ": "blue",
+              "not_permitted ": "orange",
+              "successful ": "green"
+            },
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "Prometheus",
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+              "h": 7,
+              "w": 16,
+              "x": 8,
+              "y": 14
+            },
+            "hiddenSeries": false,
+            "id": 23,
+            "interval": "",
+            "legend": {
+              "alignAsTable": true,
+              "avg": true,
+              "current": true,
+              "max": true,
+              "min": true,
+              "rightSide": true,
+              "show": true,
+              "total": false,
+              "values": true
+            },
+            "lines": true,
+            "linewidth": 1,
+            "links": [],
+            "nullPointMode": "null",
+            "options": {
+              "alertThreshold": true
+            },
+            "percentage": false,
+            "pluginVersion": "8.1.0-27268pre",
+            "pointradius": 2,
+            "points": true,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+              {
+                "expr": "rate(resilience4j_circuitbreaker_calls_seconds_count{instance=~\"$instance\",name=~\"$circuitbreaker_name\"}[1m])",
+                "format": "time_series",
+                "hide": false,
+                "intervalFactor": 1,
+                "legendFormat": "{{ kind }} ",
+                "refId": "A"
+              },
+              {
+                "expr": "rate(resilience4j_circuitbreaker_calls_total{instance=~\"$instance\",name=~\"$circuitbreaker_name\"}[1m])",
+                "format": "time_series",
+                "intervalFactor": 1,
+                "legendFormat": "{{ kind  }} ",
+                "refId": "B"
+              }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Call rate: $circuitbreaker_name",
+            "tooltip": {
+              "shared": true,
+              "sort": 0,
+              "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+              "buckets": null,
+              "mode": "time",
+              "name": null,
+              "show": true,
+              "values": []
+            },
+            "yaxes": [
+              {
+                "format": "short",
+                "label": "Calls/sec",
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              },
+              {
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              }
+            ],
+            "yaxis": {
+              "align": false,
+              "alignLevel": null
+            }
+          },
+          {
+            "aliasColors": {
+              "failed": "red",
+              "successful": "green"
+            },
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "Prometheus",
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+              "h": 8,
+              "w": 16,
+              "x": 8,
+              "y": 21
+            },
+            "hiddenSeries": false,
+            "id": 11,
+            "legend": {
+              "alignAsTable": true,
+              "avg": false,
+              "current": true,
+              "hideEmpty": false,
+              "hideZero": false,
+              "max": false,
+              "min": false,
+              "rightSide": true,
+              "show": true,
+              "total": false,
+              "values": true
+            },
+            "lines": true,
+            "linewidth": 1,
+            "links": [],
+            "nullPointMode": "null",
+            "options": {
+              "alertThreshold": true
+            },
+            "percentage": false,
+            "pluginVersion": "8.1.0-27268pre",
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "repeat": null,
+            "repeatDirection": "h",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+              {
+                "expr": "resilience4j_circuitbreaker_buffered_calls{instance=~\"$instance\",name=~\"$circuitbreaker_name\"}",
+                "format": "time_series",
+                "intervalFactor": 1,
+                "legendFormat": "{{ kind }}",
+                "refId": "A"
+              },
+              {
+                "expr": "resilience4j_circuitbreaker_max_buffered_calls{instance=~\"$instance\",name=~\"$circuitbreaker_name\"}",
+                "format": "time_series",
+                "intervalFactor": 1,
+                "legendFormat": "maximum",
+                "refId": "B"
+              }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Buffered calls: $circuitbreaker_name",
+            "tooltip": {
+              "shared": true,
+              "sort": 0,
+              "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+              "buckets": null,
+              "mode": "time",
+              "name": null,
+              "show": true,
+              "values": []
+            },
+            "yaxes": [
+              {
+                "decimals": 1,
+                "format": "short",
+                "label": "Number",
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              },
+              {
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              }
+            ],
+            "yaxis": {
+              "align": false,
+              "alignLevel": null
+            }
+          },
+          {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "Prometheus",
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+              "h": 7,
+              "w": 16,
+              "x": 8,
+              "y": 29
+            },
+            "hiddenSeries": false,
+            "id": 26,
+            "legend": {
+              "alignAsTable": true,
+              "avg": true,
+              "current": true,
+              "hideZero": false,
+              "max": true,
+              "min": true,
+              "rightSide": true,
+              "show": true,
+              "total": false,
+              "values": true
+            },
+            "lines": true,
+            "linewidth": 1,
+            "links": [],
+            "nullPointMode": "null",
+            "options": {
+              "alertThreshold": true
+            },
+            "percentage": false,
+            "pluginVersion": "8.1.0-27268pre",
+            "pointradius": 2,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+              {
+                "expr": "histogram_quantile(0.9, sum(rate(resilience4j_circuitbreaker_calls_seconds_bucket{application=~\"$application\", instance=~\"$instance\", name=~\"$circuitbreaker_name\"}[1m])) by (le))",
+                "format": "time_series",
+                "hide": false,
+                "intervalFactor": 1,
+                "legendFormat": "90th Percentile",
+                "refId": "A"
+              },
+              {
+                "expr": "histogram_quantile(0.95, sum(rate(resilience4j_circuitbreaker_calls_seconds_bucket{application=~\"$application\", instance=~\"$instance\", name=~\"$circuitbreaker_name\"}[1m])) by (le))",
+                "format": "time_series",
+                "intervalFactor": 1,
+                "legendFormat": "95th Percentile",
+                "refId": "B"
+              },
+              {
+                "expr": "histogram_quantile(0.98, sum(rate(resilience4j_circuitbreaker_calls_seconds_bucket{application=~\"$application\", instance=~\"$instance\", name=~\"$circuitbreaker_name\"}[1m])) by (le))",
+                "format": "time_series",
+                "intervalFactor": 1,
+                "legendFormat": "98th Percentile",
+                "refId": "C"
+              },
+              {
+                "expr": "histogram_quantile(0.50, sum(rate(resilience4j_circuitbreaker_calls_seconds_bucket{application=~\"$application\", instance=~\"$instance\", name=~\"$circuitbreaker_name\"}[1m])) by (le))",
+                "format": "time_series",
+                "intervalFactor": 1,
+                "legendFormat": "Median",
+                "refId": "D"
+              }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Call duration percentiles",
+            "tooltip": {
+              "shared": true,
+              "sort": 0,
+              "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+              "buckets": null,
+              "mode": "time",
+              "name": null,
+              "show": true,
+              "values": []
+            },
+            "yaxes": [
+              {
+                "format": "s",
+                "label": "Average duration",
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              },
+              {
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              }
+            ],
+            "yaxis": {
+              "align": false,
+              "alignLevel": null
+            }
+          },
+          {
+            "aliasColors": {
+              "failed": "red",
+              "ignored": "blue",
+              "successful": "green"
+            },
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "Prometheus",
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+              "h": 7,
+              "w": 16,
+              "x": 8,
+              "y": 36
+            },
+            "hiddenSeries": false,
+            "id": 25,
+            "legend": {
+              "alignAsTable": true,
+              "avg": true,
+              "current": true,
+              "hideZero": false,
+              "max": true,
+              "min": true,
+              "rightSide": true,
+              "show": true,
+              "total": false,
+              "values": true
+            },
+            "lines": true,
+            "linewidth": 1,
+            "links": [],
+            "nullPointMode": "null",
+            "options": {
+              "alertThreshold": true
+            },
+            "percentage": false,
+            "pluginVersion": "8.1.0-27268pre",
+            "pointradius": 2,
+            "points": true,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+              {
+                "expr": "increase(resilience4j_circuitbreaker_calls_seconds_sum{instance=~\"$instance\",name=~\"$circuitbreaker_name\"}[1m]) / increase(resilience4j_circuitbreaker_calls_seconds_count{instance=~\"$instance\",name=~\"$circuitbreaker_name\"}[1m])",
+                "format": "time_series",
+                "intervalFactor": 1,
+                "legendFormat": "{{ kind }}",
+                "refId": "A"
+              },
+              {
+                "expr": "sum(increase(resilience4j_circuitbreaker_calls_seconds_sum{instance=~\"$instance\",name=~\"$circuitbreaker_name\"}[1m])) / sum(increase(resilience4j_circuitbreaker_calls_seconds_count{instance=~\"$instance\",name=~\"$circuitbreaker_name\"}[1m]))",
+                "format": "time_series",
+                "intervalFactor": 1,
+                "legendFormat": "total ",
+                "refId": "B"
+              }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Average call durations",
+            "tooltip": {
+              "shared": true,
+              "sort": 0,
+              "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+              "buckets": null,
+              "mode": "time",
+              "name": null,
+              "show": true,
+              "values": []
+            },
+            "yaxes": [
+              {
+                "format": "s",
+                "label": "Average duration",
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              },
+              {
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              }
+            ],
+            "yaxis": {
+              "align": false,
+              "alignLevel": null
+            }
+          },
+          {
             "collapsed": false,
             "datasource": null,
             "fieldConfig": {
@@ -4711,225 +4714,113 @@ objects:
               "h": 1,
               "w": 24,
               "x": 0,
-              "y": 2
+              "y": 43
             },
             "id": 28,
-            "panels": [
-              {
-                "aliasColors": {
-                  "failed_with_retry": "red",
-                  "failed_without_retry": "orange",
-                  "successful_with_retry": "yellow",
-                  "successful_without_retry": "green"
-                },
-                "bars": false,
-                "dashLength": 10,
-                "dashes": false,
-                "datasource": "Prometheus",
-                "fill": 1,
-                "fillGradient": 0,
-                "gridPos": {
-                  "h": 8,
-                  "w": 12,
-                  "x": 0,
-                  "y": 3
-                },
-                "hiddenSeries": false,
-                "id": 30,
-                "legend": {
-                  "alignAsTable": true,
-                  "avg": false,
-                  "current": true,
-                  "max": false,
-                  "min": false,
-                  "rightSide": true,
-                  "show": true,
-                  "total": true,
-                  "values": true
-                },
-                "lines": true,
-                "linewidth": 1,
-                "links": [],
-                "nullPointMode": "null",
-                "options": {
-                  "alertThreshold": true
-                },
-                "percentage": false,
-                "pluginVersion": "8.0.3",
-                "pointradius": 2,
-                "points": true,
-                "renderer": "flot",
-                "seriesOverrides": [],
-                "spaceLength": 10,
-                "stack": false,
-                "steppedLine": false,
-                "targets": [
-                  {
-                    "expr": "rate(resilience4j_retry_calls_total{application=~\"$application\",name=~\"$retry_name\",}[1m])",
-                    "format": "time_series",
-                    "intervalFactor": 1,
-                    "legendFormat": "{{ kind }}",
-                    "refId": "A"
-                  }
-                ],
-                "thresholds": [],
-                "timeFrom": null,
-                "timeRegions": [],
-                "timeShift": null,
-                "title": "Rate retryable calls: $retry_name",
-                "tooltip": {
-                  "shared": true,
-                  "sort": 0,
-                  "value_type": "individual"
-                },
-                "type": "graph",
-                "xaxis": {
-                  "buckets": null,
-                  "mode": "time",
-                  "name": null,
-                  "show": true,
-                  "values": []
-                },
-                "yaxes": [
-                  {
-                    "format": "short",
-                    "label": "Number of calls",
-                    "logBase": 1,
-                    "max": null,
-                    "min": null,
-                    "show": true
-                  },
-                  {
-                    "format": "short",
-                    "label": null,
-                    "logBase": 1,
-                    "max": null,
-                    "min": null,
-                    "show": true
-                  }
-                ],
-                "yaxis": {
-                  "align": false,
-                  "alignLevel": null
-                }
-              }
-            ],
+            "panels": [],
             "repeat": "retry_name",
             "title": "Retry",
             "type": "row"
           },
           {
-            "collapsed": false,
-            "datasource": null,
-            "fieldConfig": {
-              "defaults": {},
-              "overrides": []
+            "aliasColors": {
+              "failed_with_retry": "red",
+              "failed_without_retry": "orange",
+              "successful_with_retry": "yellow",
+              "successful_without_retry": "green"
             },
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "Prometheus",
+            "fill": 1,
+            "fillGradient": 0,
             "gridPos": {
-              "h": 1,
-              "w": 24,
+              "h": 8,
+              "w": 12,
               "x": 0,
-              "y": 5
+              "y": 44
             },
-            "id": 36,
-            "panels": [
+            "hiddenSeries": false,
+            "id": 30,
+            "legend": {
+              "alignAsTable": true,
+              "avg": false,
+              "current": true,
+              "max": false,
+              "min": false,
+              "rightSide": true,
+              "show": true,
+              "sort": "total",
+              "sortDesc": true,
+              "total": true,
+              "values": true
+            },
+            "lines": true,
+            "linewidth": 1,
+            "links": [],
+            "nullPointMode": "null",
+            "options": {
+              "alertThreshold": true
+            },
+            "percentage": false,
+            "pluginVersion": "8.1.0-27268pre",
+            "pointradius": 2,
+            "points": true,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
               {
-                "aliasColors": {},
-                "bars": false,
-                "dashLength": 10,
-                "dashes": false,
-                "datasource": "Prometheus",
-                "fill": 1,
-                "fillGradient": 0,
-                "gridPos": {
-                  "h": 8,
-                  "w": 12,
-                  "x": 0,
-                  "y": 6
-                },
-                "hiddenSeries": false,
-                "id": 38,
-                "legend": {
-                  "alignAsTable": true,
-                  "avg": false,
-                  "current": true,
-                  "max": false,
-                  "min": false,
-                  "rightSide": true,
-                  "show": true,
-                  "total": false,
-                  "values": true
-                },
-                "lines": true,
-                "linewidth": 1,
-                "links": [],
-                "nullPointMode": "null",
-                "options": {
-                  "alertThreshold": true
-                },
-                "percentage": false,
-                "pluginVersion": "8.0.3",
-                "pointradius": 2,
-                "points": true,
-                "renderer": "flot",
-                "seriesOverrides": [],
-                "spaceLength": 10,
-                "stack": false,
-                "steppedLine": false,
-                "targets": [
-                  {
-                    "expr": "resilience4j_ratelimiter_available_permissions{application=~\"$application\",name=~\"$ratelimiter_name\"}",
-                    "format": "time_series",
-                    "intervalFactor": 1,
-                    "legendFormat": "Available Permissions",
-                    "refId": "A"
-                  }
-                ],
-                "thresholds": [],
-                "timeFrom": null,
-                "timeRegions": [],
-                "timeShift": null,
-                "title": "RateLimiter: $ratelimiter_name",
-                "tooltip": {
-                  "shared": true,
-                  "sort": 0,
-                  "value_type": "individual"
-                },
-                "type": "graph",
-                "xaxis": {
-                  "buckets": null,
-                  "mode": "time",
-                  "name": null,
-                  "show": true,
-                  "values": []
-                },
-                "yaxes": [
-                  {
-                    "format": "short",
-                    "label": null,
-                    "logBase": 1,
-                    "max": null,
-                    "min": null,
-                    "show": true
-                  },
-                  {
-                    "format": "short",
-                    "label": null,
-                    "logBase": 1,
-                    "max": null,
-                    "min": null,
-                    "show": true
-                  }
-                ],
-                "yaxis": {
-                  "align": false,
-                  "alignLevel": null
-                }
+                "expr": "rate(resilience4j_retry_calls_total{application=~\"$application\",instance=~\"$instance\",name=~\"$retry_name\",}[1m])",
+                "format": "time_series",
+                "intervalFactor": 1,
+                "legendFormat": "{{ kind }}",
+                "refId": "A"
               }
             ],
-            "repeat": "ratelimiter_name",
-            "title": "RateLimiter",
-            "type": "row"
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Rate retryable calls: $retry_name",
+            "tooltip": {
+              "shared": true,
+              "sort": 0,
+              "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+              "buckets": null,
+              "mode": "time",
+              "name": null,
+              "show": true,
+              "values": []
+            },
+            "yaxes": [
+              {
+                "format": "short",
+                "label": "Number of calls",
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              },
+              {
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              }
+            ],
+            "yaxis": {
+              "align": false,
+              "alignLevel": null
+            }
           },
           {
             "collapsed": false,
@@ -4942,114 +4833,225 @@ objects:
               "h": 1,
               "w": 24,
               "x": 0,
-              "y": 7
+              "y": 70
             },
-            "id": 32,
-            "panels": [
+            "id": 36,
+            "panels": [],
+            "repeat": "ratelimiter_name",
+            "title": "RateLimiter",
+            "type": "row"
+          },
+          {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "Prometheus",
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+              "h": 8,
+              "w": 12,
+              "x": 0,
+              "y": 71
+            },
+            "hiddenSeries": false,
+            "id": 38,
+            "legend": {
+              "alignAsTable": true,
+              "avg": false,
+              "current": true,
+              "max": false,
+              "min": false,
+              "rightSide": true,
+              "show": true,
+              "total": false,
+              "values": true
+            },
+            "lines": true,
+            "linewidth": 1,
+            "links": [],
+            "nullPointMode": "null",
+            "options": {
+              "alertThreshold": true
+            },
+            "percentage": false,
+            "pluginVersion": "8.1.0-27268pre",
+            "pointradius": 2,
+            "points": true,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
               {
-                "aliasColors": {},
-                "bars": false,
-                "dashLength": 10,
-                "dashes": false,
-                "datasource": "Prometheus",
-                "fill": 1,
-                "fillGradient": 0,
-                "gridPos": {
-                  "h": 8,
-                  "w": 12,
-                  "x": 0,
-                  "y": 7
-                },
-                "hiddenSeries": false,
-                "id": 34,
-                "legend": {
-                  "alignAsTable": true,
-                  "avg": false,
-                  "current": true,
-                  "max": false,
-                  "min": false,
-                  "rightSide": true,
-                  "show": true,
-                  "total": false,
-                  "values": true
-                },
-                "lines": true,
-                "linewidth": 1,
-                "links": [],
-                "nullPointMode": "null",
-                "options": {
-                  "alertThreshold": true
-                },
-                "percentage": false,
-                "pluginVersion": "8.0.3",
-                "pointradius": 2,
-                "points": true,
-                "renderer": "flot",
-                "seriesOverrides": [],
-                "spaceLength": 10,
-                "stack": false,
-                "steppedLine": false,
-                "targets": [
-                  {
-                    "expr": "resilience4j_bulkhead_available_concurrent_calls{application=~\"$application\",name=~\"$bulkhead_name\"}",
-                    "format": "time_series",
-                    "intervalFactor": 1,
-                    "legendFormat": "Available Calls",
-                    "refId": "A"
-                  },
-                  {
-                    "expr": "resilience4j_bulkhead_max_allowed_concurrent_calls{application=~\"$application\",name=~\"$bulkhead_name\"}",
-                    "format": "time_series",
-                    "intervalFactor": 1,
-                    "legendFormat": "Max allowed Calls",
-                    "refId": "B"
-                  }
-                ],
-                "thresholds": [],
-                "timeFrom": null,
-                "timeRegions": [],
-                "timeShift": null,
-                "title": "Bulkhead: $bulkhead_name",
-                "tooltip": {
-                  "shared": true,
-                  "sort": 0,
-                  "value_type": "individual"
-                },
-                "type": "graph",
-                "xaxis": {
-                  "buckets": null,
-                  "mode": "time",
-                  "name": null,
-                  "show": true,
-                  "values": []
-                },
-                "yaxes": [
-                  {
-                    "format": "short",
-                    "label": null,
-                    "logBase": 1,
-                    "max": null,
-                    "min": null,
-                    "show": true
-                  },
-                  {
-                    "format": "short",
-                    "label": null,
-                    "logBase": 1,
-                    "max": null,
-                    "min": null,
-                    "show": true
-                  }
-                ],
-                "yaxis": {
-                  "align": false,
-                  "alignLevel": null
-                }
+                "expr": "resilience4j_ratelimiter_available_permissions{application=~\"$application\",instance=~\"$instance\",name=~\"$ratelimiter_name\"}",
+                "format": "time_series",
+                "intervalFactor": 1,
+                "legendFormat": "Available Permissions",
+                "refId": "A"
               }
             ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "RateLimiter: $ratelimiter_name",
+            "tooltip": {
+              "shared": true,
+              "sort": 0,
+              "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+              "buckets": null,
+              "mode": "time",
+              "name": null,
+              "show": true,
+              "values": []
+            },
+            "yaxes": [
+              {
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              },
+              {
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              }
+            ],
+            "yaxis": {
+              "align": false,
+              "alignLevel": null
+            }
+          },
+          {
+            "collapsed": false,
+            "datasource": null,
+            "fieldConfig": {
+              "defaults": {},
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 1,
+              "w": 24,
+              "x": 0,
+              "y": 88
+            },
+            "id": 32,
+            "panels": [],
             "repeat": "bulkhead_name",
             "title": "Bulkhead",
             "type": "row"
+          },
+          {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "Prometheus",
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+              "h": 8,
+              "w": 12,
+              "x": 0,
+              "y": 89
+            },
+            "hiddenSeries": false,
+            "id": 34,
+            "legend": {
+              "alignAsTable": true,
+              "avg": false,
+              "current": true,
+              "max": false,
+              "min": false,
+              "rightSide": true,
+              "show": true,
+              "total": false,
+              "values": true
+            },
+            "lines": true,
+            "linewidth": 1,
+            "links": [],
+            "nullPointMode": "null",
+            "options": {
+              "alertThreshold": true
+            },
+            "percentage": false,
+            "pluginVersion": "8.1.0-27268pre",
+            "pointradius": 2,
+            "points": true,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+              {
+                "expr": "resilience4j_bulkhead_available_concurrent_calls{application=~\"$application\",instance=~\"$instance\",name=~\"$bulkhead_name\"}",
+                "format": "time_series",
+                "intervalFactor": 1,
+                "legendFormat": "Available Calls",
+                "refId": "A"
+              },
+              {
+                "expr": "resilience4j_bulkhead_max_allowed_concurrent_calls{application=~\"$application\",instance=~\"$instance\",name=~\"$bulkhead_name\"}",
+                "format": "time_series",
+                "intervalFactor": 1,
+                "legendFormat": "Max allowed Calls",
+                "refId": "B"
+              }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Bulkhead: $bulkhead_name",
+            "tooltip": {
+              "shared": true,
+              "sort": 0,
+              "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+              "buckets": null,
+              "mode": "time",
+              "name": null,
+              "show": true,
+              "values": []
+            },
+            "yaxes": [
+              {
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              },
+              {
+                "format": "short",
+                "label": null,
+                "logBase": 1,
+                "max": null,
+                "min": null,
+                "show": true
+              }
+            ],
+            "yaxis": {
+              "align": false,
+              "alignLevel": null
+            }
           }
         ],
         "refresh": false,
@@ -5123,12 +5125,8 @@ objects:
               "allValue": null,
               "current": {
                 "selected": false,
-                "text": [
-                  ""
-                ],
-                "value": [
-                  ""
-                ]
+                "text": "All",
+                "value": "$__all"
               },
               "datasource": "Prometheus",
               "definition": "label_values(resilience4j_circuitbreaker_state, name)",
@@ -5280,6 +5278,6 @@ objects:
         },
         "timezone": "",
         "title": "Ministry of Education Resilience4j",
-        "uid": "MQIcGtznk",
+        "uid": "Wq5Ar1z7z",
         "version": 1
       }
